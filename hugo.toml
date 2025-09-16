@@ -1,4 +1,25 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://joser.ca/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Joseph's Elixir Fun"
 theme = "ananke"
+
+# Menu configuration
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 2
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
