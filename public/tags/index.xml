@@ -6,6 +6,35 @@
     <description>Recent content in Tags on Joseph&#39;s Elixir Fun</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Tue, 23 Sep 2025 16:11:00 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir</title>
+      <link>http://localhost:1313/tags/elixir/</link>
+      <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/elixir/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Phoenix</title>
+      <link>http://localhost:1313/tags/phoenix/</link>
+      <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/phoenix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tidewave</title>
+      <link>http://localhost:1313/tags/tidewave/</link>
+      <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/tidewave/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:1313/tags/tutorial/</link>
+      <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

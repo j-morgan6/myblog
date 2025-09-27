@@ -1,7 +1,6 @@
 baseURL = 'https://joser.ca/'
 languageCode = 'en-us'
 title = "Joseph's Elixir Fun"
-theme = "ananke"
 
 # Menu configuration
 [[menu.main]]
@@ -23,3 +22,6 @@ theme = "ananke"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[params]
+  description = "Exploring the world of Elixir development, functional programming, and software engineering"

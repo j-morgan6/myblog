@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Joseph&#39;s Elixir Fun</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Joseph&#39;s Elixir Fun</description>
+    <title>Web Development on Joseph&#39;s Elixir Fun</title>
+    <link>http://localhost:1313/categories/web-development/</link>
+    <description>Recent content in Web Development on Joseph&#39;s Elixir Fun</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 23 Sep 2025 16:11:00 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/web-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Web App with Tidewave: A Complete Guide</title>
       <link>http://localhost:1313/posts/building-web-app-with-tidewave/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
       <guid>http://localhost:1313/posts/building-web-app-with-tidewave/</guid>
       <description>&lt;h1 id=&#34;building-a-web-app-with-tidewave-a-complete-guide&#34;&gt;Building a Web App with Tidewave: A Complete Guide&lt;/h1&gt;&#xA;&lt;p&gt;In this post, we&amp;rsquo;ll explore how to build a simple web application using Tidewave, covering everything from setup to deployment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-tidewave&#34;&gt;What is Tidewave?&lt;/h2&gt;&#xA;&lt;p&gt;Tidewave is an AI coding assisstant meant for full stack web development. It is built on top of Elixir and Phoenix by José Valim. What I found different about Tidewave is that it runs insdie of your browser. It is deeply integrated with your web frameworkand easily allows you to see what the coding agent is doing in real time.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hello World</title>
-      <link>http://localhost:1313/posts/hello-world/</link>
-      <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/hello-world/</guid>
-      <description>&lt;p&gt;Welcome to my Hugo blog hosted on Cloudflare Pages!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

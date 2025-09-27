@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimenting with Tidewave: Vibe Coding - Joseph&#39;s Elixir Fun</title>
+    <meta name="description" content="Exploring the world of Elixir development, functional programming, and software engineering">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joseph&#39;s Elixir Fun</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Experimenting with Tidewave: Vibe Coding</h1>
+
+        <div class="article-meta">
+            <time datetime="2025-09-23">September 23, 2025</time>
+
+            
+            <span class="author">by Joseph</span>
+            
+
+            
+            <div class="categories">
+                
+                <span class="category">Elixir</span>
+                
+                <span class="category">Web Development</span>
+                
+            </div>
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#tidewave</span>
+                
+                <span class="tag">#elixir</span>
+                
+                <span class="tag">#phoenix</span>
+                
+                <span class="tag">#tutorial</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                6 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h1 id="experimenting-with-tidewave-vibe-coding">Experimenting with Tidewave: Vibe Coding</h1>
+<p>In this post, I will be sharing my experience using Tidewave to build a small web app using the Vibe Coding method.</p>
+<h2 id="what-is-tidewave">What is Tidewave?</h2>
+<p>Tidewave is an AI coding assisstant meant for full stack web development. It is built on top of Elixir and Phoenix by José Valim. What I found different about Tidewave is that it runs insdie of your browser. It is deeply integrated with your web frameworkand easily allows you to see what the coding agent is doing in real time.</p>
+<h2 id="getting-started-with-tidewave">Getting Started with Tidewave</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before we begin, make sure you have:</p>
+<ul>
+<li>Elixir / Pheonix or Ruby on Rails</li>
+<li>Development environment access (Tidewave runs alongside your app during development)</li>
+<li>An AI Provider Key (OpenAI, Anthropic, etc.)</li>
+<li>Basic knowledge of web development</li>
+</ul>
+<h3 id="setting-up-the-project">Setting Up the Project</h3>
+<p>Once you have your project created you will need to include Tidewave in your dependencies.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># In the mix.exs file</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>:tidewave, <span style="color:#e6db74">&#34;~&gt; 0.5&#34;</span>, only: :dev<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Get the dependencies</span>
+</span></span><span style="display:flex;"><span>mix deps.get
+</span></span></code></pre></div><p>Then you will need to plug Tidewave into your endpoint. Place this right above the code_reloading? block.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># In the endpoint.ex file</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> Code.ensure_loaded?<span style="color:#f92672">(</span>Tidewave<span style="color:#f92672">)</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  plug Tidewave
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><p>Now you should be set to run the Pheonix server and go to localhost:4000/tidewave to see the interface.</p>
+<p>Tidewave allows users to have 10 free prompts from their paid plan, so you can try it out before committing. This is a great way to get a feel for the in-browser coding assistant and see how it integrates with your workflow.</p>
+<p>However, once those free prompts are used up, you’ll need to purchase a plan on the Tidewave website to continue using it. Tidewave doesn’t bundle its own model access so you will need to add your own AI provider key. For example, when I tested Tidewave, I used an Anthropic API key from Claude Code. After adding my key, Tidewave immediately connected and I was able to use the assistant directly inside my Phoenix app’s browser session. You can do the same with other supported providers like OpenAI or GitHub Copilot depending on your preference.</p>
+<h2 id="vibe-coding">Vibe Coding</h2>
+<h3 id="my-goal">My Goal</h3>
+<p>I wanted to see how Tidewave would handle building a complete task manager app from scratch with only prompts from me and no manual intervention. I decided to build a task manager app because it is a simple app that can be built with a few prompts and it is a good way to test the capabilities of Tidewave, without the complexity of a larger app. What mainly interested me was to see it&rsquo;s ability to write quality tests and create a professional and reactive interface.</p>
+<h3 id="the-promts-i-used">The Promts I Used</h3>
+<p>I started by given claude one single prompt to get things rolling.</p>
+<ul>
+<li>Create an action plan for making a task manager webpage. There should be three sections. To Do, In Progress, and Finished. The tasks should be able to move from one section to another as needed. The name of this will be Tide Tasks.</li>
+</ul>
+<p>After that everything else was done inside of the browser using Tidewave.</p>
+<ul>
+<li>Start by completing phase one of the action plan</li>
+<li>Now do phase 2 and test the functionality</li>
+<li>I see that the page isn&rsquo;t filling up the entire screen and the layout is done in rows instead of columns can you fix that.</li>
+<li>Do you see how this isn&rsquo;t taking up the whole webpage space. I want it to do that. Also the three columns extend past this. (I used the Tidewave feature that allows you to select specific elements of the page to point the assistant to the right element)</li>
+<li>The create task shouldn&rsquo;t be in To Do but placed above the three columns and centered</li>
+<li>Do phase 4</li>
+</ul>
+<p>That&rsquo;s all it took besides a few extra prompts I used for color theme and other minor UI changes, such as a toggle for important tasks.</p>
+<h3 id="the-action-plan">The Action Plan</h3>
+<p>Tide Tasks - Action Plan</p>
+<p>Phase 1: Foundation</p>
+<ol>
+<li>Set up basic HTML structure - Create the main
+webpage framework</li>
+<li>Create three main sections - Build To Do, In
+Progress, and Finished columns</li>
+<li>Style with CSS - Apply modern, clean design with
+proper spacing and colors</li>
+</ol>
+<p>Phase 2: Core Functionality</p>
+<ol start="4">
+<li>Task creation - Add input form to create new
+tasks (default to To Do section)</li>
+<li>Drag-and-drop movement - Enable tasks to move
+between sections seamlessly</li>
+<li>Task editing - Allow users to rename/modify
+existing tasks</li>
+</ol>
+<p>Phase 3: Enhanced Features</p>
+<ol start="7">
+<li>Task deletion - Add delete functionality with
+confirmation prompts</li>
+<li>Local storage - Persist tasks so they remain
+after browser refresh</li>
+<li>Responsive design - Ensure mobile and tablet
+compatibility</li>
+</ol>
+<p>Phase 4: Testing &amp; Polish</p>
+<ol start="10">
+<li>Comprehensive testing - Test all features and
+fix any bugs</li>
+</ol>
+<h2 id="the-results">The Results</h2>
+<figure><img src="/images/tidewave-tasks-home.png"
+    alt="Screenshot of the task manager home view" width="700">
+</figure>
+
+<figure><img src="/images/tidewave-tasks-completed-v2.png"
+    alt="Screenshot showing completed tasks functionality" width="700">
+</figure>
+
+<h3 id="what-went-well">What Went Well</h3>
+<p>The time. Tidewave was able to complete the task manager app in less than 30 minutes. The app was also able to handle all the features I asked forThe UI was also very professional and reactive. Although I believe given the time a professional would be able to create a better design. I was impressed by the troubleshooting skills of Tidewave. If it ran into an issue and broke the website it was able to diagnose the issue and fix it. With every phase this happned, but it was able to fix it every time without more instruction. Completing the app didn&rsquo;t burn through my Anthropic credits as fast I expected. I only used $3 worth of credits.</p>
+<h3 id="what-could-have-been-better">What Could Have Been Better</h3>
+<p>Overall I&rsquo;m satisfied with the results, but there was still things that could have been better. The quality of the tests that Tidewave wrote were not as good as I hoped. I believe that it would write tests with the goal of them passing and not the goal of testing the behaviour of the app. As a final prompt for this experiment I asked Claude to review the tests, to make sure they were truly functioning as tests and to improve them. There were tests that were solid and others that were not, which Claude was able to improve.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This experiment was a success in my eyes. Tidewave built the task manager app quickly and with a level of quality that was more than acceptable for a first pass. From a developer’s perspective, tools like Tidewave and AI coding assistants in general show real potential for speeding up development.</p>
+<p>I wouldn’t rely on them exclusively just yet. I still have concerns about the accuracy of generated tests and the long term maintainability of the code. I believe AI is best used as an way to move faster on prototypes, while a developer applies their judgement to review and refine the output.</p>
+<p>Overall, I’m excited about what’s possible. This feels like the beginning of a shift in how we build software, and I’m looking forward to seeing how AI coding assistants evolve in the coming years.</p>
+<h2 id="check-out-tidewave">Check Out Tidewave</h2>
+<ul>
+<li>Tidewave: <a href="https://tidewave.ai">https://tidewave.ai</a></li>
+</ul>
+<hr>
+
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/hello-world/" class="nav-prev">
+                ← Hello World
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Joseph&#39;s Elixir Fun. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
