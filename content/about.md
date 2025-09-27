@@ -9,5 +9,5 @@ author: "Joseph"
 
 ## Connect With Me
 
-- **GitHub**: [Your GitHub Username](https://github.com/j-morgan6)
-- **LinkedIn**: [Your Name](www.linkedin.com/in/joseph-scott-morgan)
+- **GitHub**: [My Github](https://github.com/j-morgan6)
+- **LinkedIn**: [My LinkedIn](www.linkedin.com/in/joseph-scott-morgan)
