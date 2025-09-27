@@ -1,6 +1,6 @@
 baseURL = 'https://joser.ca/'
 languageCode = 'en-us'
-title = "Joseph's Elixir Fun"
+title = "Joser's Elixir"
 
 # Menu configuration
 [[menu.main]]

@@ -7,10 +7,6 @@ categories: ["Elixir", "Web Development"]
 tags: ["tidewave", "elixir", "phoenix", "tutorial"]
 ---
 
-# Experimenting with Tidewave: Vibe Coding
-
-In this post, I will be sharing my experience using Tidewave to build a small web app using the Vibe Coding method.
-
 ## What is Tidewave?
 
 Tidewave is an AI coding assisstant meant for full stack web development. It is built on top of Elixir and Phoenix by José Valim. What I found different about Tidewave is that it runs insdie of your browser. It is deeply integrated with your web frameworkand easily allows you to see what the coding agent is doing in real time.
