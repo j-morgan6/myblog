@@ -1,7 +1,7 @@
 ---
 title: "Experimenting with Tidewave: Vibe Coding"
 date: 2025-09-23T16:11:00-04:00
-draft: true
+draft: false
 author: "Joseph"
 categories: ["Elixir", "Web Development"]
 tags: ["tidewave", "elixir", "phoenix", "tutorial"]
