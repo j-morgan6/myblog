@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testing on Joser&#39;s Elixir</title>
+    <link>http://localhost:1313/categories/testing/</link>
+    <description>Recent content in Testing on Joser&#39;s Elixir</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Oct 2025 16:00:00 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing and Coverage: A Practical Approach</title>
+      <link>http://localhost:1313/posts/testing-and-coverage/</link>
+      <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/posts/testing-and-coverage/</guid>
+      <description>&lt;h2 id=&#34;the-importance-of-tests-and-coverage&#34;&gt;The Importance of Tests and Coverage&lt;/h2&gt;&#xA;&lt;p&gt;Testing is a critical part of software development that ensures your code works as expected and continues to work as you make changes. Code coverage metrics help you understand which parts of your codebase are being tested and which aren&amp;rsquo;t.&lt;/p&gt;&#xA;&lt;p&gt;Good test coverage doesn&amp;rsquo;t just mean hitting a percentage target—it means testing the right behaviors and edge cases. A high coverage percentage can give you confidence, but it&amp;rsquo;s the quality of your tests that truly matters.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
