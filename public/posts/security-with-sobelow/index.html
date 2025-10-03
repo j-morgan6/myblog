@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Security Measures with Sobelow and Mix Audit - Joser&#39;s Elixir</title>
+    <meta name="description" content="Exploring the world of Elixir development, functional programming, and software engineering">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Basic Security Measures with Sobelow and Mix Audit</h1>
+
+        <div class="article-meta">
+            <time datetime="2025-10-03">October 3, 2025</time>
+
+            
+            <span class="author">by Joseph</span>
+            
+
+            
+            <div class="categories">
+                
+                <span class="category">Elixir</span>
+                
+                <span class="category">Security</span>
+                
+            </div>
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#sobelow</span>
+                
+                <span class="tag">#security</span>
+                
+                <span class="tag">#mix-audit</span>
+                
+                <span class="tag">#best-practices</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                2 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="security-first">Security First</h2>
+<p>Security should be a priority from the start of any project. In the Elixir ecosystem, we have excellent tools to help catch security vulnerabilities early in development. Two essential tools are Sobelow for static security analysis and Mix Audit for dependency vulnerability checking.</p>
+<h2 id="adding-security-tools-to-your-project">Adding Security Tools to Your Project</h2>
+<p>Add both dependencies to your <code>mix.exs</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>{<span style="color:#e6db74">:mix_audit</span>, <span style="color:#e6db74">&#34;~&gt; 2.1&#34;</span>, <span style="color:#e6db74">only</span>: [<span style="color:#e6db74">:dev</span>, <span style="color:#e6db74">:test</span>], <span style="color:#e6db74">runtime</span>: <span style="color:#66d9ef">false</span>},
+</span></span><span style="display:flex;"><span>{<span style="color:#e6db74">:sobelow</span>, <span style="color:#e6db74">&#34;~&gt; 0.13&#34;</span>, <span style="color:#e6db74">only</span>: [<span style="color:#e6db74">:dev</span>, <span style="color:#e6db74">:test</span>], <span style="color:#e6db74">runtime</span>: <span style="color:#66d9ef">false</span>}</span></span></code></pre></div>
+<p>Then run <code>mix deps.get</code> to install them.</p>
+<h2 id="configuring-sobelow">Configuring Sobelow</h2>
+<p>You can configure Sobelow to suit your project&rsquo;s needs by creating a <code>.sobelow-conf</code> file in your project root this is mine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">verbose</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">private</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">skip</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">router</span>: <span style="color:#66d9ef">nil</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">exit</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">format</span>: <span style="color:#e6db74">&#34;txt&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">out</span>: <span style="color:#66d9ef">nil</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">threshold</span>: <span style="color:#e6db74">:low</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">ignore</span>: [<span style="color:#e6db74">&#34;Config.HTTPS&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">ignore_files</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">version</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>]</span></span></code></pre></div>
+<h3 id="fixing-security-issues">Fixing Security Issues</h3>
+<p>When I ran Sobelow, it immediately pointed out an issue in my router file. The <code>put_secure_browser_headers</code> plug needed additional security headers.</p>
+<p>The original plug in <code>lib/trays_web/router.ex</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>pipeline <span style="color:#e6db74">:browser</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#e6db74">:accepts</span>, [<span style="color:#e6db74">&#34;html&#34;</span>]
+</span></span><span style="display:flex;"><span>  plug <span style="color:#e6db74">:fetch_session</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#e6db74">:fetch_live_flash</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#e6db74">:put_root_layout</span>, <span style="color:#e6db74">html</span>: {<span style="color:#a6e22e">TraysWeb.Layouts</span>, <span style="color:#e6db74">:root</span>}
+</span></span><span style="display:flex;"><span>  plug <span style="color:#e6db74">:protect_from_forgery</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#e6db74">:put_secure_browser_headers</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div>
+<p>I fixed this by updating the <code>put_secure_browser_headers</code> plug with custom security headers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>plug <span style="color:#e6db74">:put_secure_browser_headers</span>, %{
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;content-security-policy&#34;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;default-src &#39;self&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;x-frame-options&#34;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;DENY&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;x-content-type-options&#34;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;nosniff&#34;</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h2 id="running-the-security-checks">Running the Security Checks</h2>
+<p>Now that everything is configured, I can run these three commands to check my project&rsquo;s security:</p>
+<ul>
+<li><code>mix deps.audit</code> - Checks for vulnerable dependencies</li>
+<li><code>mix hex.audit</code> - Checks for retired Hex packages</li>
+<li><code>mix sobelow --config</code> - Scans code for security issues</li>
+</ul>
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/credo-code-quality/" class="nav-prev">
+                ← Using Credo to Ensure Code Quality in Elixir
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
