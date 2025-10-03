@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Elixir on Joser&#39;s Elixir</title>
-    <link>http://localhost:1313/tags/elixir/</link>
+    <link>https://joser.ca/tags/elixir/</link>
     <description>Recent content in Elixir on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Sep 2025 16:11:00 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Oct 2025 17:00:00 -0400</lastBuildDate>
+    <atom:link href="https://joser.ca/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Credo to Ensure Code Quality in Elixir</title>
+      <link>https://joser.ca/posts/credo-code-quality/</link>
+      <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
+      <guid>https://joser.ca/posts/credo-code-quality/</guid>
+      <description>&lt;h2 id=&#34;why-code-quality-matters&#34;&gt;Why Code Quality Matters&lt;/h2&gt;&#xA;&lt;p&gt;Maintaining code quality is essential for any project that aims to be maintainable and scalable. In the Elixir ecosystem, Credo is the go-to static code analysis tool that helps enforce consistency and catch potential issues before they become problems.&lt;/p&gt;&#xA;&lt;p&gt;Credo analyzes your code for readability, refactoring opportunities, software design suggestions, and common mistakes. It&amp;rsquo;s like having an experienced Elixir developer review your code automatically.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Experimenting with Tidewave: Vibe Coding</title>
-      <link>http://localhost:1313/posts/building-web-app-with-tidewave/</link>
+      <link>https://joser.ca/posts/building-web-app-with-tidewave/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>http://localhost:1313/posts/building-web-app-with-tidewave/</guid>
+      <guid>https://joser.ca/posts/building-web-app-with-tidewave/</guid>
       <description>&lt;h2 id=&#34;what-is-tidewave&#34;&gt;What is Tidewave?&lt;/h2&gt;&#xA;&lt;p&gt;Tidewave is an AI coding assisstant meant for full stack web development. It is built on top of Elixir and Phoenix by José Valim. What I found different about Tidewave is that it runs insdie of your browser. It is deeply integrated with your web frameworkand easily allows you to see what the coding agent is doing in real time.&lt;/p&gt;&#xA;&lt;h2 id=&#34;getting-started-with-tidewave&#34;&gt;Getting Started with Tidewave&lt;/h2&gt;&#xA;&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;&#xA;&lt;p&gt;Before we begin, make sure you have:&lt;/p&gt;</description>
     </item>
   </channel>

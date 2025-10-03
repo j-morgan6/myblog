@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Credo to Ensure Code Quality in Elixir - Joser&#39;s Elixir</title>
+    <meta name="description" content="Exploring the world of Elixir development, functional programming, and software engineering">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="https://joser.ca/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Using Credo to Ensure Code Quality in Elixir</h1>
+
+        <div class="article-meta">
+            <time datetime="2025-10-03">October 3, 2025</time>
+
+            
+            <span class="author">by Joseph</span>
+            
+
+            
+            <div class="categories">
+                
+                <span class="category">Elixir</span>
+                
+                <span class="category">Code Quality</span>
+                
+            </div>
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#credo</span>
+                
+                <span class="tag">#elixir</span>
+                
+                <span class="tag">#linting</span>
+                
+                <span class="tag">#best-practices</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                2 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="why-code-quality-matters">Why Code Quality Matters</h2>
+<p>Maintaining code quality is essential for any project that aims to be maintainable and scalable. In the Elixir ecosystem, Credo is the go-to static code analysis tool that helps enforce consistency and catch potential issues before they become problems.</p>
+<p>Credo analyzes your code for readability, refactoring opportunities, software design suggestions, and common mistakes. It&rsquo;s like having an experienced Elixir developer review your code automatically.</p>
+<h2 id="adding-credo-to-your-project">Adding Credo to Your Project</h2>
+<p>First, add Credo as a dependency in your <code>mix.exs</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>{<span style="color:#e6db74">:credo</span>, <span style="color:#e6db74">&#34;~&gt; 1.7&#34;</span>, <span style="color:#e6db74">only</span>: [<span style="color:#e6db74">:dev</span>, <span style="color:#e6db74">:test</span>], <span style="color:#e6db74">runtime</span>: <span style="color:#66d9ef">false</span>}</span></span></code></pre></div>
+<p>Then run <code>mix deps.get</code> to install it.</p>
+<h2 id="configuring-credo">Configuring Credo</h2>
+<p>Credo is highly configurable. Here&rsquo;s my <code>.credo.exs</code> configuration file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>%{
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">configs</span>: [
+</span></span><span style="display:flex;"><span>    %{
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">name</span>: <span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">strict</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">checks</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Additional and reconfigured checks</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Design.AliasUsage</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">if_nested_deeper_than</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">if_called_more_often_than</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">files</span>: %{<span style="color:#e6db74">excluded</span>: [<span style="color:#e6db74">&#34;test/support/data_case.ex&#34;</span>]}},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.AliasAs</span>, []},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.MultiAlias</span>, []},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.NestedFunctionCalls</span>, []},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.SeparateAliasRequire</span>, []},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.StrictModuleLayout</span>, []},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.WithCustomTaggedTuple</span>, []},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Refactor.ABCSize</span>, []},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Warning.UnsafeToAtom</span>, []},
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Disabled checks</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Design.TagFIXME</span>, <span style="color:#66d9ef">false</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Design.TagTODO</span>, <span style="color:#66d9ef">false</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.ModuleDoc</span>, <span style="color:#66d9ef">false</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Refactor.LongQuoteBlocks</span>, <span style="color:#66d9ef">false</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Refactor.Nesting</span>, <span style="color:#66d9ef">false</span>}
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h2 id="running-credo">Running Credo</h2>
+<p>Once configured, running Credo is simple. I run it in strict mode to ensure the highest quality standards:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mix credo --strict
+</span></span></code></pre></div><p>Here&rsquo;s the output from running it on my project:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Checking <span style="color:#ae81ff">21</span> source files ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Please report incorrect results: https://github.com/rrrene/credo/issues
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Analysis took 0.7 seconds <span style="color:#f92672">(</span>0.05s to load, 0.7s running <span style="color:#ae81ff">70</span> checks on <span style="color:#ae81ff">21</span> files<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">60</span> mods/funs, found no issues.</span></span></code></pre></div>
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/testing-and-coverage/" class="nav-prev">
+                ← Getting started with Elixir Testing
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

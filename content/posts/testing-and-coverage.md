@@ -1,5 +1,5 @@
 ---
-title: "Testing and Coverage: A Practical Approach"
+title: "Getting started with Elixir Testing"
 date: 2025-10-03T16:00:00-04:00
 draft: false
 author: "Joseph"
@@ -10,6 +10,8 @@ tags: ["testing", "coverage", "quality", "best-practices"]
 ## Tests and Coverage
 
 Getting started on my project I wanted to make sure I had a solid foundation in place. One of the first things I wanted to do was setup test coverage to maintain confidence in my code.
+
+<!--more-->
 
 ## Initial Coverage Report
 

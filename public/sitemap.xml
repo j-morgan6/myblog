@@ -2,64 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/best-practices/</loc>
+    <loc>https://joser.ca/tags/best-practices/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/categories/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/categories/code-quality/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/tags/credo/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/categories/elixir/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/tags/elixir/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/tags/linting/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/posts/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/tags/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/posts/credo-code-quality/</loc>
+    <lastmod>2025-10-03T17:00:00-04:00</lastmod>
+  </url><url>
+    <loc>https://joser.ca/tags/coverage/</loc>
     <lastmod>2025-10-03T16:00:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://joser.ca/posts/testing-and-coverage/</loc>
     <lastmod>2025-10-03T16:00:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/coverage/</loc>
+    <loc>https://joser.ca/tags/quality/</loc>
     <lastmod>2025-10-03T16:00:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://joser.ca/categories/software-development/</loc>
     <lastmod>2025-10-03T16:00:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://joser.ca/categories/testing/</loc>
     <lastmod>2025-10-03T16:00:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/quality/</loc>
+    <loc>https://joser.ca/tags/testing/</loc>
     <lastmod>2025-10-03T16:00:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/software-development/</loc>
-    <lastmod>2025-10-03T16:00:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-10-03T16:00:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/testing/</loc>
-    <lastmod>2025-10-03T16:00:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/testing/</loc>
-    <lastmod>2025-10-03T16:00:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/testing-and-coverage/</loc>
-    <lastmod>2025-10-03T16:00:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://joser.ca/about/</loc>
     <lastmod>2025-09-26T20:00:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/elixir/</loc>
+    <loc>https://joser.ca/posts/building-web-app-with-tidewave/</loc>
     <lastmod>2025-09-23T16:11:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/elixir/</loc>
+    <loc>https://joser.ca/tags/phoenix/</loc>
     <lastmod>2025-09-23T16:11:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/building-web-app-with-tidewave/</loc>
+    <loc>https://joser.ca/tags/tidewave/</loc>
     <lastmod>2025-09-23T16:11:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/phoenix/</loc>
+    <loc>https://joser.ca/tags/tutorial/</loc>
     <lastmod>2025-09-23T16:11:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tidewave/</loc>
+    <loc>https://joser.ca/categories/web-development/</loc>
     <lastmod>2025-09-23T16:11:00-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tutorial/</loc>
-    <lastmod>2025-09-23T16:11:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/web-development/</loc>
-    <lastmod>2025-09-23T16:11:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/hello-world/</loc>
+    <loc>https://joser.ca/posts/hello-world/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
   </url>
 </urlset>

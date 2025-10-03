@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.150.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.150.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joser&#39;s Elixir</title>
@@ -13,13 +13,13 @@
     
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Joser's Elixir" />
+    <link rel="alternate" type="application/rss+xml" href="https://joser.ca/index.xml" title="Joser's Elixir" />
     </head>
 <body>
     <header class="site-header">
         <div class="header-container">
             <div class="site-branding">
-                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+                <a href="https://joser.ca/" class="site-title">Joser&#39;s Elixir</a>
             </div>
 
             <nav class="site-navigation">
@@ -49,7 +49,34 @@
         <div class="post-list">
             
             <article class="post-list-item">
-                <h3><a href="/posts/testing-and-coverage/">Testing and Coverage: A Practical Approach</a></h3>
+                <h3><a href="/posts/credo-code-quality/">Using Credo to Ensure Code Quality in Elixir</a></h3>
+
+                <div class="post-meta">
+                    <time datetime="2025-10-03">October 3, 2025</time>
+                    
+                    <span class="categories">
+                        
+                        <span class="category">Elixir</span>
+                        
+                        <span class="category">Code Quality</span>
+                        
+                    </span>
+                    
+                </div>
+
+                
+                <div class="post-summary">
+                    <h2 id="why-code-quality-matters">Why Code Quality Matters</h2>
+<p>Maintaining code quality is essential for any project that aims to be maintainable and scalable. In the Elixir ecosystem, Credo is the go-to static code analysis tool that helps enforce consistency and catch potential issues before they become problems.</p>
+<p>Credo analyzes your code for readability, refactoring opportunities, software design suggestions, and common mistakes. It&rsquo;s like having an experienced Elixir developer review your code automatically.</p>
+                </div>
+                
+
+                <a href="/posts/credo-code-quality/" class="read-more">Read More</a>
+            </article>
+            
+            <article class="post-list-item">
+                <h3><a href="/posts/testing-and-coverage/">Getting started with Elixir Testing</a></h3>
 
                 <div class="post-meta">
                     <time datetime="2025-10-03">October 3, 2025</time>
@@ -68,58 +95,6 @@
                 <div class="post-summary">
                     <h2 id="tests-and-coverage">Tests and Coverage</h2>
 <p>Getting started on my project I wanted to make sure I had a solid foundation in place. One of the first things I wanted to do was setup test coverage to maintain confidence in my code.</p>
-<h2 id="initial-coverage-report">Initial Coverage Report</h2>
-<p>Using the &ndash;cover flag when running tests, I was able to generate a coverage report for my project.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Finished in 0.3 seconds <span style="color:#f92672">(</span>0.1s async, 0.1s sync<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> tests, <span style="color:#ae81ff">0</span> failures
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Generating cover results ...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Percentage | Module
-</span></span><span style="display:flex;"><span>-----------|--------------------------
-</span></span><span style="display:flex;"><span>     0.00% | TraysWeb.PageHTML
-</span></span><span style="display:flex;"><span>    18.42% | TraysWeb.CoreComponents
-</span></span><span style="display:flex;"><span>    25.00% | Trays.DataCase
-</span></span><span style="display:flex;"><span>    50.00% | Trays.Repo
-</span></span><span style="display:flex;"><span>    50.00% | TraysWeb.ErrorHTML
-</span></span><span style="display:flex;"><span>    75.00% | TraysWeb.Layouts
-</span></span><span style="display:flex;"><span>    75.00% | TraysWeb.Router
-</span></span><span style="display:flex;"><span>    80.00% | Trays.Application
-</span></span><span style="display:flex;"><span>    80.00% | TraysWeb.Telemetry
-</span></span><span style="display:flex;"><span>   100.00% | Trays
-</span></span><span style="display:flex;"><span>   100.00% | Trays.Mailer
-</span></span><span style="display:flex;"><span>   100.00% | TraysWeb
-</span></span><span style="display:flex;"><span>   100.00% | TraysWeb.ConnCase
-</span></span><span style="display:flex;"><span>   100.00% | TraysWeb.Endpoint
-</span></span><span style="display:flex;"><span>   100.00% | TraysWeb.ErrorJSON
-</span></span><span style="display:flex;"><span>   100.00% | TraysWeb.Gettext
-</span></span><span style="display:flex;"><span>   100.00% | TraysWeb.PageController
-</span></span><span style="display:flex;"><span>-----------|--------------------------
-</span></span><span style="display:flex;"><span>    37.99% | Total
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Coverage test failed, threshold not met:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Coverage:   37.99%
-</span></span><span style="display:flex;"><span>    Threshold:  90.00%</span></span></code></pre></div>
-<h2 id="ignoring-what-doesnt-matter">Ignoring What Doesn&rsquo;t Matter</h2>
-<p>It was good that I could see my coverage, but a lot of it was noise. I decided to ignore some files that didn&rsquo;t need to be tested since they were either config files or generated code.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defp</span> test_coverage <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  [
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">ignore_modules</span>: [
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Trays.Application</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Trays.DataCase</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Trays.Repo</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.ConnCase</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.CoreComponents</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.ErrorHTML</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.ErrorJSON</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.Layouts</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.PageHTML</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.Router</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">TraysWeb.Telemetry</span>,
-</span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>  ]
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span></span></span></code></pre></div></p>
                 </div>
                 
 

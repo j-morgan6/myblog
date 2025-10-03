@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Best-Practices on Joser&#39;s Elixir</title>
-    <link>https://joser.ca/tags/best-practices/</link>
-    <description>Recent content in Best-Practices on Joser&#39;s Elixir</description>
+    <title>Code Quality on Joser&#39;s Elixir</title>
+    <link>https://joser.ca/categories/code-quality/</link>
+    <description>Recent content in Code Quality on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Oct 2025 17:00:00 -0400</lastBuildDate>
-    <atom:link href="https://joser.ca/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://joser.ca/categories/code-quality/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Credo to Ensure Code Quality in Elixir</title>
       <link>https://joser.ca/posts/credo-code-quality/</link>
       <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
       <guid>https://joser.ca/posts/credo-code-quality/</guid>
       <description>&lt;h2 id=&#34;why-code-quality-matters&#34;&gt;Why Code Quality Matters&lt;/h2&gt;&#xA;&lt;p&gt;Maintaining code quality is essential for any project that aims to be maintainable and scalable. In the Elixir ecosystem, Credo is the go-to static code analysis tool that helps enforce consistency and catch potential issues before they become problems.&lt;/p&gt;&#xA;&lt;p&gt;Credo analyzes your code for readability, refactoring opportunities, software design suggestions, and common mistakes. It&amp;rsquo;s like having an experienced Elixir developer review your code automatically.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Getting started with Elixir Testing</title>
-      <link>https://joser.ca/posts/testing-and-coverage/</link>
-      <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>https://joser.ca/posts/testing-and-coverage/</guid>
-      <description>&lt;h2 id=&#34;tests-and-coverage&#34;&gt;Tests and Coverage&lt;/h2&gt;&#xA;&lt;p&gt;Getting started on my project I wanted to make sure I had a solid foundation in place. One of the first things I wanted to do was setup test coverage to maintain confidence in my code.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
