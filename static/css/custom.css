@@ -11,15 +11,15 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   line-height: 1.7;
-  color: #2d3748;
-  background-color: #ffffff;
+  color: #3a2a1a;
+  background-color: #faf8f5;
 }
 
 /* Header and navigation styling */
 .site-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #d97636 0%, #c45a27 100%);
   border-bottom: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(217, 118, 54, 0.2);
   padding: 1rem 0;
 }
 
@@ -123,10 +123,10 @@ body {
 .article-content h2 {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #2d3748;
+  color: #3a2a1a;
   margin: 2rem 0 1rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #e8d5c4;
 }
 
 .article-content h3 {
@@ -169,13 +169,13 @@ body {
 
 /* Blockquotes */
 .article-content blockquote {
-  border-left: 4px solid #667eea;
-  background: #f8faff;
+  border-left: 4px solid #d97636;
+  background: #fff5ed;
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
   border-radius: 0 8px 8px 0;
   font-style: italic;
-  color: #4a5568;
+  color: #5a4a3a;
 }
 
 /* Lists */
@@ -191,14 +191,14 @@ body {
 
 /* Links */
 .article-content a {
-  color: #667eea;
+  color: #c45a27;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease;
 }
 
 .article-content a:hover {
-  border-bottom-color: #667eea;
+  border-bottom-color: #d97636;
 }
 
 /* Post list styling */
@@ -228,16 +228,16 @@ body {
 }
 
 .post-list-item h2 a:hover {
-  color: #667eea;
+  color: #d97636;
 }
 
 /* Footer */
 .site-footer {
-  background: #f7fafc;
-  border-top: 1px solid #e2e8f0;
+  background: #f5efe8;
+  border-top: 1px solid #e8d5c4;
   padding: 2rem 0;
   margin-top: 4rem;
-  color: #718096;
+  color: #7a6a5a;
 }
 
 .footer-container {
@@ -259,7 +259,7 @@ body {
 
 .nav-prev,
 .nav-next {
-  color: #667eea;
+  color: #d97636;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;
@@ -269,8 +269,8 @@ body {
 
 .nav-prev:hover,
 .nav-next:hover {
-  background: #f8faff;
-  color: #5a6fd8;
+  background: #fff5ed;
+  color: #c45a27;
 }
 
 /* Reading time and meta improvements */
@@ -294,7 +294,7 @@ body {
 }
 
 .category {
-  background: #667eea;
+  background: #d97636;
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
@@ -329,7 +329,7 @@ body {
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #667eea;
+  background: #d97636;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -338,7 +338,7 @@ body {
 }
 
 .btn:hover {
-  background: #5a6fd8;
+  background: #c45a27;
   color: white;
 }
 
@@ -355,6 +355,6 @@ input, textarea {
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #d97636;
+  box-shadow: 0 0 0 3px rgba(217, 118, 54, 0.1);
 }

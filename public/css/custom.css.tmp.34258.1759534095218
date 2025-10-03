@@ -10,17 +10,17 @@
 /* Typography improvements */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  line-height: 1.7;
-  color: #3a2a1a;
-  background-color: #faf8f5;
+  line-height: 1.8;
+  color: #4a3f35;
+  background-color: #fdf8f3;
 }
 
 /* Header and navigation styling */
 .site-header {
-  background: linear-gradient(135deg, #d97636 0%, #c45a27 100%);
+  background: linear-gradient(135deg, #f0b67f 0%, #e69138 100%);
   border-bottom: none;
-  box-shadow: 0 2px 8px rgba(217, 118, 54, 0.2);
-  padding: 1rem 0;
+  box-shadow: 0 2px 6px rgba(230, 145, 56, 0.15);
+  padding: 1.25rem 0;
 }
 
 .header-container {
@@ -123,10 +123,10 @@ body {
 .article-content h2 {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #3a2a1a;
+  color: #4a3f35;
   margin: 2rem 0 1rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e8d5c4;
+  border-bottom: 2px solid #f5e6d3;
 }
 
 .article-content h3 {

@@ -2,45 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Joser&#39;s Elixir</title>
-    <link>https://joser.ca/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Oct 2025 17:00:00 -0400</lastBuildDate>
-    <atom:link href="https://joser.ca/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Oct 2025 18:00:00 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Code Quality</title>
-      <link>https://joser.ca/categories/code-quality/</link>
-      <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
-      <guid>https://joser.ca/categories/code-quality/</guid>
+      <title>Elixir</title>
+      <link>http://localhost:1313/categories/elixir/</link>
+      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/categories/elixir/</guid>
       <description></description>
     </item>
     <item>
-      <title>Elixir</title>
-      <link>https://joser.ca/categories/elixir/</link>
+      <title>Security</title>
+      <link>http://localhost:1313/categories/security/</link>
+      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/categories/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code Quality</title>
+      <link>http://localhost:1313/categories/code-quality/</link>
       <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
-      <guid>https://joser.ca/categories/elixir/</guid>
+      <guid>http://localhost:1313/categories/code-quality/</guid>
       <description></description>
     </item>
     <item>
       <title>Software Development</title>
-      <link>https://joser.ca/categories/software-development/</link>
+      <link>http://localhost:1313/categories/software-development/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>https://joser.ca/categories/software-development/</guid>
+      <guid>http://localhost:1313/categories/software-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Testing</title>
-      <link>https://joser.ca/categories/testing/</link>
+      <link>http://localhost:1313/categories/testing/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>https://joser.ca/categories/testing/</guid>
+      <guid>http://localhost:1313/categories/testing/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Development</title>
-      <link>https://joser.ca/categories/web-development/</link>
+      <link>http://localhost:1313/categories/web-development/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>https://joser.ca/categories/web-development/</guid>
+      <guid>http://localhost:1313/categories/web-development/</guid>
       <description></description>
     </item>
   </channel>

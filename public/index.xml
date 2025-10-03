@@ -34,7 +34,7 @@
       <link>http://localhost:1313/about/</link>
       <pubDate>Fri, 26 Sep 2025 20:00:00 -0400</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h1 id=&#34;about&#34;&gt;About&lt;/h1&gt;&#xA;&lt;h2 id=&#34;connect-with-me&#34;&gt;Connect With Me&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href=&#34;https://github.com/j-morgan6&#34;&gt;My Github&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;LinkedIn&lt;/strong&gt;: &lt;a href=&#34;www.linkedin.com/in/joseph-scott-morgan&#34;&gt;My LinkedIn&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;h1 id=&#34;about&#34;&gt;About&lt;/h1&gt;&#xA;&lt;div style=&#34;display: grid; grid-template-columns: 1fr 200px; gap: 2rem; margin-bottom: 2rem;&#34;&gt;&#xA;  &lt;div&gt;&#xA;    &lt;p&gt;I&#39;m a junior developer who recently moved to Toronto, excited to be part of the tech scene here. I&#39;m passionate about Elixir development and functional programming, and I created this blog to share my journey and learnings as I grow in my career.&lt;/p&gt;&#xA;    &lt;p&gt;I&#39;m excited to build cool things, meet other devs in the community, and see where this journey takes me.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Experimenting with Tidewave: Vibe Coding</title>
