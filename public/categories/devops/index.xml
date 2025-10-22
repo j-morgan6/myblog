@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DevOps on Joser&#39;s Elixir</title>
-    <link>http://localhost:1313/categories/devops/</link>
+    <link>https://joser.ca/categories/devops/</link>
     <description>Recent content in DevOps on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 Oct 2025 10:00:00 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://joser.ca/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploying to Fly.io for Development</title>
-      <link>http://localhost:1313/posts/deploying-to-flyio/</link>
+      <link>https://joser.ca/posts/deploying-to-flyio/</link>
       <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>http://localhost:1313/posts/deploying-to-flyio/</guid>
-      <description>&lt;h2 id=&#34;getting-your-app-live-with-flyio&#34;&gt;Getting Your App Live with Fly.io&lt;/h2&gt;&#xA;&lt;p&gt;When it comes to deploying Elixir applications for development, Fly.io stands out as a developer-friendly platform that makes the deployment process straightforward. In this post, I&amp;rsquo;ll walk through deploying my project to Fly.io and share some key learnings along the way.&lt;/p&gt;</description>
+      <guid>https://joser.ca/posts/deploying-to-flyio/</guid>
+      <description>&lt;h2 id=&#34;getting-your-app-live-with-flyio&#34;&gt;Getting Your App Live with Fly.io&lt;/h2&gt;&#xA;&lt;p&gt;When it comes to deploying Elixir applications for development, Fly.io stands out as a developer friendly platform that makes the deployment process straightforward. In this post, I&amp;rsquo;ll walk through deploying my project to Fly.io and share some key learnings along the way.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quality on Joser&#39;s Elixir</title>
-    <link>http://localhost:1313/tags/quality/</link>
+    <link>https://joser.ca/tags/quality/</link>
     <description>Recent content in Quality on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Oct 2025 16:00:00 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/quality/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://joser.ca/tags/quality/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting started with Elixir Testing</title>
-      <link>http://localhost:1313/posts/testing-and-coverage/</link>
+      <link>https://joser.ca/posts/testing-and-coverage/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>http://localhost:1313/posts/testing-and-coverage/</guid>
+      <guid>https://joser.ca/posts/testing-and-coverage/</guid>
       <description>&lt;h2 id=&#34;tests-and-coverage&#34;&gt;Tests and Coverage&lt;/h2&gt;&#xA;&lt;p&gt;Getting started on my project I wanted to make sure I had a solid foundation in place. One of the first things I wanted to do was setup test coverage to maintain confidence in my code.&lt;/p&gt;</description>
     </item>
   </channel>
