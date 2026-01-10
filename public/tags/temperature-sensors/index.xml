@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Temperature-Sensors on Joser&#39;s Elixir</title>
+    <link>http://localhost:1313/tags/temperature-sensors/</link>
+    <description>Recent content in Temperature-Sensors on Joser&#39;s Elixir</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/temperature-sensors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When Perfect Code Meets Imperfect Hardware: My TSIC306 Temperature Sensor Journey</title>
+      <link>http://localhost:1313/posts/tsic306-raspberry-pi-timing-failure/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tsic306-raspberry-pi-timing-failure/</guid>
+      <description>&lt;h2 id=&#34;the-hook-a-tale-of-technical-success-and-practical-failure&#34;&gt;The Hook: A Tale of Technical Success and Practical Failure&lt;/h2&gt;&#xA;&lt;p&gt;I spent days implementing the ZACWire protocol for a TSIC306 temperature sensor in pure Elixir. The code was elegant. The protocol implementation was correct. The parity checks validated perfectly. Then I deployed it to my Raspberry Pi Zero W and watched it fail 75% of the time.&lt;/p&gt;&#xA;&lt;p&gt;This is the story of how I learned that sometimes the &amp;ldquo;right&amp;rdquo; technical implementation meets the &amp;ldquo;wrong&amp;rdquo; platform constraints.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

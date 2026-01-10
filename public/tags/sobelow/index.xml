@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sobelow on Joser&#39;s Elixir</title>
-    <link>https://joser.ca/tags/sobelow/</link>
+    <link>http://localhost:1313/tags/sobelow/</link>
     <description>Recent content in Sobelow on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Oct 2025 18:00:00 -0400</lastBuildDate>
-    <atom:link href="https://joser.ca/tags/sobelow/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/sobelow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Security Measures with Sobelow and Mix Audit</title>
-      <link>https://joser.ca/posts/security-with-sobelow/</link>
+      <link>http://localhost:1313/posts/security-with-sobelow/</link>
       <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>https://joser.ca/posts/security-with-sobelow/</guid>
+      <guid>http://localhost:1313/posts/security-with-sobelow/</guid>
       <description>&lt;h2 id=&#34;security-first&#34;&gt;Security First&lt;/h2&gt;&#xA;&lt;p&gt;Security should be a priority from the start of any project. In the Elixir ecosystem, we have excellent tools to help catch security vulnerabilities early in development. Two essential tools are Sobelow for static security analysis and Mix Audit for dependency vulnerability checking.&lt;/p&gt;</description>
     </item>
   </channel>

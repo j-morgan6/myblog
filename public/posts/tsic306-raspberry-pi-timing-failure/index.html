@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Perfect Code Meets Imperfect Hardware: My TSIC306 Temperature Sensor Journey - Joser&#39;s Elixir</title>
+    <meta name="description" content="I spent days implementing a complex temperature sensor protocol in Elixir... only to discover my Raspberry Pi Zero couldn&#39;t handle the microsecond timing requirements. Here&#39;s what I learned about matching sensors to platforms.">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>When Perfect Code Meets Imperfect Hardware: My TSIC306 Temperature Sensor Journey</h1>
+
+        <div class="article-meta">
+            <time datetime="2026-01-09">January 9, 2026</time>
+
+            
+
+            
+            <div class="categories">
+                
+                <span class="category">embedded-systems</span>
+                
+                <span class="category">iot</span>
+                
+            </div>
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#elixir</span>
+                
+                <span class="tag">#nerves</span>
+                
+                <span class="tag">#raspberry-pi</span>
+                
+                <span class="tag">#iot</span>
+                
+                <span class="tag">#embedded-systems</span>
+                
+                <span class="tag">#hardware</span>
+                
+                <span class="tag">#temperature-sensors</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                10 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="the-hook-a-tale-of-technical-success-and-practical-failure">The Hook: A Tale of Technical Success and Practical Failure</h2>
+<p>I spent days implementing the ZACWire protocol for a TSIC306 temperature sensor in pure Elixir. The code was elegant. The protocol implementation was correct. The parity checks validated perfectly. Then I deployed it to my Raspberry Pi Zero W and watched it fail 75% of the time.</p>
+<p>This is the story of how I learned that sometimes the &ldquo;right&rdquo; technical implementation meets the &ldquo;wrong&rdquo; platform constraints.</p>
+<h2 id="the-project-building-silvia">The Project: Building Silvia</h2>
+<p>I&rsquo;m building an IoT espresso machine controller called &ldquo;Silvia&rdquo; using Elixir and the Nerves framework on a Raspberry Pi Zero W. The goal is straightforward: monitor and control the boiler temperature with PID control to maintain perfect espresso brewing temperature (around 93°C).</p>
+<p>For this, I needed a reliable temperature sensor. Enter the TSIC306.</p>
+<h2 id="why-tsic306-seemed-perfect">Why TSIC306 Seemed Perfect</h2>
+<p>On paper, the TSIC306 looked ideal for my use case:</p>
+<ul>
+<li><strong>Digital sensor</strong>: No ADC required, direct GPIO communication</li>
+<li><strong>Perfect temperature range</strong>: -50°C to +150°C (espresso operates at 90-95°C)</li>
+<li><strong>High resolution</strong>: 11-bit precision providing 0.1°C accuracy</li>
+<li><strong>Simple wiring</strong>: Single-wire interface saves precious GPIO pins</li>
+<li><strong>Cost-effective</strong>: Around $5-8 per sensor</li>
+<li><strong>Industrial applications</strong>: Used in automotive and industrial settings</li>
+</ul>
+<p>What could go wrong?</p>
+<h2 id="the-zacwire-protocol-where-things-get-interesting">The ZACWire Protocol: Where Things Get Interesting</h2>
+<p>The TSIC306 uses a proprietary protocol called ZACWire. Unlike friendly I2C or SPI protocols with hardware support in the Linux kernel, ZACWire requires precise microsecond-level GPIO timing that you have to implement yourself.</p>
+<p>Here&rsquo;s what makes ZACWire challenging:</p>
+<h3 id="protocol-characteristics">Protocol Characteristics</h3>
+<ul>
+<li><strong>No clock line</strong>: Unlike I2C or SPI, there&rsquo;s no shared clock signal</li>
+<li><strong>Timing-dependent</strong>: Bits are encoded by duty cycle timing</li>
+<li><strong>Two-packet transmission</strong>: Temperature data split across two packets</li>
+<li><strong>Parity validation</strong>: Each packet has a parity bit for error detection</li>
+<li><strong>Microsecond precision</strong>: Bit periods are in the microsecond range</li>
+</ul>
+<h3 id="bit-encoding">Bit Encoding</h3>
+<p>ZACWire encodes data bits using duty cycle ratios:</p>
+<ul>
+<li><strong>Logical 1</strong>: ~25% duty cycle (short high, long low)</li>
+<li><strong>Logical 0</strong>: ~50% duty cycle (equal high and low)</li>
+<li><strong>Start bit</strong>: ~75% duty cycle (long high, short low)</li>
+</ul>
+<p>To read a bit, you measure the high and low pulse durations and calculate the ratio. Simple in theory, brutal in practice.</p>
+<h2 id="the-implementation">The Implementation</h2>
+<p>I implemented the full ZACWire protocol in Elixir using the <code>Circuits.GPIO</code> library. Here&rsquo;s a simplified view of what the bit-reading logic looked like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Silvia.TSIC306</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">GenServer</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">alias</span> <span style="color:#a6e22e">Circuits.GPIO</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@sensor_pin</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@strobe_timeout</span> <span style="color:#ae81ff">125_000</span>  <span style="color:#75715e"># 125ms max between packets</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@bit_timeout</span> <span style="color:#ae81ff">2_000</span>       <span style="color:#75715e"># 2ms max per bit</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> start_link(opts) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">GenServer</span><span style="color:#f92672">.</span>start_link(__MODULE__, opts, <span style="color:#e6db74">name</span>: __MODULE__)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> read_temperature <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    with {<span style="color:#e6db74">:ok</span>, packet1} <span style="color:#f92672">&lt;-</span> read_packet(),
+</span></span><span style="display:flex;"><span>         {<span style="color:#e6db74">:ok</span>, packet2} <span style="color:#f92672">&lt;-</span> read_packet(),
+</span></span><span style="display:flex;"><span>         {<span style="color:#e6db74">:ok</span>, temp_data} <span style="color:#f92672">&lt;-</span> validate_and_combine(packet1, packet2) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Temperature formula: T = (raw / 2047) * 200 - 50</span>
+</span></span><span style="display:flex;"><span>      temperature <span style="color:#f92672">=</span> (temp_data <span style="color:#f92672">/</span> <span style="color:#ae81ff">2047.0</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">200.0</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">50.0</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#e6db74">:ok</span>, temperature}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#e6db74">:error</span>, reason} <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:error</span>, reason}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> read_packet <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    with {<span style="color:#e6db74">:ok</span>, bits} <span style="color:#f92672">&lt;-</span> read_bits(<span style="color:#ae81ff">9</span>) <span style="color:#66d9ef">do</span>  <span style="color:#75715e"># 9 bits per packet</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> valid_parity?(bits) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">:ok</span>, bits_to_integer(bits)}
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">:error</span>, <span style="color:#e6db74">:parity_error</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> read_bits(count) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    bits <span style="color:#f92672">=</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>reduce_while(<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span>count, [], <span style="color:#66d9ef">fn</span> _, acc <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> read_single_bit() <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">:ok</span>, bit} <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:cont</span>, [bit <span style="color:#f92672">|</span> acc]}
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">:error</span>, reason} <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:halt</span>, {<span style="color:#e6db74">:error</span>, reason}}
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> bits <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#e6db74">:error</span>, reason} <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:error</span>, reason}
+</span></span><span style="display:flex;"><span>      bits <span style="color:#f92672">when</span> is_list(bits) <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>reverse(bits)}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> read_single_bit <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Measure high pulse duration</span>
+</span></span><span style="display:flex;"><span>    high_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>)
+</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#e6db74">:falling</span>)
+</span></span><span style="display:flex;"><span>    high_duration <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>) <span style="color:#f92672">-</span> high_start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Measure low pulse duration</span>
+</span></span><span style="display:flex;"><span>    low_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>)
+</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#e6db74">:rising</span>)
+</span></span><span style="display:flex;"><span>    low_duration <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>) <span style="color:#f92672">-</span> low_start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Calculate duty cycle and determine bit value</span>
+</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> high_duration <span style="color:#f92672">+</span> low_duration
+</span></span><span style="display:flex;"><span>    duty_cycle <span style="color:#f92672">=</span> high_duration <span style="color:#f92672">/</span> total
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">cond</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>      duty_cycle <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.35</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#ae81ff">1</span>}  <span style="color:#75715e"># ~25% duty cycle</span>
+</span></span><span style="display:flex;"><span>      duty_cycle <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.65</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#ae81ff">0</span>}  <span style="color:#75715e"># ~50% duty cycle</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">true</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#e6db74">:start_bit</span>}      <span style="color:#75715e"># ~75% duty cycle</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> wait_for_edge(edge) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># This is where timing precision becomes critical</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Poll GPIO pin until edge detected or timeout</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ...timing-sensitive code...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>The implementation totaled about 300 lines of carefully crafted protocol handling code, complete with:</p>
+<ul>
+<li>Parity bit validation</li>
+<li>Timeout handling at multiple levels</li>
+<li>Bit synchronization logic</li>
+<li>Temperature conversion math</li>
+<li>Comprehensive error handling</li>
+</ul>
+<h2 id="the-exciting-deployment">The Exciting Deployment</h2>
+<p>I compiled the project using Nerves, burned the firmware to an SD card, and booted my Raspberry Pi Zero W. The application started beautifully:</p>
+<pre tabindex="0"><code>[info] Starting Silvia espresso controller
+[info] TSIC306 sensor initialized on GPIO 4
+[info] Beginning temperature monitoring...
+</code></pre><p>My supervision tree was healthy. The GenServer was running. The sensor was physically connected. Everything looked perfect.</p>
+<h2 id="the-harsh-reality-timing-is-everything">The Harsh Reality: Timing Is Everything</h2>
+<p>Then the temperature readings started coming in:</p>
+<pre tabindex="0"><code>[debug] Temperature reading: {:error, :parity_error}
+[debug] Temperature reading: {:ok, -47.3}
+[debug] Temperature reading: {:error, :parity_error}
+[debug] Temperature reading: {:ok, 149.2}
+[debug] Temperature reading: {:error, :parity_error}
+[debug] Temperature reading: {:error, :parity_error}
+[debug] Temperature reading: {:ok, 24.65}
+[debug] Temperature reading: {:error, :parity_error}
+</code></pre><p>The statistics were damning:</p>
+<ul>
+<li><strong>75% parity error rate</strong>: Three out of four reads failed validation</li>
+<li><strong>Garbage values</strong>: When reads succeeded, most were physically impossible (-47°C, 149°C)</li>
+<li><strong>Occasional success</strong>: Every ~20 readings, I&rsquo;d get a plausible value like 24.65°C (actual room temperature)</li>
+</ul>
+<p>My implementation was correct. The sensor was working. But the platform was fundamentally incompatible with the protocol&rsquo;s timing requirements.</p>
+<h2 id="why-it-failed-linux-is-not-real-time">Why It Failed: Linux Is Not Real-Time</h2>
+<p>The root cause boiled down to a fundamental mismatch: <strong>Linux is not a real-time operating system</strong>, and the Raspberry Pi Zero&rsquo;s hardware isn&rsquo;t built for microsecond-precision GPIO bit-banging.</p>
+<h3 id="the-technical-reasons">The Technical Reasons</h3>
+<p><strong>1. Non-Deterministic Scheduling</strong></p>
+<p>Linux uses a general-purpose scheduler that can preempt your process at any time. While I&rsquo;m trying to measure a 10-microsecond pulse, the kernel might decide to:</p>
+<ul>
+<li>Handle a network interrupt</li>
+<li>Service a disk I/O request</li>
+<li>Run another process</li>
+<li>Perform garbage collection</li>
+</ul>
+<p><strong>2. Timing Jitter</strong></p>
+<p>Even with high-priority processes, Linux introduces timing jitter. A measurement that should take 10μs might take anywhere from 8μs to 50μs depending on what else is happening on the system.</p>
+<p><strong>3. No Hardware Timer Support</strong></p>
+<p>Protocols like I2C and SPI have dedicated hardware controllers in the CPU that handle timing in silicon. ZACWire has no such hardware support—you&rsquo;re doing everything in software, polling GPIO pins in a tight loop.</p>
+<p><strong>4. BEAM VM Overhead</strong></p>
+<p>While Elixir&rsquo;s BEAM VM is excellent for concurrent, fault-tolerant systems, it adds additional overhead. Even using NIFs (Native Implemented Functions) for timing-critical code has context-switching costs.</p>
+<p><strong>5. Slow CPU</strong></p>
+<p>The Raspberry Pi Zero W runs a 1GHz single-core ARMv6 processor. While impressive for a $10 board, it&rsquo;s simply not fast enough to guarantee microsecond-precision GPIO polling while running a full Linux operating system.</p>
+<h2 id="the-lesson-parity-checks-arent-enough">The Lesson: Parity Checks Aren&rsquo;t Enough</h2>
+<p>An interesting observation: my parity checks were working correctly. When I got a parity error, the data was definitely corrupted. But the 25% success rate taught me something important: <strong>parity validation can only detect corruption in received data—it can&rsquo;t detect that your timing was wrong in the first place.</strong></p>
+<p>When timing jitter caused me to misread a bit as 0 instead of 1, if the corrupted packet happened to have valid parity, I&rsquo;d get a &ldquo;successful&rdquo; read with garbage data. The sensor was transmitting perfectly; I just couldn&rsquo;t receive it reliably.</p>
+<h2 id="better-alternatives-choose-hardware-supported-protocols">Better Alternatives: Choose Hardware-Supported Protocols</h2>
+<p>After this experience, I researched better alternatives. Here&rsquo;s what I found:</p>
+<h3 id="option-1-max31865--pt100-rtd-recommended-for-espresso">Option 1: MAX31865 + PT100 RTD (Recommended for Espresso)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Silvia.MAX31865</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">alias</span> <span style="color:#a6e22e">Circuits.SPI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> read_temperature(spi_bus) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># SPI timing handled by kernel hardware driver</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, &lt;&lt;_<span style="color:#f92672">::</span><span style="color:#ae81ff">8</span>, temp_high<span style="color:#f92672">::</span><span style="color:#ae81ff">8</span>, temp_low<span style="color:#f92672">::</span><span style="color:#ae81ff">8</span>, _<span style="color:#f92672">::</span><span style="color:#ae81ff">8</span>&gt;&gt;} <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">SPI</span><span style="color:#f92672">.</span>transfer(spi_bus, &lt;&lt;<span style="color:#ae81ff">0x01</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>&gt;&gt;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    raw <span style="color:#f92672">=</span> (temp_high <span style="color:#f92672">&lt;&lt;&lt;</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">|||</span> temp_low) <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    temperature <span style="color:#f92672">=</span> raw <span style="color:#f92672">/</span> <span style="color:#ae81ff">32.0</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">256.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, temperature}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Why it&rsquo;s better:</strong></p>
+<ul>
+<li>SPI protocol with hardware kernel support</li>
+<li>PT100 RTD is the industry standard for espresso machines</li>
+<li>Temperature range: -200°C to +850°C</li>
+<li>Accuracy: ±0.5°C</li>
+<li>Cost: ~$15 for module</li>
+<li><strong>Code complexity: ~20 lines instead of 300</strong></li>
+</ul>
+<h3 id="option-2-ds18b20-easiest-option">Option 2: DS18B20 (Easiest Option)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Silvia.DS18B20</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> read_temperature(device_id) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 1-Wire protocol handled by kernel driver</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Just read from sysfs!</span>
+</span></span><span style="display:flex;"><span>    path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/sys/bus/w1/devices/</span><span style="color:#e6db74">#{</span>device_id<span style="color:#e6db74">}</span><span style="color:#e6db74">/temperature&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>read(path) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#e6db74">:ok</span>, temp_string} <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>        temperature <span style="color:#f92672">=</span> <span style="color:#a6e22e">String</span><span style="color:#f92672">.</span>trim(temp_string)
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">String</span><span style="color:#f92672">.</span>to_integer()
+</span></span><span style="display:flex;"><span>                     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Kernel</span><span style="color:#f92672">./</span>(<span style="color:#ae81ff">1000.0</span>)
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">:ok</span>, temperature}
+</span></span><span style="display:flex;"><span>      error <span style="color:#f92672">-&gt;</span> error
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Why it&rsquo;s better:</strong></p>
+<ul>
+<li>1-Wire protocol with complete kernel driver</li>
+<li>No protocol implementation needed—just read a file</li>
+<li>Temperature range: -55°C to +125°C</li>
+<li>Accuracy: ±0.5°C</li>
+<li>Cost: ~$3-5</li>
+<li><strong>Code complexity: File.read/1</strong></li>
+</ul>
+<h3 id="option-3-mcp9808-best-accuracy">Option 3: MCP9808 (Best Accuracy)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Silvia.MCP9808</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">alias</span> <span style="color:#a6e22e">Circuits.I2C</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@temp_register</span> <span style="color:#ae81ff">0x05</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> read_temperature(i2c_bus, address \\ <span style="color:#ae81ff">0x18</span>) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># I2C timing handled by kernel</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, &lt;&lt;upper<span style="color:#f92672">::</span><span style="color:#ae81ff">8</span>, lower<span style="color:#f92672">::</span><span style="color:#ae81ff">8</span>&gt;&gt;} <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">I2C</span><span style="color:#f92672">.</span>write_read(i2c_bus, address, &lt;&lt;<span style="color:#a6e22e">@temp_register</span>&gt;&gt;, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    temp <span style="color:#f92672">=</span> ((upper <span style="color:#f92672">&amp;&amp;&amp;</span> <span style="color:#ae81ff">0x1F</span>) <span style="color:#f92672">&lt;&lt;&lt;</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">|||</span> lower) <span style="color:#f92672">/</span> <span style="color:#ae81ff">16.0</span>
+</span></span><span style="display:flex;"><span>    temp <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> (upper <span style="color:#f92672">&amp;&amp;&amp;</span> <span style="color:#ae81ff">0x10</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0x10</span>, <span style="color:#e6db74">do</span>: temp <span style="color:#f92672">-</span> <span style="color:#ae81ff">256.0</span>, <span style="color:#e6db74">else</span>: temp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, temp}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>Why it&rsquo;s better:</strong></p>
+<ul>
+<li>I2C protocol with hardware support</li>
+<li>Highest accuracy: ±0.25°C</li>
+<li>Temperature range: -40°C to +125°C</li>
+<li>Cost: ~$5</li>
+<li>Code complexity: ~15 lines</li>
+</ul>
+<h2 id="when-tsic306-would-work">When TSIC306 WOULD Work</h2>
+<p>To be fair, the TSIC306 isn&rsquo;t a bad sensor. It&rsquo;s just the wrong sensor for a Raspberry Pi running Linux. It would work perfectly fine on:</p>
+<ul>
+<li><strong>Microcontrollers</strong>: Arduino, STM32, ESP32 with hardware timers</li>
+<li><strong>Real-Time Operating Systems</strong>: FreeRTOS, Zephyr, or other RTOS platforms</li>
+<li><strong>Bare metal systems</strong>: No OS overhead, full control of timing</li>
+<li><strong>As an intermediary</strong>: Microcontroller reads TSIC306, sends data to Pi via I2C</li>
+</ul>
+<p>If you&rsquo;re building an embedded system on a microcontroller, TSIC306 is a perfectly viable choice.</p>
+<h2 id="comparison-table">Comparison Table</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Sensor</th>
+          <th>Protocol</th>
+          <th>Kernel Support</th>
+          <th>Accuracy</th>
+          <th>Code Complexity</th>
+          <th>Cost</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TSIC306</td>
+          <td>ZACWire</td>
+          <td>❌ No</td>
+          <td>±0.5°C</td>
+          <td>300 lines</td>
+          <td>$5-8</td>
+          <td>Microcontrollers</td>
+      </tr>
+      <tr>
+          <td>MAX31865+PT100</td>
+          <td>SPI</td>
+          <td>✅ Yes</td>
+          <td>±0.5°C</td>
+          <td>20 lines</td>
+          <td>~$15</td>
+          <td>Professional/Industrial</td>
+      </tr>
+      <tr>
+          <td>DS18B20</td>
+          <td>1-Wire</td>
+          <td>✅ Yes</td>
+          <td>±0.5°C</td>
+          <td>5 lines</td>
+          <td>$3-5</td>
+          <td>Hobbyist/Quick Projects</td>
+      </tr>
+      <tr>
+          <td>MCP9808</td>
+          <td>I2C</td>
+          <td>✅ Yes</td>
+          <td>±0.25°C</td>
+          <td>15 lines</td>
+          <td>~$5</td>
+          <td>High-Accuracy Projects</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="the-silver-lining-technical-achievement">The Silver Lining: Technical Achievement</h2>
+<p>While the project didn&rsquo;t work as intended for production use, it wasn&rsquo;t a complete failure. I achieved:</p>
+<ul>
+<li><strong>Protocol mastery</strong>: Successfully implemented a complex proprietary protocol</li>
+<li><strong>Deep understanding</strong>: Learned the intricacies of timing-dependent communication</li>
+<li><strong>Debugging skills</strong>: Proved the issue was hardware limitations, not software bugs</li>
+<li><strong>Documentation</strong>: Task W21 complete—hardware tested, findings documented</li>
+<li><strong>Knowledge sharing</strong>: This blog post helping others avoid the same pitfall</li>
+</ul>
+<p>Sometimes the journey teaches you more than the destination.</p>
+<h2 id="lessons-learned-actionable-advice">Lessons Learned: Actionable Advice</h2>
+<p>Here are the key takeaways from this experience:</p>
+<h3 id="1-choose-protocols-wisely">1. Choose Protocols Wisely</h3>
+<p>When selecting sensors for embedded Linux projects:</p>
+<ul>
+<li>✅ <strong>Prefer</strong>: I2C, SPI, 1-Wire (kernel support)</li>
+<li>⚠️ <strong>Caution</strong>: UART, PWM (limited kernel support)</li>
+<li>❌ <strong>Avoid</strong>: Custom protocols requiring microsecond GPIO timing</li>
+</ul>
+<h3 id="2-real-time-requirements-matter">2. Real-Time Requirements Matter</h3>
+<p>Before implementing a sensor protocol, ask:</p>
+<ul>
+<li>Does this protocol require real-time guarantees?</li>
+<li>Can my platform provide those guarantees?</li>
+<li>Is there hardware support for this protocol?</li>
+</ul>
+<h3 id="3-match-hardware-to-platform-capabilities">3. Match Hardware to Platform Capabilities</h3>
+<p><strong>Microcontrollers</strong> (Arduino, ESP32, STM32):</p>
+<ul>
+<li>Great for: Custom protocols, real-time control, PWM</li>
+<li>Limitations: Processing power, memory, connectivity</li>
+</ul>
+<p><strong>Embedded Linux</strong> (Raspberry Pi, BeagleBone):</p>
+<ul>
+<li>Great for: Network connectivity, complex logic, hardware-supported protocols</li>
+<li>Limitations: No real-time guarantees, timing jitter</li>
+</ul>
+<h3 id="4-validate-early-validate-often">4. Validate Early, Validate Often</h3>
+<p>Don&rsquo;t spend weeks on implementation before testing on real hardware. Build a minimal proof-of-concept first to validate the sensor works on your chosen platform.</p>
+<h3 id="5-know-when-to-pivot">5. Know When to Pivot</h3>
+<p>There&rsquo;s a difference between &ldquo;I can implement this&rdquo; and &ldquo;I should implement this.&rdquo; The TSIC306 taught me that sometimes the harder path is admitting your chosen solution won&rsquo;t work and pivoting to something better suited to your constraints.</p>
+<h2 id="conclusion-the-right-tool-for-the-job">Conclusion: The Right Tool for the Job</h2>
+<p>I initially chose TSIC306 because it seemed elegant: digital output, single wire, no ADC needed. What I learned is that &ldquo;elegant&rdquo; on paper doesn&rsquo;t always mean &ldquo;practical&rdquo; in reality.</p>
+<p>The DS18B20 might seem less sophisticated—reading temperature from a file instead of implementing a complex protocol—but it&rsquo;s the right tool for the job. It works reliably, requires minimal code, and lets me focus on the actual problem: building a great espresso PID controller.</p>
+<p>In the end, I&rsquo;m switching to the MAX31865 with a PT100 RTD for my espresso machine. The PT100 is what commercial espresso machines use, the accuracy is better, and the SPI protocol just works. Sometimes the industry standard exists for good reasons.</p>
+<p><strong>The meta-lesson</strong>: Engineering isn&rsquo;t just about what you can build—it&rsquo;s about knowing what you should build and when to choose a simpler path. My complex TSIC306 implementation was a technical success but a practical failure. The DS18B20 file-read implementation would be too simple to blog about, but it would actually work.</p>
+<p>That&rsquo;s the difference between clever and wise.</p>
+<hr>
+<h2 id="technical-specifications-reference">Technical Specifications Reference</h2>
+<h3 id="tsic306-specifications">TSIC306 Specifications</h3>
+<ul>
+<li>Temperature range: -50°C to +150°C</li>
+<li>Resolution: 11-bit (0.1°C)</li>
+<li>Protocol: ZACWire (proprietary)</li>
+<li>Interface: Single-wire digital</li>
+<li>Power: 3.0-5.5V</li>
+<li>Response time: ~100ms</li>
+</ul>
+<h3 id="platform-details">Platform Details</h3>
+<ul>
+<li><strong>Hardware</strong>: Raspberry Pi Zero W</li>
+<li><strong>CPU</strong>: 1GHz single-core ARMv6</li>
+<li><strong>OS</strong>: Nerves (embedded Linux)</li>
+<li><strong>Language</strong>: Elixir on BEAM VM</li>
+<li><strong>GPIO Library</strong>: Circuits.GPIO</li>
+</ul>
+<h3 id="test-results">Test Results</h3>
+<ul>
+<li>Total test duration: ~4 hours of continuous monitoring</li>
+<li>Total readings: ~500 samples</li>
+<li>Parity errors: 75%</li>
+<li>Successful reads: 25%</li>
+<li>Valid readings (correct temp): ~5%</li>
+<li>Garbage readings: ~20%</li>
+</ul>
+<hr>
+<p><em>Have you faced similar timing challenges in embedded systems? I&rsquo;d love to hear your stories and solutions. Find me on GitHub or Twitter to continue the discussion.</em></p>
+<p><strong>Keywords</strong>: TSIC306, Raspberry Pi, Elixir, Nerves, embedded Linux, temperature sensors, ZACWire protocol, real-time systems, IoT, espresso PID controller, MAX31865, DS18B20, hardware timing, GPIO bit-banging</p>
+
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/deploying-to-flyio/" class="nav-prev">
+                ← Deploying to Fly.io for Development
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

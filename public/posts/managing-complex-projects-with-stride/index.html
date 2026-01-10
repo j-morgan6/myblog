@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking My Rancilio Silvia: Using Stride to Manage a Complex Sensor Integration - Joser&#39;s Elixir</title>
+    <meta name="description" content="How I used Stride to manage implementing a temperature sensor for my Rancilio Silvia espresso machine mod - from protocol research through hardware testing to pivoting when things didn&#39;t work out.">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Hacking My Rancilio Silvia: Using Stride to Manage a Complex Sensor Integration</h1>
+
+        <div class="article-meta">
+            <time datetime="2026-01-09">January 9, 2026</time>
+
+            
+
+            
+            <div class="categories">
+                
+                <span class="category">tools</span>
+                
+                <span class="category">productivity</span>
+                
+            </div>
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#project-management</span>
+                
+                <span class="tag">#ai-tools</span>
+                
+                <span class="tag">#stride</span>
+                
+                <span class="tag">#productivity</span>
+                
+                <span class="tag">#embedded-systems</span>
+                
+                <span class="tag">#rancilio-silvia</span>
+                
+                <span class="tag">#espresso</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                8 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="the-setup-modding-a-rancilio-silvia">The Setup: Modding a Rancilio Silvia</h2>
+<p>I&rsquo;m hacking my Rancilio Silvia espresso machine with a Raspberry Pi Zero W running Elixir/Nerves. The goal? PID temperature control for better espresso. When I decided to add a TSIC306 temperature sensor, I knew it&rsquo;d be tricky, but I didn&rsquo;t know <em>how</em> tricky.</p>
+<p>Here&rsquo;s the thing about embedded systems work: you can&rsquo;t plan what you don&rsquo;t understand yet. And I needed some way to stay organized without drowning in project management overhead.</p>
+<p>That&rsquo;s when I decided to try <a href="https://www.stridelikeaboss.com">Stride</a>. Full disclosure: I know the creator and was curious about his project. Stride bills itself as &ldquo;task management designed for human-AI collaboration&rdquo;—basically a kanban board that AI agents can actually work with. Sounded interesting, so I figured I&rsquo;d use it for this sensor implementation and see how it went.</p>
+<h2 id="how-stride-actually-works">How Stride Actually Works</h2>
+<p>So what is Stride exactly? It&rsquo;s a kanban-style task board with a twist: it&rsquo;s designed from the ground up for human-AI collaboration. The creator <a href="https://www.stridelikeaboss.com/about">built it using AI-assisted development</a> (Claude Code and TideWave), documenting the whole process across 16 blog posts. Pretty meta.</p>
+<p>The cool part is that AI agents can claim and complete tasks via the API, with capability matching so they only see tasks that match their skills. There&rsquo;s also human approval workflows if you want them, and client-side hooks for custom automation.</p>
+<h2 id="breaking-down-the-unknown">Breaking Down the Unknown</h2>
+<p>I started simple: &ldquo;I need to implement TSIC306 temperature sensor support for my Raspberry Pi Zero W project using Elixir.&rdquo;</p>
+<p>Stride broke it down into concrete tasks:</p>
+<pre tabindex="0"><code>W14: Research ZACWire protocol specification
+W15: Implement bit-level GPIO reading logic
+W16: Add parity bit validation
+W17: Write temperature conversion and unit tests
+W18: Implement comprehensive error handling
+W19: Add timeout protection for sensor reads
+W20: Integration testing with full system
+W21: Hardware testing on actual Raspberry Pi
+W22: Document implementation and findings
+</code></pre><p>Each task had:</p>
+<ul>
+<li><strong>Clear scope</strong>: What specifically needs to be done</li>
+<li><strong>Acceptance criteria</strong>: How to know when it&rsquo;s complete</li>
+<li><strong>Dependencies</strong>: Which tasks must come first</li>
+<li><strong>Context</strong>: Why this task matters</li>
+</ul>
+<h2 id="the-development-flow-w14-w20">The Development Flow: W14-W20</h2>
+<p>Tasks W14-W20 went surprisingly smoothly. Here&rsquo;s what that looked like:</p>
+<h3 id="task-w14-protocol-research">Task W14: Protocol Research</h3>
+<p>I just said &ldquo;Do W14&rdquo; and Stride went to work gathering ZACWire protocol specs, explaining duty-cycle encoding (25% = 1, 50% = 0, 75% = start bit), and flagging the microsecond timing requirements that would later bite me.</p>
+<p>The nice part? Stride didn&rsquo;t just say &ldquo;go research the protocol.&rdquo; It actually helped find resources, summarized the gnarly technical details, and pointed out the stuff that mattered.</p>
+<h3 id="tasks-w15-w17-core-implementation">Tasks W15-W17: Core Implementation</h3>
+<p>Here&rsquo;s where things got interesting. The AI agent actually wrote the protocol implementation in Elixir. My role? Review the code it generated. Here&rsquo;s a snippet of what it produced:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Silvia.TSIC306</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">GenServer</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">alias</span> <span style="color:#a6e22e">Circuits.GPIO</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> read_single_bit <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    high_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>)
+</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#e6db74">:falling</span>)
+</span></span><span style="display:flex;"><span>    high_duration <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>) <span style="color:#f92672">-</span> high_start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    low_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>)
+</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#e6db74">:rising</span>)
+</span></span><span style="display:flex;"><span>    low_duration <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>) <span style="color:#f92672">-</span> low_start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> high_duration <span style="color:#f92672">+</span> low_duration
+</span></span><span style="display:flex;"><span>    duty_cycle <span style="color:#f92672">=</span> high_duration <span style="color:#f92672">/</span> total
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">cond</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>      duty_cycle <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.35</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span>      duty_cycle <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.65</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#ae81ff">0</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">true</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#e6db74">:start_bit</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>This is the real power of Stride&rsquo;s AI collaboration:</strong> The agent understood the task breakdown, wrote the implementation, and I reviewed and approved the code. I wasn&rsquo;t context-switching between writing code and updating tickets—I was reviewing code the agent wrote and making sure it was correct.</p>
+<h3 id="tasks-w18-w20-robustness-and-testing">Tasks W18-W20: Robustness and Testing</h3>
+<p>Error handling, timeouts, and integration testing. By the time I reached W20, I had about 300 lines of carefully crafted protocol implementation. Everything worked beautifully&hellip; in unit tests.</p>
+<h2 id="the-pivot-point-w21-hardware-testing">The Pivot Point: W21 Hardware Testing</h2>
+<p><strong>Me:</strong> &ldquo;Do W21&rdquo;</p>
+<p>Time for the moment of truth. I deployed the firmware to my actual Rancilio Silvia setup, connected the sensor to GPIO 4, and started collecting readings:</p>
+<pre tabindex="0"><code>[debug] Temperature reading: {:error, :parity_error}
+[debug] Temperature reading: {:ok, -47.3}
+[debug] Temperature reading: {:error, :parity_error}
+[debug] Temperature reading: {:ok, 149.2}
+[debug] Temperature reading: {:error, :parity_error}
+[debug] Temperature reading: {:ok, 24.65}
+</code></pre><p><strong>The results:</strong></p>
+<ul>
+<li>75% parity error rate</li>
+<li>Most &ldquo;successful&rdquo; reads were garbage data</li>
+<li>Occasional valid readings (~5%)</li>
+</ul>
+<p>This is where Stride&rsquo;s value really showed. Instead of just marking W21 as &ldquo;blocked&rdquo; or &ldquo;failed,&rdquo; here&rsquo;s what happened:</p>
+<h3 id="strides-response-to-unexpected-results">Stride&rsquo;s Response to Unexpected Results</h3>
+<p><strong>Stride:</strong> &ldquo;The high error rate suggests timing issues. Raspberry Pi Zero uses a 1GHz ARMv6 CPU, which is significantly slower than Pi 3/4 models. Linux&rsquo;s non-real-time scheduler can cause timing jitter in microsecond-precision GPIO operations. Let me research solutions&hellip;&rdquo;</p>
+<p>Within moments, Stride had:</p>
+<ol>
+<li>
+<p><strong>Diagnosed the root cause:</strong> Linux scheduler preemption + slow CPU + microsecond timing requirements = incompatible combination</p>
+</li>
+<li>
+<p><strong>Researched existing solutions:</strong> Found that others use <code>pigpio</code> daemon (runs with elevated priority) for better timing</p>
+</li>
+<li>
+<p><strong>Identified the tradeoff:</strong> pigpio helps but doesn&rsquo;t eliminate the fundamental mismatch between ZACWire&rsquo;s requirements and Linux&rsquo;s capabilities</p>
+</li>
+<li>
+<p><strong>Proposed alternatives:</strong> Should we try pigpio, or evaluate different sensors?</p>
+</li>
+</ol>
+<p>This is where Stride felt less like a task tracker and more like a senior developer looking over my shoulder.</p>
+<h2 id="the-decision-evaluate-alternatives">The Decision: Evaluate Alternatives</h2>
+<p><strong>Me:</strong> &ldquo;What are better sensor options for Raspberry Pi + Elixir?&rdquo;</p>
+<p><strong>Stride:</strong> &ldquo;Let me research temperature sensors with hardware-supported protocols&hellip;&rdquo;</p>
+<p>Stride produced a comparison matrix:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Sensor</th>
+          <th>Protocol</th>
+          <th>Kernel Support</th>
+          <th>Accuracy</th>
+          <th>Code Complexity</th>
+          <th>Cost</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TSIC306</td>
+          <td>ZACWire</td>
+          <td>❌ No</td>
+          <td>±0.5°C</td>
+          <td>300 lines</td>
+          <td>$5-8</td>
+          <td>Works on microcontrollers</td>
+      </tr>
+      <tr>
+          <td>MAX31865+PT100</td>
+          <td>SPI</td>
+          <td>✅ Yes</td>
+          <td>±0.5°C</td>
+          <td>~20 lines</td>
+          <td>~$15</td>
+          <td>Industry standard for espresso</td>
+      </tr>
+      <tr>
+          <td>DS18B20</td>
+          <td>1-Wire</td>
+          <td>✅ Yes</td>
+          <td>±0.5°C</td>
+          <td>~5 lines</td>
+          <td>$3-5</td>
+          <td>Easiest implementation</td>
+      </tr>
+      <tr>
+          <td>MCP9808</td>
+          <td>I2C</td>
+          <td>✅ Yes</td>
+          <td>±0.25°C</td>
+          <td>~15 lines</td>
+          <td>~$5</td>
+          <td>Best accuracy</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Stride&rsquo;s recommendation:</strong> &ldquo;For your espresso machine project, MAX31865 with PT100 RTD is the best choice. PT100 is what commercial espresso machines use, SPI has full kernel support, and the 20-line implementation vs. 300-line ZACWire implementation means less maintenance burden.&rdquo;</p>
+<p><strong>The decision:</strong> Switch to MAX31865 + PT100 RTD.</p>
+<h2 id="what-made-this-work-key-stride-features">What Made This Work: Key Stride Features</h2>
+<h3 id="1-context-awareness">1. Context Awareness</h3>
+<p>Stride remembered details across conversations:</p>
+<ul>
+<li>&ldquo;You&rsquo;re using Raspberry Pi Zero W&rdquo; (not Pi 3/4)</li>
+<li>&ldquo;Your project is in Elixir using Circuits.GPIO&rdquo;</li>
+<li>&ldquo;This is for an espresso machine (90-95°C operating range)&rdquo;</li>
+</ul>
+<p>This meant I didn&rsquo;t have to re-explain my project every time I asked a question.</p>
+<h3 id="2-adaptive-planning">2. Adaptive Planning</h3>
+<p>When W21 revealed fundamental issues, Stride didn&rsquo;t:</p>
+<ul>
+<li>Force me to complete a plan that wasn&rsquo;t working</li>
+<li>Just mark tasks as &ldquo;blocked&rdquo; without helping</li>
+<li>Make me feel like I&rsquo;d &ldquo;failed&rdquo;</li>
+</ul>
+<p>Instead, it:</p>
+<ul>
+<li>Helped diagnose the problem</li>
+<li>Researched solutions and alternatives</li>
+<li>Adapted the plan based on new information</li>
+<li>Documented learnings for future decisions</li>
+</ul>
+<h3 id="3-technical-research-integration">3. Technical Research Integration</h3>
+<p>Stride could:</p>
+<ul>
+<li>Search for protocol specifications</li>
+<li>Find existing implementations (python-tsic library)</li>
+<li>Compare technical approaches</li>
+<li>Explain tradeoffs in context of my project</li>
+</ul>
+<p>This felt like having a senior developer who&rsquo;s already researched similar problems.</p>
+<h3 id="4-learning-capture">4. Learning Capture</h3>
+<p>Every task completion captured:</p>
+<ul>
+<li>What was done</li>
+<li>Why decisions were made</li>
+<li>What was learned</li>
+<li>What to do differently next time</li>
+</ul>
+<p>W21 wasn&rsquo;t a &ldquo;failure&rdquo;—it was a successful discovery that the approach needed to change.</p>
+<h2 id="the-final-outcome">The Final Outcome</h2>
+<p><strong>Tasks W14-W20:</strong> ✅ Complete</p>
+<ul>
+<li>Successfully implemented full ZACWire protocol in Elixir</li>
+<li>Demonstrated understanding of timing-sensitive protocols</li>
+<li>Built comprehensive error handling and validation</li>
+</ul>
+<p><strong>Task W21:</strong> ✅ Complete (with pivot)</p>
+<ul>
+<li>Tested on actual hardware</li>
+<li>Discovered fundamental timing limitations</li>
+<li>Documented root cause analysis</li>
+<li>Evaluated alternatives</li>
+<li>Made informed decision: MAX31865 + PT100 RTD</li>
+</ul>
+<p><strong>Task W22:</strong> 🔄 In Progress</p>
+<ul>
+<li>Document findings (this blog post!)</li>
+<li>Share learnings with community</li>
+</ul>
+<p><strong>Next Steps:</strong></p>
+<ul>
+<li>Order MAX31865 module (~$15)</li>
+<li>Implement SPI-based sensor reading (~20 lines)</li>
+<li>Continue with espresso PID controller</li>
+</ul>
+<h2 id="lessons-about-project-management">Lessons About Project Management</h2>
+<h3 id="1-good-pm-adapts-to-learning">1. Good PM Adapts to Learning</h3>
+<p>The best project management doesn&rsquo;t enforce an original plan—it helps you navigate as you learn. Tasks W14-W22 were a roadmap, not a rigid schedule. When reality diverged from assumptions, the plan evolved.</p>
+<h3 id="2-failure-is-just-discovery">2. &ldquo;Failure&rdquo; Is Just Discovery</h3>
+<p>W21 &ldquo;failed&rdquo; in that the sensor didn&rsquo;t work reliably. But W21 &ldquo;succeeded&rdquo; in:</p>
+<ul>
+<li>Identifying the problem</li>
+<li>Understanding why it happened</li>
+<li>Documenting the finding</li>
+<li>Evaluating alternatives</li>
+<li>Making an informed decision</li>
+</ul>
+<p>Stride recognized both aspects. Traditional tools would just show a red &ldquo;Failed&rdquo; status.</p>
+<h3 id="3-solo-developers-need-different-tools">3. Solo Developers Need Different Tools</h3>
+<p>Team-based PM tools optimize for:</p>
+<ul>
+<li>Coordination between people</li>
+<li>Visibility for managers</li>
+<li>Formal tracking and reporting</li>
+</ul>
+<p>Solo developers need tools that optimize for:</p>
+<ul>
+<li>Breaking down unfamiliar work</li>
+<li>Capturing context and decisions</li>
+<li>Reducing cognitive load</li>
+<li>Supporting technical research</li>
+</ul>
+<p>Stride feels purpose-built for the solo developer experience.</p>
+<h3 id="4-documentation-happens-naturally">4. Documentation Happens Naturally</h3>
+<p>Because Stride captured learnings at each task, I didn&rsquo;t need a separate documentation phase. The project history <em>is</em> the documentation. When writing this blog post, I just reviewed the task history—all the technical details and decision-making were already there.</p>
+<h2 id="when-stride-works-best">When Stride Works Best</h2>
+<p>Based on my experience, Stride excels when:</p>
+<ul>
+<li><strong>Working with unfamiliar technology:</strong> Breaking down what you don&rsquo;t fully understand</li>
+<li><strong>Discovery-driven development:</strong> Plans need to adapt as you learn</li>
+<li><strong>Solo or small teams:</strong> Don&rsquo;t need heavyweight team coordination</li>
+<li><strong>Technical decision support:</strong> Want AI help researching options</li>
+<li><strong>Building a knowledge base:</strong> Documenting why, not just what</li>
+</ul>
+<h2 id="the-bottom-line">The Bottom Line</h2>
+<p>Stride turned what could have been a frustrating &ldquo;failed sensor implementation&rdquo; into a well-documented learning experience with clear next steps. The tool adapted to reality instead of forcing me to follow a plan that wasn&rsquo;t working.</p>
+<p>For solo developers tackling complex technical challenges, having an AI assistant that does both project management and technical research feels like having a senior developer looking over your shoulder—in the best way possible.</p>
+<p><strong>The technical outcome:</strong> I learned ZACWire protocol, implemented it successfully, and discovered its limitations on my platform.</p>
+<p><strong>The project management outcome:</strong> I stayed organized, captured learnings, adapted to new information, and made informed decisions about next steps.</p>
+<p><strong>The human outcome:</strong> I didn&rsquo;t feel lost, frustrated, or overwhelmed. I felt supported.</p>
+<p>That&rsquo;s what good project management should feel like.</p>
+<hr>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ol>
+<li><strong>Break down complex work iteratively:</strong> You don&rsquo;t need to know everything upfront</li>
+<li><strong>Capture context as you go:</strong> Future you will thank present you</li>
+<li><strong>Treat pivots as learning, not failure:</strong> Discovery is progress</li>
+<li><strong>Use AI for research and decision support:</strong> Don&rsquo;t just track work, get help with work</li>
+<li><strong>Choose tools that match your team size:</strong> Solo developers need different tools than teams</li>
+</ol>
+<hr>
+<p><strong>Project Stats:</strong></p>
+<ul>
+<li>Tasks completed: W14-W21 (8 tasks)</li>
+<li>Lines of protocol code: ~300</li>
+<li>Hardware test failure rate: 75%</li>
+<li>Alternative sensors evaluated: 3</li>
+<li>Final decision: MAX31865 + PT100 RTD</li>
+<li>Time saved on project management overhead: Immeasurable</li>
+</ul>
+<hr>
+<p><em>Want to try Stride for your own projects? Check out <a href="https://www.stridelikeaboss.com">stridelikeaboss.com</a>.</em></p>
+
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/deploying-to-flyio/" class="nav-prev">
+                ← Deploying to Fly.io for Development
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

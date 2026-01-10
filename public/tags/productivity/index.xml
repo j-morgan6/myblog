@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productivity on Joser&#39;s Elixir</title>
+    <link>http://localhost:1313/tags/productivity/</link>
+    <description>Recent content in Productivity on Joser&#39;s Elixir</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing Complex Technical Projects with Stride: A Real-World Case Study</title>
+      <link>http://localhost:1313/posts/managing-complex-projects-with-stride/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/managing-complex-projects-with-stride/</guid>
+      <description>&lt;h2 id=&#34;the-challenge-managing-unknown-complexity&#34;&gt;The Challenge: Managing Unknown Complexity&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m building an IoT espresso machine controller called &amp;ldquo;Silvia&amp;rdquo; using Elixir and Nerves on a Raspberry Pi Zero W. When I decided to implement a TSIC306 temperature sensor, I knew it would be complex, but I didn&amp;rsquo;t know &lt;em&gt;how&lt;/em&gt; complex or what problems I&amp;rsquo;d encounter.&lt;/p&gt;&#xA;&lt;p&gt;This is the reality of technical work: you can&amp;rsquo;t fully plan what you don&amp;rsquo;t yet understand. Traditional project management tools want you to define all tasks upfront, estimate completion times, and follow a predetermined path. But embedded systems work—especially when you&amp;rsquo;re working with unfamiliar hardware protocols—is inherently discovery-driven.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

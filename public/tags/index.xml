@@ -2,122 +2,213 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Joser&#39;s Elixir</title>
-    <link>https://joser.ca/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Oct 2025 10:00:00 -0400</lastBuildDate>
-    <atom:link href="https://joser.ca/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai-Tools</title>
+      <link>http://localhost:1313/tags/ai-tools/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ai-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embedded-Systems</title>
+      <link>http://localhost:1313/tags/embedded-systems/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/embedded-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Espresso</title>
+      <link>http://localhost:1313/tags/espresso/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/espresso/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Productivity</title>
+      <link>http://localhost:1313/tags/productivity/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/productivity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Project-Management</title>
+      <link>http://localhost:1313/tags/project-management/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/project-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rancilio-Silvia</title>
+      <link>http://localhost:1313/tags/rancilio-silvia/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rancilio-silvia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stride</title>
+      <link>http://localhost:1313/tags/stride/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/stride/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Deployment</title>
-      <link>https://joser.ca/tags/deployment/</link>
+      <link>http://localhost:1313/tags/deployment/</link>
       <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/deployment/</guid>
+      <guid>http://localhost:1313/tags/deployment/</guid>
       <description></description>
     </item>
     <item>
       <title>Elixir</title>
-      <link>https://joser.ca/tags/elixir/</link>
+      <link>http://localhost:1313/tags/elixir/</link>
       <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/elixir/</guid>
+      <guid>http://localhost:1313/tags/elixir/</guid>
       <description></description>
     </item>
     <item>
       <title>Fly.io</title>
-      <link>https://joser.ca/tags/fly.io/</link>
+      <link>http://localhost:1313/tags/fly.io/</link>
       <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/fly.io/</guid>
+      <guid>http://localhost:1313/tags/fly.io/</guid>
       <description></description>
     </item>
     <item>
       <title>Infrastructure</title>
-      <link>https://joser.ca/tags/infrastructure/</link>
+      <link>http://localhost:1313/tags/infrastructure/</link>
       <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/infrastructure/</guid>
+      <guid>http://localhost:1313/tags/infrastructure/</guid>
       <description></description>
     </item>
     <item>
       <title>Best-Practices</title>
-      <link>https://joser.ca/tags/best-practices/</link>
+      <link>http://localhost:1313/tags/best-practices/</link>
       <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/best-practices/</guid>
+      <guid>http://localhost:1313/tags/best-practices/</guid>
       <description></description>
     </item>
     <item>
       <title>Mix-Audit</title>
-      <link>https://joser.ca/tags/mix-audit/</link>
+      <link>http://localhost:1313/tags/mix-audit/</link>
       <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/mix-audit/</guid>
+      <guid>http://localhost:1313/tags/mix-audit/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>https://joser.ca/tags/security/</link>
+      <link>http://localhost:1313/tags/security/</link>
       <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/security/</guid>
+      <guid>http://localhost:1313/tags/security/</guid>
       <description></description>
     </item>
     <item>
       <title>Sobelow</title>
-      <link>https://joser.ca/tags/sobelow/</link>
+      <link>http://localhost:1313/tags/sobelow/</link>
       <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/sobelow/</guid>
+      <guid>http://localhost:1313/tags/sobelow/</guid>
       <description></description>
     </item>
     <item>
       <title>Credo</title>
-      <link>https://joser.ca/tags/credo/</link>
+      <link>http://localhost:1313/tags/credo/</link>
       <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/credo/</guid>
+      <guid>http://localhost:1313/tags/credo/</guid>
       <description></description>
     </item>
     <item>
       <title>Linting</title>
-      <link>https://joser.ca/tags/linting/</link>
+      <link>http://localhost:1313/tags/linting/</link>
       <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/linting/</guid>
+      <guid>http://localhost:1313/tags/linting/</guid>
       <description></description>
     </item>
     <item>
       <title>Coverage</title>
-      <link>https://joser.ca/tags/coverage/</link>
+      <link>http://localhost:1313/tags/coverage/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/coverage/</guid>
+      <guid>http://localhost:1313/tags/coverage/</guid>
       <description></description>
     </item>
     <item>
       <title>Quality</title>
-      <link>https://joser.ca/tags/quality/</link>
+      <link>http://localhost:1313/tags/quality/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/quality/</guid>
+      <guid>http://localhost:1313/tags/quality/</guid>
       <description></description>
     </item>
     <item>
       <title>Testing</title>
-      <link>https://joser.ca/tags/testing/</link>
+      <link>http://localhost:1313/tags/testing/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/testing/</guid>
+      <guid>http://localhost:1313/tags/testing/</guid>
       <description></description>
     </item>
     <item>
       <title>Phoenix</title>
-      <link>https://joser.ca/tags/phoenix/</link>
+      <link>http://localhost:1313/tags/phoenix/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/phoenix/</guid>
+      <guid>http://localhost:1313/tags/phoenix/</guid>
       <description></description>
     </item>
     <item>
       <title>Tidewave</title>
-      <link>https://joser.ca/tags/tidewave/</link>
+      <link>http://localhost:1313/tags/tidewave/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/tidewave/</guid>
+      <guid>http://localhost:1313/tags/tidewave/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>https://joser.ca/tags/tutorial/</link>
+      <link>http://localhost:1313/tags/tutorial/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>https://joser.ca/tags/tutorial/</guid>
+      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hardware</title>
+      <link>http://localhost:1313/tags/hardware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iot</title>
+      <link>http://localhost:1313/tags/iot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/iot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nerves</title>
+      <link>http://localhost:1313/tags/nerves/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/nerves/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry-Pi</title>
+      <link>http://localhost:1313/tags/raspberry-pi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Solo-Developer</title>
+      <link>http://localhost:1313/tags/solo-developer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/solo-developer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Temperature-Sensors</title>
+      <link>http://localhost:1313/tags/temperature-sensors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/temperature-sensors/</guid>
       <description></description>
     </item>
   </channel>

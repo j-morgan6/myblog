@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rancilio-Silvia on Joser&#39;s Elixir</title>
+    <link>http://localhost:1313/tags/rancilio-silvia/</link>
+    <description>Recent content in Rancilio-Silvia on Joser&#39;s Elixir</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rancilio-silvia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hacking My Rancilio Silvia: Using Stride to Manage a Complex Sensor Integration</title>
+      <link>http://localhost:1313/posts/managing-complex-projects-with-stride/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/managing-complex-projects-with-stride/</guid>
+      <description>&lt;h2 id=&#34;the-setup-modding-a-rancilio-silvia&#34;&gt;The Setup: Modding a Rancilio Silvia&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m hacking my Rancilio Silvia espresso machine with a Raspberry Pi Zero W running Elixir/Nerves. The goal? PID temperature control for better espresso. When I decided to add a TSIC306 temperature sensor, I knew it&amp;rsquo;d be tricky, but I didn&amp;rsquo;t know &lt;em&gt;how&lt;/em&gt; tricky.&lt;/p&gt;&#xA;&lt;p&gt;This is the reality of technical work: you can&amp;rsquo;t fully plan what you don&amp;rsquo;t yet understand. Traditional project management tools want you to define all tasks upfront, estimate completion times, and follow a predetermined path. But embedded systems work—especially when you&amp;rsquo;re working with unfamiliar hardware protocols—is inherently discovery-driven.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
