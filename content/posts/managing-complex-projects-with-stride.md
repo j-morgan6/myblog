@@ -27,23 +27,19 @@ I started simple: "I need to implement TSIC306 temperature sensor support for my
 
 Stride broke it down into concrete tasks:
 
-```
-W14: Research ZACWire protocol specification
-W15: Implement bit-level GPIO reading logic
-W16: Add parity bit validation
-W17: Write temperature conversion and unit tests
-W18: Implement comprehensive error handling
-W19: Add timeout protection for sensor reads
-W20: Integration testing with full system
-W21: Hardware testing on actual Raspberry Pi
-W22: Document implementation and findings
-```
+| Task | Description |
+|------|-------------|
+| W14 | Research ZACWire protocol specification |
+| W15 | Implement bit-level GPIO reading logic |
+| W16 | Add parity bit validation |
+| W17 | Write temperature conversion and unit tests |
+| W18 | Implement comprehensive error handling |
+| W19 | Add timeout protection for sensor reads |
+| W20 | Integration testing with full system |
+| W21 | Hardware testing on actual Raspberry Pi |
+| W22 | Document implementation and findings |
 
-Each task had:
-- **Clear scope**: What specifically needs to be done
-- **Acceptance criteria**: How to know when it's complete
-- **Dependencies**: Which tasks must come first
-- **Context**: Why this task matters
+Each task had clear scope, acceptance criteria, dependencies, and context—basically a roadmap that could evolve as I learned more.
 
 ## The Development Flow: W14-W20
 
@@ -150,47 +146,47 @@ Stride produced a comparison matrix:
 
 ## What Made This Work: Key Stride Features
 
-### 1. Context Awareness
+### 🧠 Context Awareness
 
-Stride remembered details across conversations:
+Stride remembered details across conversations without me having to repeat myself:
 - "You're using Raspberry Pi Zero W" (not Pi 3/4)
 - "Your project is in Elixir using Circuits.GPIO"
 - "This is for an espresso machine (90-95°C operating range)"
 
-This meant I didn't have to re-explain my project every time I asked a question.
+### 🔄 Adaptive Planning
 
-### 2. Adaptive Planning
+When W21 revealed fundamental issues, Stride didn't just mark the task as "blocked." Instead:
 
-When W21 revealed fundamental issues, Stride didn't:
-- Force me to complete a plan that wasn't working
-- Just mark tasks as "blocked" without helping
-- Make me feel like I'd "failed"
+**What it didn't do:**
+- ❌ Force me to complete a plan that wasn't working
+- ❌ Make me feel like I'd "failed"
+- ❌ Leave me stuck without options
 
-Instead, it:
-- Helped diagnose the problem
-- Researched solutions and alternatives
-- Adapted the plan based on new information
-- Documented learnings for future decisions
+**What it did:**
+- ✅ Diagnosed the root cause
+- ✅ Researched existing solutions
+- ✅ Evaluated alternatives
+- ✅ Documented learnings for future decisions
 
-### 3. Technical Research Integration
+### 🔍 Technical Research Integration
 
-Stride could:
-- Search for protocol specifications
-- Find existing implementations (python-tsic library)
-- Compare technical approaches
-- Explain tradeoffs in context of my project
+Stride actively helped with technical research:
+- Found protocol specifications and timing requirements
+- Discovered existing implementations (like python-tsic library)
+- Compared different technical approaches
+- Explained tradeoffs in the context of my specific project
 
-This felt like having a senior developer who's already researched similar problems.
+This felt less like a task tracker and more like having a senior developer who's already researched similar problems.
 
-### 4. Learning Capture
+### 📚 Learning Capture
 
-Every task completion captured:
-- What was done
-- Why decisions were made
-- What was learned
+Every task completion automatically captured the important stuff:
+- What was actually done
+- Why specific decisions were made
+- What was learned along the way
 - What to do differently next time
 
-W21 wasn't a "failure"—it was a successful discovery that the approach needed to change.
+**The result:** W21 wasn't a "failure"—it was a successful discovery that led to a better approach.
 
 ## The Final Outcome
 
@@ -267,33 +263,25 @@ Stride turned what could have been a frustrating "failed sensor implementation" 
 
 For solo developers tackling complex technical challenges, having an AI assistant that does both project management and technical research feels like having a senior developer looking over your shoulder—in the best way possible.
 
-**The technical outcome:** I learned ZACWire protocol, implemented it successfully, and discovered its limitations on my platform.
+### Three Outcomes
 
-**The project management outcome:** I stayed organized, captured learnings, adapted to new information, and made informed decisions about next steps.
+**🔧 Technical:** I learned the ZACWire protocol, implemented it successfully, and discovered its limitations on my platform.
 
-**The human outcome:** I didn't feel lost, frustrated, or overwhelmed. I felt supported.
+**📋 Project Management:** I stayed organized, captured learnings, adapted to new information, and made informed decisions about next steps.
+
+**👤 Human:** I didn't feel lost, frustrated, or overwhelmed. I felt supported.
 
 That's what good project management should feel like.
 
 ---
 
-## Key Takeaways
+## 💡 Key Takeaways
 
-1. **Break down complex work iteratively:** You don't need to know everything upfront
-2. **Capture context as you go:** Future you will thank present you
-3. **Treat pivots as learning, not failure:** Discovery is progress
-4. **Use AI for research and decision support:** Don't just track work, get help with work
-5. **Choose tools that match your team size:** Solo developers need different tools than teams
-
----
-
-**Project Stats:**
-- Tasks completed: W14-W21 (8 tasks)
-- Lines of protocol code: ~300
-- Hardware test failure rate: 75%
-- Alternative sensors evaluated: 3
-- Final decision: MAX31865 + PT100 RTD
-- Time saved on project management overhead: Immeasurable
+1. **Break down complex work iteratively** — You don't need to know everything upfront
+2. **Capture context as you go** — Future you will thank present you
+3. **Treat pivots as learning, not failure** — Discovery is progress
+4. **Use AI for research and decision support** — Don't just track work, get help with work
+5. **Choose tools that match your team size** — Solo developers need different tools than teams
 
 ---
 

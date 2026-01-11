@@ -90,22 +90,53 @@
 <h2 id="breaking-down-the-unknown">Breaking Down the Unknown</h2>
 <p>I started simple: &ldquo;I need to implement TSIC306 temperature sensor support for my Raspberry Pi Zero W project using Elixir.&rdquo;</p>
 <p>Stride broke it down into concrete tasks:</p>
-<pre tabindex="0"><code>W14: Research ZACWire protocol specification
-W15: Implement bit-level GPIO reading logic
-W16: Add parity bit validation
-W17: Write temperature conversion and unit tests
-W18: Implement comprehensive error handling
-W19: Add timeout protection for sensor reads
-W20: Integration testing with full system
-W21: Hardware testing on actual Raspberry Pi
-W22: Document implementation and findings
-</code></pre><p>Each task had:</p>
-<ul>
-<li><strong>Clear scope</strong>: What specifically needs to be done</li>
-<li><strong>Acceptance criteria</strong>: How to know when it&rsquo;s complete</li>
-<li><strong>Dependencies</strong>: Which tasks must come first</li>
-<li><strong>Context</strong>: Why this task matters</li>
-</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Task</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>W14</td>
+          <td>Research ZACWire protocol specification</td>
+      </tr>
+      <tr>
+          <td>W15</td>
+          <td>Implement bit-level GPIO reading logic</td>
+      </tr>
+      <tr>
+          <td>W16</td>
+          <td>Add parity bit validation</td>
+      </tr>
+      <tr>
+          <td>W17</td>
+          <td>Write temperature conversion and unit tests</td>
+      </tr>
+      <tr>
+          <td>W18</td>
+          <td>Implement comprehensive error handling</td>
+      </tr>
+      <tr>
+          <td>W19</td>
+          <td>Add timeout protection for sensor reads</td>
+      </tr>
+      <tr>
+          <td>W20</td>
+          <td>Integration testing with full system</td>
+      </tr>
+      <tr>
+          <td>W21</td>
+          <td>Hardware testing on actual Raspberry Pi</td>
+      </tr>
+      <tr>
+          <td>W22</td>
+          <td>Document implementation and findings</td>
+      </tr>
+  </tbody>
+</table>
+<p>Each task had clear scope, acceptance criteria, dependencies, and context—basically a roadmap that could evolve as I learned more.</p>
 <h2 id="the-development-flow-w14-w20">The Development Flow: W14-W20</h2>
 <p>Tasks W14-W20 went surprisingly smoothly. Here&rsquo;s what that looked like:</p>
 <h3 id="task-w14-protocol-research">Task W14: Protocol Research</h3>
@@ -231,46 +262,46 @@ W22: Document implementation and findings
 <p><strong>Stride&rsquo;s recommendation:</strong> &ldquo;For your espresso machine project, MAX31865 with PT100 RTD is the best choice. PT100 is what commercial espresso machines use, SPI has full kernel support, and the 20-line implementation vs. 300-line ZACWire implementation means less maintenance burden.&rdquo;</p>
 <p><strong>The decision:</strong> Switch to MAX31865 + PT100 RTD.</p>
 <h2 id="what-made-this-work-key-stride-features">What Made This Work: Key Stride Features</h2>
-<h3 id="1-context-awareness">1. Context Awareness</h3>
-<p>Stride remembered details across conversations:</p>
+<h3 id="-context-awareness">🧠 Context Awareness</h3>
+<p>Stride remembered details across conversations without me having to repeat myself:</p>
 <ul>
 <li>&ldquo;You&rsquo;re using Raspberry Pi Zero W&rdquo; (not Pi 3/4)</li>
 <li>&ldquo;Your project is in Elixir using Circuits.GPIO&rdquo;</li>
 <li>&ldquo;This is for an espresso machine (90-95°C operating range)&rdquo;</li>
 </ul>
-<p>This meant I didn&rsquo;t have to re-explain my project every time I asked a question.</p>
-<h3 id="2-adaptive-planning">2. Adaptive Planning</h3>
-<p>When W21 revealed fundamental issues, Stride didn&rsquo;t:</p>
+<h3 id="-adaptive-planning">🔄 Adaptive Planning</h3>
+<p>When W21 revealed fundamental issues, Stride didn&rsquo;t just mark the task as &ldquo;blocked.&rdquo; Instead:</p>
+<p><strong>What it didn&rsquo;t do:</strong></p>
 <ul>
-<li>Force me to complete a plan that wasn&rsquo;t working</li>
-<li>Just mark tasks as &ldquo;blocked&rdquo; without helping</li>
-<li>Make me feel like I&rsquo;d &ldquo;failed&rdquo;</li>
+<li>❌ Force me to complete a plan that wasn&rsquo;t working</li>
+<li>❌ Make me feel like I&rsquo;d &ldquo;failed&rdquo;</li>
+<li>❌ Leave me stuck without options</li>
 </ul>
-<p>Instead, it:</p>
+<p><strong>What it did:</strong></p>
 <ul>
-<li>Helped diagnose the problem</li>
-<li>Researched solutions and alternatives</li>
-<li>Adapted the plan based on new information</li>
-<li>Documented learnings for future decisions</li>
+<li>✅ Diagnosed the root cause</li>
+<li>✅ Researched existing solutions</li>
+<li>✅ Evaluated alternatives</li>
+<li>✅ Documented learnings for future decisions</li>
 </ul>
-<h3 id="3-technical-research-integration">3. Technical Research Integration</h3>
-<p>Stride could:</p>
+<h3 id="-technical-research-integration">🔍 Technical Research Integration</h3>
+<p>Stride actively helped with technical research:</p>
 <ul>
-<li>Search for protocol specifications</li>
-<li>Find existing implementations (python-tsic library)</li>
-<li>Compare technical approaches</li>
-<li>Explain tradeoffs in context of my project</li>
+<li>Found protocol specifications and timing requirements</li>
+<li>Discovered existing implementations (like python-tsic library)</li>
+<li>Compared different technical approaches</li>
+<li>Explained tradeoffs in the context of my specific project</li>
 </ul>
-<p>This felt like having a senior developer who&rsquo;s already researched similar problems.</p>
-<h3 id="4-learning-capture">4. Learning Capture</h3>
-<p>Every task completion captured:</p>
+<p>This felt less like a task tracker and more like having a senior developer who&rsquo;s already researched similar problems.</p>
+<h3 id="-learning-capture">📚 Learning Capture</h3>
+<p>Every task completion automatically captured the important stuff:</p>
 <ul>
-<li>What was done</li>
-<li>Why decisions were made</li>
-<li>What was learned</li>
+<li>What was actually done</li>
+<li>Why specific decisions were made</li>
+<li>What was learned along the way</li>
 <li>What to do differently next time</li>
 </ul>
-<p>W21 wasn&rsquo;t a &ldquo;failure&rdquo;—it was a successful discovery that the approach needed to change.</p>
+<p><strong>The result:</strong> W21 wasn&rsquo;t a &ldquo;failure&rdquo;—it was a successful discovery that led to a better approach.</p>
 <h2 id="the-final-outcome">The Final Outcome</h2>
 <p><strong>Tasks W14-W20:</strong> ✅ Complete</p>
 <ul>
@@ -339,29 +370,20 @@ W22: Document implementation and findings
 <h2 id="the-bottom-line">The Bottom Line</h2>
 <p>Stride turned what could have been a frustrating &ldquo;failed sensor implementation&rdquo; into a well-documented learning experience with clear next steps. The tool adapted to reality instead of forcing me to follow a plan that wasn&rsquo;t working.</p>
 <p>For solo developers tackling complex technical challenges, having an AI assistant that does both project management and technical research feels like having a senior developer looking over your shoulder—in the best way possible.</p>
-<p><strong>The technical outcome:</strong> I learned ZACWire protocol, implemented it successfully, and discovered its limitations on my platform.</p>
-<p><strong>The project management outcome:</strong> I stayed organized, captured learnings, adapted to new information, and made informed decisions about next steps.</p>
-<p><strong>The human outcome:</strong> I didn&rsquo;t feel lost, frustrated, or overwhelmed. I felt supported.</p>
+<h3 id="three-outcomes">Three Outcomes</h3>
+<p><strong>🔧 Technical:</strong> I learned the ZACWire protocol, implemented it successfully, and discovered its limitations on my platform.</p>
+<p><strong>📋 Project Management:</strong> I stayed organized, captured learnings, adapted to new information, and made informed decisions about next steps.</p>
+<p><strong>👤 Human:</strong> I didn&rsquo;t feel lost, frustrated, or overwhelmed. I felt supported.</p>
 <p>That&rsquo;s what good project management should feel like.</p>
 <hr>
-<h2 id="key-takeaways">Key Takeaways</h2>
+<h2 id="-key-takeaways">💡 Key Takeaways</h2>
 <ol>
-<li><strong>Break down complex work iteratively:</strong> You don&rsquo;t need to know everything upfront</li>
-<li><strong>Capture context as you go:</strong> Future you will thank present you</li>
-<li><strong>Treat pivots as learning, not failure:</strong> Discovery is progress</li>
-<li><strong>Use AI for research and decision support:</strong> Don&rsquo;t just track work, get help with work</li>
-<li><strong>Choose tools that match your team size:</strong> Solo developers need different tools than teams</li>
+<li><strong>Break down complex work iteratively</strong> — You don&rsquo;t need to know everything upfront</li>
+<li><strong>Capture context as you go</strong> — Future you will thank present you</li>
+<li><strong>Treat pivots as learning, not failure</strong> — Discovery is progress</li>
+<li><strong>Use AI for research and decision support</strong> — Don&rsquo;t just track work, get help with work</li>
+<li><strong>Choose tools that match your team size</strong> — Solo developers need different tools than teams</li>
 </ol>
-<hr>
-<p><strong>Project Stats:</strong></p>
-<ul>
-<li>Tasks completed: W14-W21 (8 tasks)</li>
-<li>Lines of protocol code: ~300</li>
-<li>Hardware test failure rate: 75%</li>
-<li>Alternative sensors evaluated: 3</li>
-<li>Final decision: MAX31865 + PT100 RTD</li>
-<li>Time saved on project management overhead: Immeasurable</li>
-</ul>
 <hr>
 <p><em>Want to try Stride for your own projects? Check out <a href="https://www.stridelikeaboss.com">stridelikeaboss.com</a>.</em></p>
 

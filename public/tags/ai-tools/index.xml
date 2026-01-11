@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/ai-tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Managing Complex Technical Projects with Stride: A Real-World Case Study</title>
+      <title>Hacking My Rancilio Silvia: Using Stride to Manage a Complex Sensor Integration</title>
       <link>http://localhost:1313/posts/managing-complex-projects-with-stride/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/managing-complex-projects-with-stride/</guid>
-      <description>&lt;h2 id=&#34;the-challenge-managing-unknown-complexity&#34;&gt;The Challenge: Managing Unknown Complexity&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m building an IoT espresso machine controller called &amp;ldquo;Silvia&amp;rdquo; using Elixir and Nerves on a Raspberry Pi Zero W. When I decided to implement a TSIC306 temperature sensor, I knew it would be complex, but I didn&amp;rsquo;t know &lt;em&gt;how&lt;/em&gt; complex or what problems I&amp;rsquo;d encounter.&lt;/p&gt;&#xA;&lt;p&gt;This is the reality of technical work: you can&amp;rsquo;t fully plan what you don&amp;rsquo;t yet understand. Traditional project management tools want you to define all tasks upfront, estimate completion times, and follow a predetermined path. But embedded systems work—especially when you&amp;rsquo;re working with unfamiliar hardware protocols—is inherently discovery-driven.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;the-setup-modding-a-rancilio-silvia&#34;&gt;The Setup: Modding a Rancilio Silvia&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m hacking my Rancilio Silvia espresso machine with a Raspberry Pi Zero W running Elixir/Nerves. The goal? PID temperature control for better espresso. When I decided to add a TSIC306 temperature sensor, I knew it&amp;rsquo;d be tricky, but I didn&amp;rsquo;t know &lt;em&gt;how&lt;/em&gt; tricky.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s the thing about embedded systems work: you can&amp;rsquo;t plan what you don&amp;rsquo;t understand yet. And I needed some way to stay organized without drowning in project management overhead.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

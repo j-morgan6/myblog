@@ -169,47 +169,5 @@
       <guid>http://localhost:1313/tags/tutorial/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Hardware</title>
-      <link>http://localhost:1313/tags/hardware/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/hardware/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Iot</title>
-      <link>http://localhost:1313/tags/iot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/iot/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Nerves</title>
-      <link>http://localhost:1313/tags/nerves/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/nerves/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Raspberry-Pi</title>
-      <link>http://localhost:1313/tags/raspberry-pi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/raspberry-pi/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Solo-Developer</title>
-      <link>http://localhost:1313/tags/solo-developer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/solo-developer/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Temperature-Sensors</title>
-      <link>http://localhost:1313/tags/temperature-sensors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/temperature-sensors/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>

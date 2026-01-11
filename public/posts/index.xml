@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>When Perfect Code Meets Imperfect Hardware: My TSIC306 Temperature Sensor Journey</title>
-      <link>http://localhost:1313/posts/tsic306-raspberry-pi-timing-failure/</link>
+      <title>Hacking My Rancilio Silvia: Using Stride to Manage a Complex Sensor Integration</title>
+      <link>http://localhost:1313/posts/managing-complex-projects-with-stride/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tsic306-raspberry-pi-timing-failure/</guid>
-      <description>&lt;h2 id=&#34;the-hook-a-tale-of-technical-success-and-practical-failure&#34;&gt;The Hook: A Tale of Technical Success and Practical Failure&lt;/h2&gt;&#xA;&lt;p&gt;I spent days implementing the ZACWire protocol for a TSIC306 temperature sensor in pure Elixir. The code was elegant. The protocol implementation was correct. The parity checks validated perfectly. Then I deployed it to my Raspberry Pi Zero W and watched it fail 75% of the time.&lt;/p&gt;&#xA;&lt;p&gt;This is the story of how I learned that sometimes the &amp;ldquo;right&amp;rdquo; technical implementation meets the &amp;ldquo;wrong&amp;rdquo; platform constraints.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/managing-complex-projects-with-stride/</guid>
+      <description>&lt;h2 id=&#34;the-setup-modding-a-rancilio-silvia&#34;&gt;The Setup: Modding a Rancilio Silvia&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m hacking my Rancilio Silvia espresso machine with a Raspberry Pi Zero W running Elixir/Nerves. The goal? PID temperature control for better espresso. When I decided to add a TSIC306 temperature sensor, I knew it&amp;rsquo;d be tricky, but I didn&amp;rsquo;t know &lt;em&gt;how&lt;/em&gt; tricky.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s the thing about embedded systems work: you can&amp;rsquo;t plan what you don&amp;rsquo;t understand yet. And I needed some way to stay organized without drowning in project management overhead.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deploying to Fly.io for Development</title>
