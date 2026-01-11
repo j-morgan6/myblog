@@ -1,23 +1,17 @@
-{{ define "title" }}{{ .Site.Title }}{{ end }}
+{{ define "title" }}{{ .Site.Title }} - Exploring Elixir and Beyond{{ end }}
 
 {{ define "main" }}
 <div class="home-page">
     <section class="hero">
-        <h1>Welcome to {{ .Site.Title }}</h1>
-        <p class="hero-description">{{ .Site.Params.description | default "A professional blog about development and technology" }}</p>
     </section>
 
     <section class="recent-posts">
-        <h2>Recent Posts</h2>
-
         {{ if .Site.RegularPages }}
         <div class="post-list">
-            {{ range first 10 (where .Site.RegularPages "Type" "posts") }}
+            {{ range first 6 (where .Site.RegularPages "Type" "posts") }}
             <article class="post-list-item">
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-
                 <div class="post-meta">
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
                     {{ if .Params.categories }}
                     <span class="categories">
                         {{ range .Params.categories }}
@@ -27,19 +21,31 @@
                     {{ end }}
                 </div>
 
-                {{ if .Summary }}
-                <div class="post-summary">
-                    {{ .Summary }}
-                </div>
+                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+
+                {{ if .Description }}
+                <p class="post-summary">{{ .Description }}</p>
+                {{ else if .Summary }}
+                <p class="post-summary">{{ .Summary }}</p>
                 {{ end }}
 
-                <a href="{{ .RelPermalink }}" class="read-more">Read More</a>
+                {{ if .Params.tags }}
+                <div class="tags">
+                    {{ range first 3 .Params.tags }}
+                    <span class="tag">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
             </article>
             {{ end }}
         </div>
+
+        <div class="view-all">
+            <a href="/posts/" class="view-all-link">View all posts →</a>
+        </div>
         {{ else }}
         <div class="no-posts">
-            <p>No posts yet. Check back soon!</p>
+            <p>New posts coming soon.</p>
         </div>
         {{ end }}
     </section>
