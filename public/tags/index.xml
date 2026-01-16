@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Tools</title>
       <link>http://localhost:1313/tags/ai-tools/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/ai-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elixir</title>
+      <link>http://localhost:1313/tags/elixir/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/elixir/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tidewave</title>
+      <link>http://localhost:1313/tags/tidewave/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tidewave/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Development-Workflow</title>
+      <link>http://localhost:1313/tags/development-workflow/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/development-workflow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Phoenix</title>
+      <link>http://localhost:1313/tags/phoenix/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/phoenix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Productivity</title>
+      <link>http://localhost:1313/tags/productivity/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/productivity/</guid>
       <description></description>
     </item>
     <item>
@@ -27,13 +62,6 @@
       <link>http://localhost:1313/tags/espresso/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/espresso/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Productivity</title>
-      <link>http://localhost:1313/tags/productivity/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/productivity/</guid>
       <description></description>
     </item>
     <item>
@@ -62,13 +90,6 @@
       <link>http://localhost:1313/tags/deployment/</link>
       <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
       <guid>http://localhost:1313/tags/deployment/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Elixir</title>
-      <link>http://localhost:1313/tags/elixir/</link>
-      <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>http://localhost:1313/tags/elixir/</guid>
       <description></description>
     </item>
     <item>
@@ -149,24 +170,17 @@
       <description></description>
     </item>
     <item>
-      <title>Phoenix</title>
-      <link>http://localhost:1313/tags/phoenix/</link>
-      <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>http://localhost:1313/tags/phoenix/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tidewave</title>
-      <link>http://localhost:1313/tags/tidewave/</link>
-      <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>http://localhost:1313/tags/tidewave/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Tutorial</title>
       <link>http://localhost:1313/tags/tutorial/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
       <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Documentation</title>
+      <link>http://localhost:1313/tags/documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/documentation/</guid>
       <description></description>
     </item>
   </channel>

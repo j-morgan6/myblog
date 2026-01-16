@@ -6,8 +6,15 @@
     <description>Recent content in Tools on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My AI Tool Stack (January 2026)</title>
+      <link>http://localhost:1313/posts/my-ai-tool-stack-january-2026/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/my-ai-tool-stack-january-2026/</guid>
+      <description>&lt;h2 id=&#34;the-stack&#34;&gt;The Stack&lt;/h2&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s what I&amp;rsquo;m actually using day-to-day for Elixir/Phoenix LiveView development. Not what I tried once and forgot about.&lt;/p&gt;&#xA;&lt;h3 id=&#34;code-editing-windsurf&#34;&gt;Code Editing: Windsurf&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;What I use it for:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Primary IDE for Elixir/Phoenix development&lt;/li&gt;&#xA;&lt;li&gt;In-editor AI assistance without context switching&lt;/li&gt;&#xA;&lt;li&gt;Refactoring suggestions that understand Phoenix patterns&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Why it stuck:&lt;/strong&gt; Feels native. The AI suggestions understand Elixir idioms and Phoenix conventions. When I&amp;rsquo;m working on a LiveView component, it actually suggests LiveView-appropriate patterns, not React patterns.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Hacking My Rancilio Silvia: Using Stride to Manage a Complex Sensor Integration</title>
       <link>http://localhost:1313/posts/managing-complex-projects-with-stride/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentation on Joser&#39;s Elixir</title>
+    <link>http://localhost:1313/tags/documentation/</link>
+    <description>Recent content in Documentation on Joser&#39;s Elixir</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TideWave&#39;s Mermaid Integration: Auto-Generating Diagrams from Code</title>
+      <link>http://localhost:1313/posts/tidewave-mermaid-diagrams/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidewave-mermaid-diagrams/</guid>
+      <description>&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;p&gt;TideWave added support for generating Mermaid diagrams. You can now ask the agent to visualize your code, and it&amp;rsquo;ll produce the diagrams for you.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters&#34;&gt;Why This Matters&lt;/h2&gt;&#xA;&lt;p&gt;Documentation is the thing you know you should do but rarely have time for. Architecture diagrams especially - they&amp;rsquo;re outdated the moment you finish drawing them.&lt;/p&gt;&#xA;&lt;p&gt;TideWave generating these automatically changes that equation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-im-using-it-for&#34;&gt;What I&amp;rsquo;m Using It For&lt;/h2&gt;&#xA;&lt;h3 id=&#34;understanding-legacy-code&#34;&gt;Understanding Legacy Code&lt;/h3&gt;&#xA;&lt;p&gt;When I inherited an Elixir project with unclear module relationships, I asked TideWave to analyze the codebase and show me how the contexts interact.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

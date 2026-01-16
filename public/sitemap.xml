@@ -2,11 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/categories/ai/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/ai-tools/</loc>
-    <lastmod>2026-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/development-workflow/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/elixir/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/my-ai-tool-stack-january-2026/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/phoenix/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/productivity/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/tools/</loc>
+    <lastmod>2026-01-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/embedded-systems/</loc>
     <lastmod>2026-01-09T00:00:00+00:00</lastmod>
@@ -17,16 +47,7 @@
     <loc>http://localhost:1313/posts/managing-complex-projects-with-stride/</loc>
     <lastmod>2026-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-01-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/productivity/</loc>
-    <lastmod>2026-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/productivity/</loc>
     <lastmod>2026-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/project-management/</loc>
@@ -38,12 +59,6 @@
     <loc>http://localhost:1313/tags/stride/</loc>
     <lastmod>2026-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/tools/</loc>
-    <lastmod>2026-01-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/deploying-to-flyio/</loc>
     <lastmod>2025-10-22T10:00:00-04:00</lastmod>
   </url><url>
@@ -51,9 +66,6 @@
     <lastmod>2025-10-22T10:00:00-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/devops/</loc>
-    <lastmod>2025-10-22T10:00:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/elixir/</loc>
     <lastmod>2025-10-22T10:00:00-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/fly.io/</loc>
@@ -117,9 +129,6 @@
     <lastmod>2025-09-26T20:00:00-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/building-web-app-with-tidewave/</loc>
-    <lastmod>2025-09-23T16:11:00-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/phoenix/</loc>
     <lastmod>2025-09-23T16:11:00-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/tidewave/</loc>

@@ -541,6 +541,9 @@ input:focus, textarea:focus {
   margin: 2.5rem auto;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(45, 31, 16, 0.1);
+  border: 1px solid rgba(139, 89, 42, 0.1);
+  background: #ffffff;
+  padding: 1.5rem;
 }
 
 /* Horizontal rule */
