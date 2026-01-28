@@ -28,6 +28,18 @@ A Phoenix LiveView image gallery with:
 
 Standard Phoenix/Ecto/LiveView stack
 
+## Understanding Claude Code Customization
+
+Before diving into the results, here's what I mean by "skills" and "hooks":
+
+**Skills** are specialized knowledge documents that provide context-specific guidance. When you invoke a skill (like "ecto-database"), Claude gets detailed information about Ecto patterns, best practices, and common pitfalls. Think of them as reference guides that inform the AI's suggestions.
+
+**Hooks** are validation rules that trigger during development. They can warn you about anti-patterns (like nested if/else statements) or block certain code patterns entirely (like hardcoded file paths). They act as guardrails to enforce conventions.
+
+**Agent Documentation** provides project-specific context - directory structure, naming conventions, and implementation checklists. This helps Claude understand your codebase organization.
+
+Together, these customizations aim to make Claude Code produce more idiomatic, maintainable Elixir code.
+
 ## The Plugin Configuration
 
 I created a comprehensive configuration package:

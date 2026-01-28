@@ -62,7 +62,7 @@
             
 
             <div class="reading-time">
-                5 min read
+                6 min read
             </div>
         </div>
     </header>
@@ -86,6 +86,12 @@
 <li>Local file storage with PostgreSQL metadata</li>
 </ul>
 <p>Standard Phoenix/Ecto/LiveView stack</p>
+<h2 id="understanding-claude-code-customization">Understanding Claude Code Customization</h2>
+<p>Before diving into the results, here&rsquo;s what I mean by &ldquo;skills&rdquo; and &ldquo;hooks&rdquo;:</p>
+<p><strong>Skills</strong> are specialized knowledge documents that provide context-specific guidance. When you invoke a skill (like &ldquo;ecto-database&rdquo;), Claude gets detailed information about Ecto patterns, best practices, and common pitfalls. Think of them as reference guides that inform the AI&rsquo;s suggestions.</p>
+<p><strong>Hooks</strong> are validation rules that trigger during development. They can warn you about anti-patterns (like nested if/else statements) or block certain code patterns entirely (like hardcoded file paths). They act as guardrails to enforce conventions.</p>
+<p><strong>Agent Documentation</strong> provides project-specific context - directory structure, naming conventions, and implementation checklists. This helps Claude understand your codebase organization.</p>
+<p>Together, these customizations aim to make Claude Code produce more idiomatic, maintainable Elixir code.</p>
 <h2 id="the-plugin-configuration">The Plugin Configuration</h2>
 <p>I created a comprehensive configuration package:</p>
 <p><strong>4 Skills:</strong></p>
