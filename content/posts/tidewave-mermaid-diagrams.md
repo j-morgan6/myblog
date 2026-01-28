@@ -11,7 +11,9 @@ description: "TideWave added Mermaid diagram generation. Ask it to visualize you
 
 TideWave can now generate Mermaid diagrams. Ask it to visualize your code, and it produces the diagram.
 
-![Task Creation Flow Diagram](/images/add_task_button_click_flow.png)
+<div style="max-width: 100%; overflow: hidden;">
+  <img src="/images/add_task_button_click_flow.png" alt="Task Creation Flow Diagram" style="width: 100%; height: auto; max-width: 800px;">
+</div>
 
 That's a Mermaid diagram showing what happens when you click "Add Task" in a Phoenix LiveView app. TideWave generated this by tracing through the actual code.
 
@@ -39,4 +41,8 @@ That's a Mermaid diagram showing what happens when you click "Add Task" in a Pho
 - Show supervision tree structure
 - Map Phoenix context boundaries
 
+TideWave's diagram generation makes understanding complex Elixir systems faster. It's particularly useful when dealing with concurrent processes and supervision hierarchies that are hard to visualize manually.
+
 ---
+
+*Tags: #tidewave #ai-tools #elixir #mermaid #diagrams*

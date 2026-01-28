@@ -6,8 +6,22 @@
     <description>Recent content in Posts on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Better Elixir: A Claude Code Plugin Experiment</title>
+      <link>http://localhost:1313/posts/claude-code-elixir-plugin-comparison/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/claude-code-elixir-plugin-comparison/</guid>
+      <description>&lt;h2 id=&#34;the-experiment&#34;&gt;The Experiment&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been using Claude Code for Elixir development and wondered: &lt;strong&gt;Does customizing the AI with skills, hooks, and agent documentation actually make a difference?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;To find out, I built the same Phoenix LiveView image gallery application twice:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Build 1 (Baseline)&lt;/strong&gt;: Minimal configuration - just project guidelines and specs&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Build 2 (Plugin)&lt;/strong&gt;: Custom skills, hooks, agent docs, and comprehensive project documentation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Both builds used identical project specifications and the same base agent guidelines. The only difference was the additional plugin configuration in Build 2.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TideWave Can Now Generate Diagrams</title>
+      <link>http://localhost:1313/posts/tidewave-mermaid-diagrams/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/tidewave-mermaid-diagrams/</guid>
+      <description>&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;p&gt;TideWave can now generate Mermaid diagrams. Ask it to visualize your code, and it produces the diagram.&lt;/p&gt;&#xA;&lt;div style=&#34;max-width: 100%; overflow: hidden;&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/images/add_task_button_click_flow.png&#34; alt=&#34;Task Creation Flow Diagram&#34; style=&#34;width: 100%; height: auto; max-width: 800px;&#34;&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;That&amp;rsquo;s a Mermaid diagram showing what happens when you click &amp;ldquo;Add Task&amp;rdquo; in a Phoenix LiveView app. TideWave generated this by tracing through the actual code.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-im-using-it-for&#34;&gt;What I&amp;rsquo;m Using It For&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Understanding Legacy Code:&lt;/strong&gt; Asked TideWave to show how contexts interact in an inherited Elixir project. Got a clean diagram of data flow. Saved hours.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>My AI Tool Stack (January 2026)</title>
       <link>http://localhost:1313/posts/my-ai-tool-stack-january-2026/</link>

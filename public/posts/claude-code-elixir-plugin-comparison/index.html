@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Better Elixir: A Claude Code Plugin Experiment - Joser&#39;s Elixir</title>
+    <meta name="description" content="Can custom skills and hooks improve AI-assisted Elixir development? I built the same app twice to find out.">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Building Better Elixir: A Claude Code Plugin Experiment</h1>
+
+        <div class="article-meta">
+            <time datetime="2026-01-27">January 27, 2026</time>
+
+            
+
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#elixir</span>
+                
+                <span class="tag">#phoenix</span>
+                
+                <span class="tag">#claude-code</span>
+                
+                <span class="tag">#ai-development</span>
+                
+                <span class="tag">#developer-tools</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                5 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="the-experiment">The Experiment</h2>
+<p>I&rsquo;ve been using Claude Code for Elixir development and wondered: <strong>Does customizing the AI with skills, hooks, and agent documentation actually make a difference?</strong></p>
+<p>To find out, I built the same Phoenix LiveView image gallery application twice:</p>
+<ul>
+<li><strong>Build 1 (Baseline)</strong>: Minimal configuration - just project guidelines and specs</li>
+<li><strong>Build 2 (Plugin)</strong>: Custom skills, hooks, agent docs, and comprehensive project documentation</li>
+</ul>
+<p>Both builds used identical project specifications and the same base agent guidelines. The only difference was the additional plugin configuration in Build 2.</p>
+<h2 id="what-i-built">What I Built</h2>
+<p>A Phoenix LiveView image gallery with:</p>
+<ul>
+<li>Image uploads with progress tracking</li>
+<li>Folder organization (create, delete, move images between folders)</li>
+<li>Tab-based navigation</li>
+<li>Responsive TailwindCSS UI</li>
+<li>Local file storage with PostgreSQL metadata</li>
+</ul>
+<p>Standard Phoenix/Ecto/LiveView stack</p>
+<h2 id="the-plugin-configuration">The Plugin Configuration</h2>
+<p>I created a comprehensive configuration package:</p>
+<p><strong>4 Skills:</strong></p>
+<ul>
+<li><code>elixir-patterns.md</code> - Pattern matching, pipe operators, with statements</li>
+<li><code>phoenix-liveview.md</code> - LiveView lifecycle, uploads, streams</li>
+<li><code>ecto-database.md</code> - Schemas, changesets, queries</li>
+<li><code>error-handling.md</code> - Tagged tuples, error handling patterns</li>
+</ul>
+<p><strong>5 Hooks:</strong></p>
+<ul>
+<li>Warn on nested if/else (prefer pattern matching)</li>
+<li>Block hardcoded config values (require <code>Application.get_env/2</code>)</li>
+<li>Warn on <code>Enum.map |&gt; Enum.filter</code> chains</li>
+<li>Block missing <code>@impl true</code> on callbacks</li>
+<li>Warn on string concatenation in loops</li>
+</ul>
+<p><strong>4 Agent Documentation Files:</strong></p>
+<ul>
+<li>Project structure and context boundaries</li>
+<li>LiveView implementation checklist</li>
+<li>Ecto conventions and best practices</li>
+<li>Testing guide</li>
+</ul>
+<p><strong>Plus:</strong> <code>CLAUDE.md</code> with project overview, commands, and style preferences.</p>
+<p>This configuration is a <strong>one-time investment</strong> that&rsquo;s reusable across all your Elixir projects.</p>
+<h2 id="the-results-an-honest-look">The Results: An Honest Look</h2>
+<h3 id="code-quality--testing">Code Quality &amp; Testing</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>Build 1 (Baseline)</th>
+          <th>Build 2 (Plugin)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Lines of Code</strong></td>
+          <td>~550</td>
+          <td>~2,000+ (with tests)</td>
+      </tr>
+      <tr>
+          <td><strong>Automated Tests</strong></td>
+          <td>0</td>
+          <td>46 tests</td>
+      </tr>
+      <tr>
+          <td><strong>Test Coverage</strong></td>
+          <td>Manual only</td>
+          <td>28/28 context tests passing</td>
+      </tr>
+      <tr>
+          <td><strong>Credo Score</strong></td>
+          <td>Not run</td>
+          <td>Excellent (7 minor issues)</td>
+      </tr>
+      <tr>
+          <td><strong>Convention Adherence</strong></td>
+          <td>Good (2 mistakes)</td>
+          <td>Excellent</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>The plugin produced a more complete, production-ready codebase</strong> with comprehensive test coverage and better adherence to Elixir conventions.</p>
+<p><strong>The 7 minor Credo issues found:</strong></p>
+<ul>
+<li>4 readability suggestions (formatting, test numbers)</li>
+<li>3 design suggestions (nested module aliasing)</li>
+</ul>
+<p>These are all minor quality improvements - the kinds of things that don&rsquo;t break functionality but make code more idiomatic and maintainable.</p>
+<h3 id="manual-testing-still-required">Manual Testing: Still Required</h3>
+<p><strong>Both builds required manual testing to catch functional issues.</strong></p>
+<p>Build 1 had issues with static file configuration and form handling that were caught during user testing. Build 2 encountered a broken upload feature that compiled fine but didn&rsquo;t work correctly until manually tested.</p>
+<p>The plugin helps write better code with proper patterns and conventions, but it <strong>cannot replace human validation</strong>. Skills and hooks focus on code structure and idioms - they don&rsquo;t test whether your features actually work as intended. This is an important limitation to understand.</p>
+<h2 id="where-the-plugin-shined">Where the Plugin Shined</h2>
+<h3 id="1-comprehensive-testing">1. <strong>Comprehensive Testing</strong></h3>
+<p>Build 2 included 46 automated tests covering all context operations, edge cases, and error handling. Build 1 had zero automated tests.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#75715e"># Example from Build 2&#39;s Gallery context tests</span>
+</span></span><span style="display:flex;"><span>test <span style="color:#e6db74">&#34;list_images_by_folder/1 returns only images in specified folder&#34;</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  folder <span style="color:#f92672">=</span> folder_fixture()
+</span></span><span style="display:flex;"><span>  image1 <span style="color:#f92672">=</span> image_fixture(%{<span style="color:#e6db74">folder_id</span>: folder<span style="color:#f92672">.</span>id})
+</span></span><span style="display:flex;"><span>  image2 <span style="color:#f92672">=</span> image_fixture()  <span style="color:#75715e"># No folder</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  images <span style="color:#f92672">=</span> <span style="color:#a6e22e">Gallery</span><span style="color:#f92672">.</span>list_images_by_folder(folder<span style="color:#f92672">.</span>id)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  assert length(images) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  assert <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>any?(images, <span style="color:#66d9ef">fn</span> i <span style="color:#f92672">-&gt;</span> i<span style="color:#f92672">.</span>id <span style="color:#f92672">==</span> image1<span style="color:#f92672">.</span>id <span style="color:#66d9ef">end</span>)
+</span></span><span style="display:flex;"><span>  refute <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>any?(images, <span style="color:#66d9ef">fn</span> i <span style="color:#f92672">-&gt;</span> i<span style="color:#f92672">.</span>id <span style="color:#f92672">==</span> image2<span style="color:#f92672">.</span>id <span style="color:#66d9ef">end</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>The agent documentation guided comprehensive test creation from the start, not as an afterthought.</p>
+<h3 id="2-better-code-quality">2. <strong>Better Code Quality</strong></h3>
+<p>Build 2 ran Credo analysis showing excellent adherence to Elixir conventions:</p>
+<ul>
+<li>Consistent pattern matching throughout</li>
+<li>Proper pipe operator usage</li>
+<li>Tagged tuples for error handling</li>
+<li><code>@impl true</code> on all callbacks</li>
+<li>No critical or warning-level issues</li>
+</ul>
+<p>Build 1 worked fine but didn&rsquo;t have this quality validation.</p>
+<h3 id="3-better-documentation--structure">3. <strong>Better Documentation &amp; Structure</strong></h3>
+<p>Build 2 included:</p>
+<ul>
+<li>Clear context boundaries</li>
+<li>Comprehensive function documentation</li>
+<li>Project structure guides</li>
+<li>Quick reference for common patterns</li>
+</ul>
+<p>This makes the codebase more maintainable for teams.</p>
+<h3 id="4-idiomatic-elixir-from-the-start">4. <strong>Idiomatic Elixir from the Start</strong></h3>
+<p>The skills and agent docs encouraged idiomatic patterns:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#75715e"># Pattern matching over if/else</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> process({<span style="color:#e6db74">:ok</span>, result}), <span style="color:#e6db74">do</span>: transform(result)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> process({<span style="color:#e6db74">:error</span>, reason}), <span style="color:#e6db74">do</span>: handle_error(reason)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># with statements for multi-step operations</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> create_image_with_folder(attrs, folder_id) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  with {<span style="color:#e6db74">:ok</span>, folder} <span style="color:#f92672">&lt;-</span> get_folder(folder_id),
+</span></span><span style="display:flex;"><span>       {<span style="color:#e6db74">:ok</span>, image} <span style="color:#f92672">&lt;-</span> create_image(attrs) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, %{<span style="color:#e6db74">image</span>: image, <span style="color:#e6db74">folder</span>: folder}}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>Build 1 also used good patterns (likely from the base agent guidelines), but Build 2&rsquo;s code was more consistently idiomatic throughout.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<h3 id="what-the-plugin-does-well">What the Plugin Does Well</h3>
+<ul>
+<li><strong>Encourages comprehensive testing</strong> - Tests are written during development, not as an afterthought</li>
+<li><strong>Enforces idiomatic Elixir</strong> - Pattern matching, pipe operators, proper error handling</li>
+<li><strong>Improves code quality metrics</strong> - Credo scores, convention adherence</li>
+<li><strong>Creates better documentation</strong> - Clear structure, maintainable codebases</li>
+<li><strong>Reduces decision fatigue</strong> - Agent docs guide implementation choices</li>
+</ul>
+<h3 id="what-the-plugin-doesnt-do">What the Plugin Doesn&rsquo;t Do</h3>
+<ul>
+<li><strong>Doesn&rsquo;t prevent functional bugs</strong> - Manual testing still essential for validating features work correctly</li>
+<li><strong>Doesn&rsquo;t guarantee faster development</strong> - Focus is on quality over speed</li>
+<li><strong>Doesn&rsquo;t catch integration issues</strong> - Focus is on code patterns, not runtime behavior</li>
+</ul>
+<h3 id="the-honest-verdict">The Honest Verdict</h3>
+<p>The plugin doesn&rsquo;t magically make development faster or bug-free. <strong>But it produces higher-quality, more maintainable code with better test coverage.</strong></p>
+<p>If you&rsquo;re building Elixir applications professionally, the investment is worth it. If you&rsquo;re prototyping or building one-off projects, the baseline approach might be sufficient.</p>
+<h2 id="whats-next">What&rsquo;s Next</h2>
+<p>This is version 1 of the plugin, and I plan to improve it based on these findings:</p>
+<p><strong>Potential improvements:</strong></p>
+<ul>
+<li>Add skills for functional testing patterns</li>
+<li>Create hooks that catch common LiveView lifecycle issues</li>
+<li>Include integration testing guidance</li>
+<li>Add checklists for manual feature validation</li>
+<li>Expand error handling patterns</li>
+</ul>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>I&rsquo;m continuing to refine this plugin for the Elixir community. The configuration is available on GitHub:</p>
+<p><strong><a href="https://github.com/j-morgan6/elixir-claude-optimization">Try it for yourself</a></strong></p>
+<p>The configuration package includes:</p>
+<ul>
+<li>Skills for Elixir patterns, LiveView, Ecto, and error handling</li>
+<li>Hooks that enforce conventions and warn about anti-patterns</li>
+<li>Agent documentation for project structure and testing</li>
+<li>Sample CLAUDE.md for project setup</li>
+</ul>
+<hr>
+<p><em>Tags: #elixir #phoenix #claude-code #ai-development #developer-tools</em></p>
+
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/tidewave-mermaid-diagrams/" class="nav-prev">
+                ← TideWave Can Now Generate Diagrams
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
