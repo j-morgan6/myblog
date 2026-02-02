@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part One | Functional Programming Through Elixir: Immutability vs Mutable State - Joser&#39;s Elixir</title>
+    <meta name="description" content="First post in a series exploring functional programming concepts through Elixir. Learn why immutability is fundamental to FP and how it differs from mutable state in object-oriented programming.">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Part One | Functional Programming Through Elixir: Immutability vs Mutable State</h1>
+
+        <div class="article-meta">
+            <time datetime="2026-02-02">February 2, 2026</time>
+
+            
+
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#elixir</span>
+                
+                <span class="tag">#functional-programming</span>
+                
+                <span class="tag">#fp-series</span>
+                
+                <span class="tag">#immutability</span>
+                
+                <span class="tag">#learning</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                8 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="the-foundation-of-functional-programming">The Foundation of Functional Programming</h2>
+<p>If you&rsquo;re coming from an object-oriented programming background, one of the most fundamental shifts in thinking when learning functional programming is <strong>immutability</strong>. In Elixir and other functional languages, data never changes once it&rsquo;s created. This might sound limiting at first, but it&rsquo;s actually a superpower that unlocks predictability, thread safety, and easier debugging.</p>
+<p>This is the first post in a series exploring functional programming concepts through Elixir, aimed at developers transitioning from OOP paradigms.</p>
+<h2 id="what-is-immutability">What is Immutability?</h2>
+<p><strong>Immutability</strong> means that once a data structure is created, it cannot be modified. Any operation that appears to &ldquo;change&rdquo; the data actually creates a new copy with the desired modifications, leaving the original untouched.</p>
+<p>Let&rsquo;s see this in action with Elixir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Create a list</span>
+</span></span><span style="display:flex;"><span>original_list = [<span style="color:#3677a9">1</span>, <span style="color:#3677a9">2</span>, <span style="color:#3677a9">3</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># &#34;Add&#34; an element using the cons operator [head | tail]</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># This prepends 0 to the list, creating a new list</span>
+</span></span><span style="display:flex;"><span>new_list = [<span style="color:#3677a9">0</span> | original_list]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(original_list)  <span style="color:#999;font-style:italic"># [1, 2, 3] - unchanged!</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(new_list)       <span style="color:#999;font-style:italic"># [0, 1, 2, 3]</span></span></span></code></pre></div>
+<p>The <code>original_list</code> remains exactly as it was. The <code>[0 | original_list]</code> syntax creates an entirely new list with 0 at the front, leaving the original untouched.</p>
+<h2 id="contrast-mutable-state-in-oop">Contrast: Mutable State in OOP</h2>
+<p>In most object-oriented languages, objects maintain internal state that can be modified over time:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Python example</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">class</span> <span style="color:#447fcf;text-decoration:underline">BankAccount</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">__init__</span>(<span style="color:#24909d">self</span>, balance):
+</span></span><span style="display:flex;"><span>        <span style="color:#24909d">self</span>.balance = balance
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">deposit</span>(<span style="color:#24909d">self</span>, amount):
+</span></span><span style="display:flex;"><span>        <span style="color:#24909d">self</span>.balance += amount  <span style="color:#999;font-style:italic"># Mutates internal state</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#24909d">self</span>.balance
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>account = BankAccount(<span style="color:#3677a9">100</span>)
+</span></span><span style="display:flex;"><span>account.deposit(<span style="color:#3677a9">50</span>)
+</span></span><span style="display:flex;"><span><span style="color:#24909d">print</span>(account.balance)  <span style="color:#999;font-style:italic"># 150 - the object changed!</span></span></span></code></pre></div>
+<p>The <code>account</code> object&rsquo;s internal state changed. The object you created is no longer the same object, its <code>balance</code> property now has a different value.</p>
+<h2 id="the-elixir-way-data-transformation">The Elixir Way: Data Transformation</h2>
+<p>In Elixir, instead of mutating objects, we transform data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">defmodule</span> <span style="color:#447fcf;text-decoration:underline">BankAccount</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># defstruct defines a struct (similar to a class, but just data)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">defstruct</span> <span style="color:#ed9d13">balance</span>: <span style="color:#3677a9">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> deposit(account, amount) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#999;font-style:italic"># The %{struct | field: new_value} syntax creates a NEW struct</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#999;font-style:italic"># with the updated field, leaving the original unchanged</span>
+</span></span><span style="display:flex;"><span>    %{account | <span style="color:#ed9d13">balance</span>: account.balance + amount}
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Create a new BankAccount struct with balance: 100</span>
+</span></span><span style="display:flex;"><span>account = %<span style="color:#447fcf;text-decoration:underline">BankAccount</span>{<span style="color:#ed9d13">balance</span>: <span style="color:#3677a9">100</span>}
+</span></span><span style="display:flex;"><span>updated_account = <span style="color:#447fcf;text-decoration:underline">BankAccount</span>.deposit(account, <span style="color:#3677a9">50</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(account)         <span style="color:#999;font-style:italic"># %BankAccount{balance: 100}</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(updated_account) <span style="color:#999;font-style:italic"># %BankAccount{balance: 150}</span></span></span></code></pre></div>
+<p>Notice that <code>account</code> still has a balance of 100. The <code>deposit/2</code> function didn&rsquo;t change it - it returned a <strong>new</strong> account struct with the updated balance. If you want to work with the new value, you must explicitly use <code>updated_account</code>.</p>
+<p><strong>Elixir Syntax Note:</strong> The <code>%{struct | field: value}</code> syntax is how you &ldquo;update&rdquo; a map or struct in Elixir. It doesn&rsquo;t actually update - it creates a new copy with the specified fields changed.</p>
+<h2 id="why-immutability-matters">Why Immutability Matters</h2>
+<h3 id="1-thread-safety-without-locks">1. Thread Safety Without Locks</h3>
+<p>One of the biggest challenges in concurrent programming is dealing with shared mutable state. When multiple threads can modify the same object, you need locks, mutexes, and complex synchronization logic to prevent race conditions.</p>
+<p>With immutability, this entire class of problems disappears:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Multiple processes can safely work with the same data</span>
+</span></span><span style="display:flex;"><span>data = %{<span style="color:#ed9d13">count</span>: <span style="color:#3677a9">0</span>, <span style="color:#ed9d13">items</span>: []}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Process 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">Task</span>.async(<span style="color:#6ab825;font-weight:bold">fn</span> -&gt;
+</span></span><span style="display:flex;"><span>  updated = %{data | <span style="color:#ed9d13">count</span>: data.count + <span style="color:#3677a9">1</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(updated)
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Process 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">Task</span>.async(<span style="color:#6ab825;font-weight:bold">fn</span> -&gt;
+</span></span><span style="display:flex;"><span>  updated = %{data | <span style="color:#ed9d13">items</span>: [<span style="color:#ed9d13">&#34;new_item&#34;</span> | data.items]}
+</span></span><span style="display:flex;"><span>  <span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(updated)
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Original data is never modified - no race conditions!</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(data)  <span style="color:#999;font-style:italic"># %{count: 0, items: []}</span></span></span></code></pre></div>
+<p>Each process gets its own copy of the data. There&rsquo;s no shared mutable state to synchronize.</p>
+<h3 id="2-predictability-and-easier-debugging">2. Predictability and Easier Debugging</h3>
+<p>When data can&rsquo;t change unexpectedly, your code becomes dramatically easier to reason about:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">defmodule</span> <span style="color:#447fcf;text-decoration:underline">ShoppingCart</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> calculate_total(items) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    items
+</span></span><span style="display:flex;"><span>    <span style="color:#999;font-style:italic"># The |&gt; pipe operator passes the result to the next function</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#999;font-style:italic"># This extracts the price from each item</span>
+</span></span><span style="display:flex;"><span>    |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(<span style="color:#6ab825;font-weight:bold">fn</span> item -&gt; item.price <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>    |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.sum()
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> apply_discount(items, discount_percentage) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(items, <span style="color:#6ab825;font-weight:bold">fn</span> item -&gt;
+</span></span><span style="display:flex;"><span>      discount = item.price * discount_percentage
+</span></span><span style="display:flex;"><span>      <span style="color:#999;font-style:italic"># Create a new item map with updated price</span>
+</span></span><span style="display:flex;"><span>      %{item | <span style="color:#ed9d13">price</span>: item.price - discount}
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cart_items = [
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Book&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">20.00</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Pen&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">5.00</span>}
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>total = <span style="color:#447fcf;text-decoration:underline">ShoppingCart</span>.calculate_total(cart_items)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(<span style="color:#ed9d13">&#34;Total: $</span><span style="color:#ed9d13">#{</span>total<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>)  <span style="color:#999;font-style:italic"># Total: $25.00</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Apply a 10% discount</span>
+</span></span><span style="display:flex;"><span>discounted_items = <span style="color:#447fcf;text-decoration:underline">ShoppingCart</span>.apply_discount(cart_items, <span style="color:#3677a9">0.10</span>)
+</span></span><span style="display:flex;"><span>discounted_total = <span style="color:#447fcf;text-decoration:underline">ShoppingCart</span>.calculate_total(discounted_items)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(<span style="color:#ed9d13">&#34;Discounted Total: $</span><span style="color:#ed9d13">#{</span>discounted_total<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>)  <span style="color:#999;font-style:italic"># Discounted Total: $22.50</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Original cart_items unchanged!</span>
+</span></span><span style="display:flex;"><span>original_total = <span style="color:#447fcf;text-decoration:underline">ShoppingCart</span>.calculate_total(cart_items)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(<span style="color:#ed9d13">&#34;Original Total: $</span><span style="color:#ed9d13">#{</span>original_total<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>)  <span style="color:#999;font-style:italic"># Original Total: $25.00</span></span></span></code></pre></div>
+<p>You can call <code>apply_discount/2</code> and know with certainty that <code>cart_items</code> will remain unchanged. No hidden side effects, no unexpected modifications.</p>
+<p>Compare this to an OOP approach where the discount method might mutate the items in place:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#999;font-style:italic">// JavaScript example
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">class</span> ShoppingCart {
+</span></span><span style="display:flex;"><span>  constructor(items) {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">this</span>.items = items;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  applyDiscount(percentage) {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">this</span>.items.forEach(item =&gt; {
+</span></span><span style="display:flex;"><span>      item.price = item.price * (<span style="color:#3677a9">1</span> - percentage);  <span style="color:#999;font-style:italic">// Mutates!
+</span></span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  calculateTotal() {
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#6ab825;font-weight:bold">this</span>.items.reduce((sum, item) =&gt; sum + item.price, <span style="color:#3677a9">0</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">const</span> cart = <span style="color:#6ab825;font-weight:bold">new</span> ShoppingCart([
+</span></span><span style="display:flex;"><span>  { name: <span style="color:#ed9d13">&#34;Book&#34;</span>, price: <span style="color:#3677a9">20.00</span> },
+</span></span><span style="display:flex;"><span>  { name: <span style="color:#ed9d13">&#34;Pen&#34;</span>, price: <span style="color:#3677a9">5.00</span> }
+</span></span><span style="display:flex;"><span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(cart.calculateTotal());  <span style="color:#999;font-style:italic">// 25.00
+</span></span></span><span style="display:flex;"><span>cart.applyDiscount(<span style="color:#3677a9">0.10</span>);
+</span></span><span style="display:flex;"><span>console.log(cart.calculateTotal());  <span style="color:#999;font-style:italic">// 22.50
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">// Original data is gone - we can&#39;t get back to $25.00!
+</span></span></span></code></pre></div>
+<p>Once you call <code>applyDiscount()</code>, the original prices are lost forever. In complex applications, this kind of mutation makes debugging significantly harder because you can&rsquo;t easily track how data changed over time.</p>
+<h3 id="3-time-travel-debugging-and-undoredo">3. Time-Travel Debugging and Undo/Redo</h3>
+<p>Because immutability preserves history naturally, implementing features like undo/redo becomes trivial:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">defmodule</span> <span style="color:#447fcf;text-decoration:underline">Document</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">defstruct</span> <span style="color:#ed9d13">content</span>: <span style="color:#ed9d13">&#34;&#34;</span>, <span style="color:#ed9d13">history</span>: []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> edit(doc, new_content) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    %{doc |
+</span></span><span style="display:flex;"><span>      <span style="color:#ed9d13">content</span>: new_content,
+</span></span><span style="display:flex;"><span>      <span style="color:#ed9d13">history</span>: [doc.content | doc.history]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> undo(doc) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">case</span> doc.history <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>      [previous | rest] -&gt;
+</span></span><span style="display:flex;"><span>        %{doc | <span style="color:#ed9d13">content</span>: previous, <span style="color:#ed9d13">history</span>: rest}
+</span></span><span style="display:flex;"><span>      [] -&gt;
+</span></span><span style="display:flex;"><span>        doc  <span style="color:#999;font-style:italic"># Nothing to undo</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>doc = %<span style="color:#447fcf;text-decoration:underline">Document</span>{<span style="color:#ed9d13">content</span>: <span style="color:#ed9d13">&#34;Hello&#34;</span>}
+</span></span><span style="display:flex;"><span>doc = <span style="color:#447fcf;text-decoration:underline">Document</span>.edit(doc, <span style="color:#ed9d13">&#34;Hello World&#34;</span>)
+</span></span><span style="display:flex;"><span>doc = <span style="color:#447fcf;text-decoration:underline">Document</span>.edit(doc, <span style="color:#ed9d13">&#34;Hello World!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(doc.content)  <span style="color:#999;font-style:italic"># &#34;Hello World!&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>doc = <span style="color:#447fcf;text-decoration:underline">Document</span>.undo(doc)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(doc.content)  <span style="color:#999;font-style:italic"># &#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>doc = <span style="color:#447fcf;text-decoration:underline">Document</span>.undo(doc)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(doc.content)  <span style="color:#999;font-style:italic"># &#34;Hello&#34;</span></span></span></code></pre></div>
+<p>Each edit creates a new document while preserving the old one in history. Undo is just retrieving the previous version.</p>
+<h2 id="performance-isnt-copying-expensive">Performance: Isn&rsquo;t Copying Expensive?</h2>
+<p>You might be thinking: &ldquo;Creating new copies of data for every change sounds incredibly expensive!&rdquo;</p>
+<p>Elixir (and Erlang, which it runs on) use <strong>structural sharing</strong> to make this efficient. When you create a &ldquo;new&rdquo; data structure, the runtime shares as much of the old structure as possible:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># When prepending to a list</span>
+</span></span><span style="display:flex;"><span>list1 = [<span style="color:#3677a9">2</span>, <span style="color:#3677a9">3</span>, <span style="color:#3677a9">4</span>]
+</span></span><span style="display:flex;"><span>list2 = [<span style="color:#3677a9">1</span> | list1]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># list2 doesn&#39;t copy [2, 3, 4]</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># It creates a new head node [1] that points to the existing list</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Memory layout:</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># list1: [2, 3, 4]</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># list2: [1] -&gt; [2, 3, 4]  (reuses list1)</span></span></span></code></pre></div>
+<p>For maps and other structures, only the changed parts are copied. The unchanged portions are shared between the old and new versions.</p>
+<h2 id="embracing-immutability-a-mental-shift">Embracing Immutability: A Mental Shift</h2>
+<p>If you&rsquo;re used to OOP, immutability requires a shift in thinking:</p>
+<p><strong>OOP mindset:</strong> &ldquo;I have an object. I&rsquo;ll modify its properties to represent the new state.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#999;font-style:italic">// Java</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span>user.<span style="color:#bbb">setName</span>(<span style="color:#ed9d13">&#34;Alice&#34;</span>);<span style="color:#666">
+</span></span></span><span style="display:flex;"><span>user.<span style="color:#bbb">setAge</span>(30);<span style="color:#666">
+</span></span></span><span style="display:flex;"><span>user.<span style="color:#bbb">setEmail</span>(<span style="color:#ed9d13">&#34;alice@example.com&#34;</span>);</span></span></code></pre></div>
+<p><strong>FP mindset:</strong> &ldquo;I have data. I&rsquo;ll transform it into new data that represents the new state.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Elixir - the |&gt; pipe operator passes data through transformations</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Each step creates a new map, leaving previous versions unchanged</span>
+</span></span><span style="display:flex;"><span>user
+</span></span><span style="display:flex;"><span>|&gt; <span style="color:#447fcf;text-decoration:underline">Map</span>.put(<span style="color:#ed9d13">:name</span>, <span style="color:#ed9d13">&#34;Alice&#34;</span>)
+</span></span><span style="display:flex;"><span>|&gt; <span style="color:#447fcf;text-decoration:underline">Map</span>.put(<span style="color:#ed9d13">:age</span>, <span style="color:#3677a9">30</span>)
+</span></span><span style="display:flex;"><span>|&gt; <span style="color:#447fcf;text-decoration:underline">Map</span>.put(<span style="color:#ed9d13">:email</span>, <span style="color:#ed9d13">&#34;alice@example.com&#34;</span>)</span></span></code></pre></div>
+<p>The functional approach explicitly shows data flowing through transformations, making the code easier to trace and understand. The <code>|&gt;</code> pipe operator takes the result from the left and passes it as the first argument to the function on the right.</p>
+<h2 id="when-you-actually-need-state">When You Actually Need State</h2>
+<p>You might wonder: &ldquo;If nothing can change, how do I build stateful applications?&rdquo;</p>
+<p>The key insight is that <strong>immutability applies to data structures, not to your entire system</strong>. Elixir handles stateful applications through <strong>processes</strong> - isolated units that maintain state by passing immutable data through recursive function calls. We&rsquo;ll cover this in detail in a later post on the Actor Model, but here&rsquo;s the concept:</p>
+<p>Instead of mutating a variable, a process maintains state by calling itself recursively with new immutable data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Simplified concept (not actual implementation code)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> loop(current_state) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># Receive a message, create new state (immutable)</span>
+</span></span><span style="display:flex;"><span>  new_state = transform(current_state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># Call ourselves again with the new state</span>
+</span></span><span style="display:flex;"><span>  loop(new_state)
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span></span></span></code></pre></div>
+<p>Each &ldquo;update&rdquo; creates new data and passes it to the next iteration. The data itself never changes - we just move through a sequence of immutable snapshots. This gives you stateful behavior while keeping all data immutable.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Immutability means data never changes</strong> - operations create new copies instead of modifying originals</li>
+<li><strong>OOP mutates objects</strong> - state changes happen in place, often with hidden side effects</li>
+<li><strong>Benefits of immutability:</strong>
+<ul>
+<li>Thread safety without locks</li>
+<li>Predictable code that&rsquo;s easier to debug</li>
+<li>Natural time-travel and undo/redo capabilities</li>
+<li>Fewer bugs from unexpected state changes</li>
+</ul>
+</li>
+<li><strong>Performance is optimized</strong> through structural sharing - copying isn&rsquo;t as expensive as it seems</li>
+<li><strong>State is still possible</strong> - it&rsquo;s managed through processes, not mutable data structures</li>
+</ul>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Open up <code>iex</code> and follow along with this exercise to experience immutability firsthand.</p>
+<p><strong>Walkthrough: Tracking Multiple Versions</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Start with a shopping cart</span>
+</span></span><span style="display:flex;"><span>cart_v1 = %{<span style="color:#ed9d13">items</span>: [<span style="color:#ed9d13">&#34;apple&#34;</span>], <span style="color:#ed9d13">total</span>: <span style="color:#3677a9">1.50</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Add another item - creates a new version</span>
+</span></span><span style="display:flex;"><span>cart_v2 = %{cart_v1 | <span style="color:#ed9d13">items</span>: [<span style="color:#ed9d13">&#34;apple&#34;</span>, <span style="color:#ed9d13">&#34;banana&#34;</span>], <span style="color:#ed9d13">total</span>: <span style="color:#3677a9">2.75</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Add a third item</span>
+</span></span><span style="display:flex;"><span>cart_v3 = %{cart_v2 | <span style="color:#ed9d13">items</span>: [<span style="color:#ed9d13">&#34;apple&#34;</span>, <span style="color:#ed9d13">&#34;banana&#34;</span>, <span style="color:#ed9d13">&#34;orange&#34;</span>], <span style="color:#ed9d13">total</span>: <span style="color:#3677a9">4.00</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># All three versions still exist!</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(cart_v1)  <span style="color:#999;font-style:italic"># %{items: [&#34;apple&#34;], total: 1.5}</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(cart_v2)  <span style="color:#999;font-style:italic"># %{items: [&#34;apple&#34;, &#34;banana&#34;], total: 2.75}</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(cart_v3)  <span style="color:#999;font-style:italic"># %{items: [&#34;apple&#34;, &#34;banana&#34;, &#34;orange&#34;], total: 4.0}</span></span></span></code></pre></div>
+<p>Notice how each transformation created a new version while preserving the old ones. This is immutability in action.</p>
+<p><strong>Now You Try:</strong></p>
+<p>Build a simple &ldquo;undo&rdquo; system for a text editor. Start with <code>doc = %{content: &quot;&quot;}</code> and perform several edits, storing each version in a list. Then implement an undo function that goes back through your versions. Can you access any previous state of the document?</p>
+<h2 id="official-documentation-to-help-you-learn">Official Documentation to Help You Learn</h2>
+<ul>
+<li><a href="https://elixir-lang.org/docs.html">Official Elixir Documentation</a></li>
+<li><a href="https://elixir-lang.org/getting-started/introduction.html">Elixir Getting Started Guide</a></li>
+</ul>
+<hr>
+<p><em>Part One | Functional Programming Through Elixir series</em></p>
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/claude-code-elixir-plugin-comparison/" class="nav-prev">
+                ← Building Better Elixir: A Claude Code Plugin Experiment
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

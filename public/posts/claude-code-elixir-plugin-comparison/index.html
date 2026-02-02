@@ -170,18 +170,18 @@
 <h2 id="where-the-plugin-shined">Where the Plugin Shined</h2>
 <h3 id="1-comprehensive-testing">1. <strong>Comprehensive Testing</strong></h3>
 <p>Build 2 included 46 automated tests covering all context operations, edge cases, and error handling. Build 1 had zero automated tests.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#75715e"># Example from Build 2&#39;s Gallery context tests</span>
-</span></span><span style="display:flex;"><span>test <span style="color:#e6db74">&#34;list_images_by_folder/1 returns only images in specified folder&#34;</span> <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  folder <span style="color:#f92672">=</span> folder_fixture()
-</span></span><span style="display:flex;"><span>  image1 <span style="color:#f92672">=</span> image_fixture(%{<span style="color:#e6db74">folder_id</span>: folder<span style="color:#f92672">.</span>id})
-</span></span><span style="display:flex;"><span>  image2 <span style="color:#f92672">=</span> image_fixture()  <span style="color:#75715e"># No folder</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Example from Build 2&#39;s Gallery context tests</span>
+</span></span><span style="display:flex;"><span>test <span style="color:#ed9d13">&#34;list_images_by_folder/1 returns only images in specified folder&#34;</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  folder = folder_fixture()
+</span></span><span style="display:flex;"><span>  image1 = image_fixture(%{<span style="color:#ed9d13">folder_id</span>: folder.id})
+</span></span><span style="display:flex;"><span>  image2 = image_fixture()  <span style="color:#999;font-style:italic"># No folder</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  images <span style="color:#f92672">=</span> <span style="color:#a6e22e">Gallery</span><span style="color:#f92672">.</span>list_images_by_folder(folder<span style="color:#f92672">.</span>id)
+</span></span><span style="display:flex;"><span>  images = <span style="color:#447fcf;text-decoration:underline">Gallery</span>.list_images_by_folder(folder.id)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  assert length(images) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>  assert <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>any?(images, <span style="color:#66d9ef">fn</span> i <span style="color:#f92672">-&gt;</span> i<span style="color:#f92672">.</span>id <span style="color:#f92672">==</span> image1<span style="color:#f92672">.</span>id <span style="color:#66d9ef">end</span>)
-</span></span><span style="display:flex;"><span>  refute <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>any?(images, <span style="color:#66d9ef">fn</span> i <span style="color:#f92672">-&gt;</span> i<span style="color:#f92672">.</span>id <span style="color:#f92672">==</span> image2<span style="color:#f92672">.</span>id <span style="color:#66d9ef">end</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  assert length(images) == <span style="color:#3677a9">1</span>
+</span></span><span style="display:flex;"><span>  assert <span style="color:#447fcf;text-decoration:underline">Enum</span>.any?(images, <span style="color:#6ab825;font-weight:bold">fn</span> i -&gt; i.id == image1.id <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>  refute <span style="color:#447fcf;text-decoration:underline">Enum</span>.any?(images, <span style="color:#6ab825;font-weight:bold">fn</span> i -&gt; i.id == image2.id <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
 </span></span></code></pre></div><p>The agent documentation guided comprehensive test creation from the start, not as an afterthought.</p>
 <h3 id="2-better-code-quality">2. <strong>Better Code Quality</strong></h3>
 <p>Build 2 ran Credo analysis showing excellent adherence to Elixir conventions:</p>
@@ -204,17 +204,17 @@
 <p>This makes the codebase more maintainable for teams.</p>
 <h3 id="4-idiomatic-elixir-from-the-start">4. <strong>Idiomatic Elixir from the Start</strong></h3>
 <p>The skills and agent docs encouraged idiomatic patterns:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#75715e"># Pattern matching over if/else</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> process({<span style="color:#e6db74">:ok</span>, result}), <span style="color:#e6db74">do</span>: transform(result)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> process({<span style="color:#e6db74">:error</span>, reason}), <span style="color:#e6db74">do</span>: handle_error(reason)
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Pattern matching over if/else</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> process({<span style="color:#ed9d13">:ok</span>, result}), <span style="color:#ed9d13">do</span>: transform(result)
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> process({<span style="color:#ed9d13">:error</span>, reason}), <span style="color:#ed9d13">do</span>: handle_error(reason)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># with statements for multi-step operations</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> create_image_with_folder(attrs, folder_id) <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  with {<span style="color:#e6db74">:ok</span>, folder} <span style="color:#f92672">&lt;-</span> get_folder(folder_id),
-</span></span><span style="display:flex;"><span>       {<span style="color:#e6db74">:ok</span>, image} <span style="color:#f92672">&lt;-</span> create_image(attrs) <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, %{<span style="color:#e6db74">image</span>: image, <span style="color:#e6db74">folder</span>: folder}}
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># with statements for multi-step operations</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> create_image_with_folder(attrs, folder_id) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  with {<span style="color:#ed9d13">:ok</span>, folder} &lt;- get_folder(folder_id),
+</span></span><span style="display:flex;"><span>       {<span style="color:#ed9d13">:ok</span>, image} &lt;- create_image(attrs) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ed9d13">:ok</span>, %{<span style="color:#ed9d13">image</span>: image, <span style="color:#ed9d13">folder</span>: folder}}
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
 </span></span></code></pre></div><p>Build 1 also used good patterns (likely from the base agent guidelines), but Build 2&rsquo;s code was more consistently idiomatic throughout.</p>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <h3 id="what-the-plugin-does-well">What the Plugin Does Well</h3>
@@ -267,6 +267,10 @@
             </a>
             
 
+            
+            <a href="/posts/fp-series-immutability-vs-mutable-state/" class="nav-next">
+                Part One | Functional Programming Through Elixir: Immutability vs Mutable State →
+            </a>
             
         </div>
     </footer>

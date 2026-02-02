@@ -144,29 +144,29 @@
 <p>The nice part? Stride didn&rsquo;t just say &ldquo;go research the protocol.&rdquo; It actually helped find resources, summarized the gnarly technical details, and pointed out the stuff that mattered.</p>
 <h3 id="tasks-w15-w17-core-implementation">Tasks W15-W17: Core Implementation</h3>
 <p>Here&rsquo;s where things got interesting. The AI agent actually wrote the protocol implementation in Elixir. My role? Review the code it generated. Here&rsquo;s a snippet of what it produced:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Silvia.TSIC306</span> <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">GenServer</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">alias</span> <span style="color:#a6e22e">Circuits.GPIO</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">defmodule</span> <span style="color:#447fcf;text-decoration:underline">Silvia.TSIC306</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">use</span> <span style="color:#447fcf;text-decoration:underline">GenServer</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">alias</span> <span style="color:#447fcf;text-decoration:underline">Circuits.GPIO</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> read_single_bit <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>    high_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>)
-</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#e6db74">:falling</span>)
-</span></span><span style="display:flex;"><span>    high_duration <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>) <span style="color:#f92672">-</span> high_start
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">defp</span> read_single_bit <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    high_start = <span style="color:#447fcf;text-decoration:underline">System</span>.monotonic_time(<span style="color:#ed9d13">:microsecond</span>)
+</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#ed9d13">:falling</span>)
+</span></span><span style="display:flex;"><span>    high_duration = <span style="color:#447fcf;text-decoration:underline">System</span>.monotonic_time(<span style="color:#ed9d13">:microsecond</span>) - high_start
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    low_start <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>)
-</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#e6db74">:rising</span>)
-</span></span><span style="display:flex;"><span>    low_duration <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span><span style="color:#f92672">.</span>monotonic_time(<span style="color:#e6db74">:microsecond</span>) <span style="color:#f92672">-</span> low_start
+</span></span><span style="display:flex;"><span>    low_start = <span style="color:#447fcf;text-decoration:underline">System</span>.monotonic_time(<span style="color:#ed9d13">:microsecond</span>)
+</span></span><span style="display:flex;"><span>    wait_for_edge(<span style="color:#ed9d13">:rising</span>)
+</span></span><span style="display:flex;"><span>    low_duration = <span style="color:#447fcf;text-decoration:underline">System</span>.monotonic_time(<span style="color:#ed9d13">:microsecond</span>) - low_start
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> high_duration <span style="color:#f92672">+</span> low_duration
-</span></span><span style="display:flex;"><span>    duty_cycle <span style="color:#f92672">=</span> high_duration <span style="color:#f92672">/</span> total
+</span></span><span style="display:flex;"><span>    total = high_duration + low_duration
+</span></span><span style="display:flex;"><span>    duty_cycle = high_duration / total
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">cond</span> <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>      duty_cycle <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.35</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#ae81ff">1</span>}
-</span></span><span style="display:flex;"><span>      duty_cycle <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.65</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#ae81ff">0</span>}
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">true</span> <span style="color:#f92672">-&gt;</span> {<span style="color:#e6db74">:ok</span>, <span style="color:#e6db74">:start_bit</span>}
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">cond</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>      duty_cycle &lt; <span style="color:#3677a9">0.35</span> -&gt; {<span style="color:#ed9d13">:ok</span>, <span style="color:#3677a9">1</span>}
+</span></span><span style="display:flex;"><span>      duty_cycle &lt; <span style="color:#3677a9">0.65</span> -&gt; {<span style="color:#ed9d13">:ok</span>, <span style="color:#3677a9">0</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#40ffff">true</span> -&gt; {<span style="color:#ed9d13">:ok</span>, <span style="color:#ed9d13">:start_bit</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
 </span></span></code></pre></div><p><strong>This is the real power of Stride&rsquo;s AI collaboration:</strong> The agent understood the task breakdown, wrote the implementation, and I reviewed and approved the code. I wasn&rsquo;t context-switching between writing code and updating tickets—I was reviewing code the agent wrote and making sure it was correct.</p>
 <h3 id="tasks-w18-w20-robustness-and-testing">Tasks W18-W20: Robustness and Testing</h3>
 <p>Error handling, timeouts, and integration testing. By the time I reached W20, I had about 300 lines of carefully crafted protocol implementation. Everything worked beautifully&hellip; in unit tests.</p>
