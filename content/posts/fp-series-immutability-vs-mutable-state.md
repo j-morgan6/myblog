@@ -1,7 +1,7 @@
 ---
 title: "Part One | Functional Programming Through Elixir: Immutability vs Mutable State"
 date: 2026-02-02
-draft: true
+draft: false
 tags: ["elixir", "functional-programming", "fp-series", "immutability", "learning"]
 description: "First post in a series exploring functional programming concepts through Elixir. Learn why immutability is fundamental to FP and how it differs from mutable state in object-oriented programming."
 ---
