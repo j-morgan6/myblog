@@ -1,7 +1,7 @@
 ---
 title: "Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens"
 date: 2026-02-04
-draft: True
+draft: false
 tags: ["elixir", "functional-programming", "fp-series", "first-class-functions", "learning"]
 description: "Second post in a series exploring functional programming concepts through Elixir. Discover how treating functions as values unlocks powerful patterns for data transformation and code composition."
 ---

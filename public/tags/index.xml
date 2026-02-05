@@ -6,27 +6,41 @@
     <description>Recent content in Tags on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elixir</title>
       <link>http://localhost:1313/tags/elixir/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/elixir/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>First-Class-Functions</title>
+      <link>http://localhost:1313/tags/first-class-functions/</link>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/first-class-functions/</guid>
       <description></description>
     </item>
     <item>
       <title>Fp-Series</title>
       <link>http://localhost:1313/tags/fp-series/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/fp-series/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional-Programming</title>
       <link>http://localhost:1313/tags/functional-programming/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>http://localhost:1313/tags/learning/</link>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/learning/</guid>
       <description></description>
     </item>
     <item>
@@ -34,13 +48,6 @@
       <link>http://localhost:1313/tags/immutability/</link>
       <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/immutability/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Learning</title>
-      <link>http://localhost:1313/tags/learning/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/learning/</guid>
       <description></description>
     </item>
     <item>
@@ -223,6 +230,13 @@
       <link>http://localhost:1313/tags/tutorial/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
       <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Higher-Order-Functions</title>
+      <link>http://localhost:1313/tags/higher-order-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/higher-order-functions/</guid>
       <description></description>
     </item>
   </channel>
