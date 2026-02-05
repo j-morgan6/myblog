@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Higher-Order-Functions on Joser&#39;s Elixir</title>
+    <link>http://localhost:1313/tags/higher-order-functions/</link>
+    <description>Recent content in Higher-Order-Functions on Joser&#39;s Elixir</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/higher-order-functions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens</title>
+      <link>http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/</link>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/</guid>
+      <description>&lt;h2 id=&#34;functions-are-values&#34;&gt;Functions Are Values&lt;/h2&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;first post&lt;/a&gt;, we explored how immutability changes the way we think about data. Now we&amp;rsquo;ll tackle another fundamental shift: &lt;strong&gt;in functional programming, functions are values just like numbers, strings, or lists&lt;/strong&gt;. You can pass them as arguments, return them from other functions, store them in variables, and put them in data structures.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re coming from object-oriented programming, you&amp;rsquo;ve probably encountered this concept through callbacks, lambdas, or method references. But in OOP, these often feel like workarounds or special cases. In functional programming languages like Elixir, treating functions as first-class citizens is natural and central to how you write code.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

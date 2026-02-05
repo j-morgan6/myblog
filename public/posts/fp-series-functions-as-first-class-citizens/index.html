@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens - Joser&#39;s Elixir</title>
+    <meta name="description" content="Second post in a series exploring functional programming concepts through Elixir. Discover how treating functions as values unlocks powerful patterns for data transformation and code composition.">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens</h1>
+
+        <div class="article-meta">
+            <time datetime="2026-02-04">February 4, 2026</time>
+
+            
+
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#elixir</span>
+                
+                <span class="tag">#functional-programming</span>
+                
+                <span class="tag">#fp-series</span>
+                
+                <span class="tag">#first-class-functions</span>
+                
+                <span class="tag">#learning</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                9 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="functions-are-values">Functions Are Values</h2>
+<p>In the <a href="/posts/fp-series-immutability-vs-mutable-state/">first post</a>, we explored how immutability changes the way we think about data. Now we&rsquo;ll tackle another fundamental shift: <strong>in functional programming, functions are values just like numbers, strings, or lists</strong>. You can pass them as arguments, return them from other functions, store them in variables, and put them in data structures.</p>
+<p>If you&rsquo;re coming from object-oriented programming, you&rsquo;ve probably encountered this concept through callbacks, lambdas, or method references. But in OOP, these often feel like workarounds or special cases. In functional programming languages like Elixir, treating functions as first-class citizens is natural and central to how you write code.</p>
+<h2 id="what-does-first-class-citizen-mean">What Does &ldquo;First-Class Citizen&rdquo; Mean?</h2>
+<p>When we say functions are <strong>first-class citizens</strong>, we mean they have the same privileges as any other value in the language. Specifically, functions can be:</p>
+<ul>
+<li><strong>Assigned to variables</strong></li>
+<li><strong>Passed as arguments to other functions</strong></li>
+<li><strong>Returned from functions</strong></li>
+<li><strong>Stored in data structures</strong> (like lists or maps)</li>
+</ul>
+<p>Let&rsquo;s see this in action with Elixir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Assign a function to a variable</span>
+</span></span><span style="display:flex;"><span>add = <span style="color:#6ab825;font-weight:bold">fn</span> a, b -&gt; a + b <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Call it like any other function</span>
+</span></span><span style="display:flex;"><span>result = add.(<span style="color:#3677a9">5</span>, <span style="color:#3677a9">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(result)  <span style="color:#999;font-style:italic"># 8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Store functions in a list</span>
+</span></span><span style="display:flex;"><span>operations = [
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">fn</span> x -&gt; x + <span style="color:#3677a9">1</span> <span style="color:#6ab825;font-weight:bold">end</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">fn</span> x -&gt; x * <span style="color:#3677a9">2</span> <span style="color:#6ab825;font-weight:bold">end</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">fn</span> x -&gt; x - <span style="color:#3677a9">3</span> <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Use a function from the list</span>
+</span></span><span style="display:flex;"><span>first_op = <span style="color:#447fcf;text-decoration:underline">Enum</span>.at(operations, <span style="color:#3677a9">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(first_op.(<span style="color:#3677a9">10</span>))  <span style="color:#999;font-style:italic"># 11</span></span></span></code></pre></div>
+<p><strong>Elixir Syntax Note:</strong> When calling an anonymous function stored in a variable, you use the dot notation: <code>add.(5, 3)</code>. This distinguishes anonymous function calls from named function calls.</p>
+<h2 id="contrast-functions-in-oop">Contrast: Functions in OOP</h2>
+<p>In object-oriented languages, functions (methods) are typically bound to classes or objects. While modern languages have added support for lambdas and function references, they often feel more verbose or constrained:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#999;font-style:italic">// Java - Before Java 8, you needed verbose anonymous classes</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span>Comparator&lt;String&gt;<span style="color:#666"> </span>comparator<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">new</span><span style="color:#666"> </span>Comparator&lt;String&gt;()<span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#ffa500">@Override</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">public</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">int</span><span style="color:#666"> </span><span style="color:#447fcf">compare</span>(String<span style="color:#666"> </span>a,<span style="color:#666"> </span>String<span style="color:#666"> </span>b)<span style="color:#666"> </span>{<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">return</span><span style="color:#666"> </span>a.<span style="color:#bbb">length</span>()<span style="color:#666"> </span>-<span style="color:#666"> </span>b.<span style="color:#bbb">length</span>();<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>}<span style="color:#666">
+</span></span></span><span style="display:flex;"><span>};<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">// Java 8+ - Better with lambdas, but still more ceremony</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span>Comparator&lt;String&gt;<span style="color:#666"> </span>lambdaComparator<span style="color:#666"> </span>=<span style="color:#666"> </span>(a,<span style="color:#666"> </span>b)<span style="color:#666"> </span>-&gt;<span style="color:#666"> </span>a.<span style="color:#bbb">length</span>()<span style="color:#666"> </span>-<span style="color:#666"> </span>b.<span style="color:#bbb">length</span>();<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">// You can&#39;t just assign a method to a variable as easily</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span>//<span style="color:#666"> </span>Methods<span style="color:#666"> </span>are<span style="color:#666"> </span>tied<span style="color:#666"> </span>to<span style="color:#666"> </span>their<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">class</span> <span style="color:#447fcf;text-decoration:underline">context</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Python is more flexible, functions are first-class</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">add</span>(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">return</span> a + b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Can assign to variable</span>
+</span></span><span style="display:flex;"><span>operation = add
+</span></span><span style="display:flex;"><span>result = operation(<span style="color:#3677a9">5</span>, <span style="color:#3677a9">3</span>)  <span style="color:#999;font-style:italic"># 8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># But methods are bound to instances</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">class</span> <span style="color:#447fcf;text-decoration:underline">Calculator</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">add</span>(<span style="color:#24909d">self</span>, a, b):
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">return</span> a + b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>calc = Calculator()
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Method carries its instance context</span>
+</span></span><span style="display:flex;"><span>operation = calc.add  <span style="color:#999;font-style:italic"># Still tied to &#39;calc&#39; instance</span></span></span></code></pre></div>
+<p>Elixir&rsquo;s approach is cleaner because functions aren&rsquo;t tied to objects or classes - they&rsquo;re just functions.</p>
+<h2 id="anonymous-functions">Anonymous Functions</h2>
+<p>Anonymous functions (also called lambdas) are functions without names. In Elixir, you create them with the <code>fn</code> keyword:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Anonymous function with one parameter</span>
+</span></span><span style="display:flex;"><span>square = <span style="color:#6ab825;font-weight:bold">fn</span> x -&gt; x * x <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(square.(<span style="color:#3677a9">5</span>))  <span style="color:#999;font-style:italic"># 25</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Multiple parameters</span>
+</span></span><span style="display:flex;"><span>multiply = <span style="color:#6ab825;font-weight:bold">fn</span> a, b -&gt; a * b <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(multiply.(<span style="color:#3677a9">4</span>, <span style="color:#3677a9">7</span>))  <span style="color:#999;font-style:italic"># 28</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Pattern matching in parameters!</span>
+</span></span><span style="display:flex;"><span>greet = <span style="color:#6ab825;font-weight:bold">fn</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#ed9d13">:formal</span>, name} -&gt; <span style="color:#ed9d13">&#34;Good day, </span><span style="color:#ed9d13">#{</span>name<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#ed9d13">:casual</span>, name} -&gt; <span style="color:#ed9d13">&#34;Hey </span><span style="color:#ed9d13">#{</span>name<span style="color:#ed9d13">}</span><span style="color:#ed9d13">!&#34;</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#ed9d13">:friendly</span>, name} -&gt; <span style="color:#ed9d13">&#34;Hi </span><span style="color:#ed9d13">#{</span>name<span style="color:#ed9d13">}</span><span style="color:#ed9d13">, great to see you!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(greet.({<span style="color:#ed9d13">:formal</span>, <span style="color:#ed9d13">&#34;Dr. Smith&#34;</span>}))   <span style="color:#999;font-style:italic"># Good day, Dr. Smith</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(greet.({<span style="color:#ed9d13">:casual</span>, <span style="color:#ed9d13">&#34;Alex&#34;</span>}))        <span style="color:#999;font-style:italic"># Hey Alex!</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(greet.({<span style="color:#ed9d13">:friendly</span>, <span style="color:#ed9d13">&#34;Jordan&#34;</span>}))    <span style="color:#999;font-style:italic"># Hi Jordan, great to see you!</span></span></span></code></pre></div>
+<h3 id="the-capture-operator-shorthand">The Capture Operator Shorthand</h3>
+<p>For simple anonymous functions, Elixir provides a shorthand using the capture operator <code>&amp;</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># These are equivalent</span>
+</span></span><span style="display:flex;"><span>double_long = <span style="color:#6ab825;font-weight:bold">fn</span> x -&gt; x * <span style="color:#3677a9">2</span> <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>double_short = &amp;(&amp;1 * <span style="color:#3677a9">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(double_long.(<span style="color:#3677a9">5</span>))   <span style="color:#999;font-style:italic"># 10</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(double_short.(<span style="color:#3677a9">5</span>))  <span style="color:#999;font-style:italic"># 10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># &amp;1 refers to the first argument, &amp;2 to the second, etc.</span>
+</span></span><span style="display:flex;"><span>add_short = &amp;(&amp;1 + &amp;2)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(add_short.(<span style="color:#3677a9">3</span>, <span style="color:#3677a9">7</span>))  <span style="color:#999;font-style:italic"># 10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># You can also capture named functions</span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># This creates an anonymous function that calls String.upcase/1</span>
+</span></span><span style="display:flex;"><span>upcase_fn = &amp;<span style="color:#447fcf;text-decoration:underline">String</span>.upcase/<span style="color:#3677a9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.puts(upcase_fn.(<span style="color:#ed9d13">&#34;hello&#34;</span>))  <span style="color:#999;font-style:italic"># HELLO</span></span></span></code></pre></div>
+<p>The <code>&amp;(&amp;1 * 2)</code> syntax might look strange at first, but it&rsquo;s a concise way to create simple transformations. You&rsquo;ll see this pattern frequently in Elixir code.</p>
+<h2 id="passing-functions-as-arguments">Passing Functions as Arguments</h2>
+<p>Here&rsquo;s where first-class functions become truly powerful. You can pass functions to other functions, enabling highly reusable and composable code.</p>
+<p>Let&rsquo;s start with a practical scenario: you have a list of products and need to transform or filter them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>products = [
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Laptop&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">999.99</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;electronics&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Coffee Mug&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">12.50</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;home&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Headphones&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">149.99</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;electronics&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Desk Lamp&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">45.00</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;home&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Keyboard&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">89.99</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;electronics&#34;</span>}
+</span></span><span style="display:flex;"><span>]</span></span></code></pre></div>
+<h3 id="using-enummap-transform-every-item">Using Enum.map: Transform Every Item</h3>
+<p><code>Enum.map</code> takes a collection and a function, applies that function to each item, and returns a new list with the results:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Extract just the prices</span>
+</span></span><span style="display:flex;"><span>prices = <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(products, <span style="color:#6ab825;font-weight:bold">fn</span> product -&gt; product.price <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(prices)  <span style="color:#999;font-style:italic"># [999.99, 12.5, 149.99, 45.0, 89.99]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Using the capture operator shorthand</span>
+</span></span><span style="display:flex;"><span>prices_short = <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(products, &amp;(&amp;1.price))
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(prices_short)  <span style="color:#999;font-style:italic"># [999.99, 12.5, 149.99, 45.0, 89.99]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Apply a 20% discount to all prices</span>
+</span></span><span style="display:flex;"><span>discounted = <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(products, <span style="color:#6ab825;font-weight:bold">fn</span> product -&gt;
+</span></span><span style="display:flex;"><span>  %{product | <span style="color:#ed9d13">price</span>: product.price * <span style="color:#3677a9">0.80</span>}
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(discounted)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># All products now have price * 0.80</span></span></span></code></pre></div>
+<h3 id="using-enumfilter-select-specific-items">Using Enum.filter: Select Specific Items</h3>
+<p><code>Enum.filter</code> takes a collection and a predicate function (returns true/false), keeping only items where the function returns <code>true</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Find all electronics</span>
+</span></span><span style="display:flex;"><span>electronics = <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(products, <span style="color:#6ab825;font-weight:bold">fn</span> product -&gt;
+</span></span><span style="display:flex;"><span>  product.category == <span style="color:#ed9d13">&#34;electronics&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(electronics)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [%{name: &#34;Laptop&#34;, ...}, %{name: &#34;Headphones&#34;, ...}, %{name: &#34;Keyboard&#34;, ...}]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Find products under $50</span>
+</span></span><span style="display:flex;"><span>affordable = <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(products, <span style="color:#6ab825;font-weight:bold">fn</span> product -&gt; product.price &lt; <span style="color:#3677a9">50</span> <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(affordable)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [%{name: &#34;Coffee Mug&#34;, ...}, %{name: &#34;Desk Lamp&#34;, ...}]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Using capture operator</span>
+</span></span><span style="display:flex;"><span>affordable_short = <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(products, &amp;(&amp;1.price &lt; <span style="color:#3677a9">50</span>))</span></span></code></pre></div>
+<h3 id="composing-operations">Composing Operations</h3>
+<p>The real power emerges when you combine these operations:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Find affordable electronics</span>
+</span></span><span style="display:flex;"><span>affordable_electronics =
+</span></span><span style="display:flex;"><span>  products
+</span></span><span style="display:flex;"><span>  |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(<span style="color:#6ab825;font-weight:bold">fn</span> p -&gt; p.category == <span style="color:#ed9d13">&#34;electronics&#34;</span> <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>  |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(<span style="color:#6ab825;font-weight:bold">fn</span> p -&gt; p.price &lt; <span style="color:#3677a9">200</span> <span style="color:#6ab825;font-weight:bold">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(affordable_electronics)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [%{name: &#34;Headphones&#34;, ...}, %{name: &#34;Keyboard&#34;, ...}]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Get names of affordable electronics</span>
+</span></span><span style="display:flex;"><span>affordable_electronics_names =
+</span></span><span style="display:flex;"><span>  products
+</span></span><span style="display:flex;"><span>  |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(&amp;(&amp;1.category == <span style="color:#ed9d13">&#34;electronics&#34;</span>))
+</span></span><span style="display:flex;"><span>  |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(&amp;(&amp;1.price &lt; <span style="color:#3677a9">200</span>))
+</span></span><span style="display:flex;"><span>  |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(&amp;(&amp;1.name))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(affordable_electronics_names)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [&#34;Headphones&#34;, &#34;Keyboard&#34;]</span></span></span></code></pre></div>
+<p><strong>Elixir Syntax Note:</strong> The <code>|&gt;</code> pipe operator takes the result from the left and passes it as the first argument to the function on the right. We&rsquo;ll explore this deeply in an upcoming post, but it&rsquo;s the key to readable data transformations.</p>
+<h3 id="contrast-the-oop-way">Contrast: The OOP Way</h3>
+<p>In object-oriented languages, you&rsquo;d typically use loops and conditionals:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#999;font-style:italic">// JavaScript - Imperative approach
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">let</span> affordableElectronics = [];
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">for</span> (<span style="color:#6ab825;font-weight:bold">let</span> product <span style="color:#6ab825;font-weight:bold">of</span> products) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">if</span> (product.category === <span style="color:#ed9d13">&#34;electronics&#34;</span> &amp;&amp; product.price &lt; <span style="color:#3677a9">200</span>) {
+</span></span><span style="display:flex;"><span>    affordableElectronics.push(product.name);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">// JavaScript - Functional approach (modern JS supports this!)
+</span></span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">let</span> affordableElectronicsNames = products
+</span></span><span style="display:flex;"><span>  .filter(p =&gt; p.category === <span style="color:#ed9d13">&#34;electronics&#34;</span>)
+</span></span><span style="display:flex;"><span>  .filter(p =&gt; p.price &lt; <span style="color:#3677a9">200</span>)
+</span></span><span style="display:flex;"><span>  .map(p =&gt; p.name);</span></span></code></pre></div>
+<p>Modern JavaScript supports functional patterns too! But notice how the imperative version with loops requires you to manually manage the accumulator array and mixing filtering logic. The functional version separates concerns - each step does one thing.</p>
+<h2 id="passing-named-functions">Passing Named Functions</h2>
+<p>You&rsquo;re not limited to anonymous functions. You can pass named functions too:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">defmodule</span> <span style="color:#447fcf;text-decoration:underline">StringHelpers</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> shout(text), <span style="color:#ed9d13">do</span>: <span style="color:#447fcf;text-decoration:underline">String</span>.upcase(text) &lt;&gt; <span style="color:#ed9d13">&#34;!&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> whisper(text), <span style="color:#ed9d13">do</span>: <span style="color:#447fcf;text-decoration:underline">String</span>.downcase(text) &lt;&gt; <span style="color:#ed9d13">&#34;...&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> capitalize_words(text), <span style="color:#ed9d13">do</span>: text |&gt; <span style="color:#447fcf;text-decoration:underline">String</span>.split() |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(&amp;<span style="color:#447fcf;text-decoration:underline">String</span>.capitalize/<span style="color:#3677a9">1</span>) |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.join(<span style="color:#ed9d13">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>messages = [<span style="color:#ed9d13">&#34;hello world&#34;</span>, <span style="color:#ed9d13">&#34;GOOD MORNING&#34;</span>, <span style="color:#ed9d13">&#34;how are you&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Pass named functions using capture syntax</span>
+</span></span><span style="display:flex;"><span>shouted = <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(messages, &amp;<span style="color:#447fcf;text-decoration:underline">StringHelpers</span>.shout/<span style="color:#3677a9">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(shouted)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [&#34;HELLO WORLD!&#34;, &#34;GOOD MORNING!&#34;, &#34;HOW ARE YOU!&#34;]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>whispered = <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(messages, &amp;<span style="color:#447fcf;text-decoration:underline">StringHelpers</span>.whisper/<span style="color:#3677a9">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(whispered)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [&#34;hello world...&#34;, &#34;good morning...&#34;, &#34;how are you...&#34;]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>capitalized = <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(messages, &amp;<span style="color:#447fcf;text-decoration:underline">StringHelpers</span>.capitalize_words/<span style="color:#3677a9">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(capitalized)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [&#34;Hello World&#34;, &#34;Good Morning&#34;, &#34;How Are You&#34;]</span></span></span></code></pre></div>
+<p>The <code>&amp;ModuleName.function_name/arity</code> syntax captures a reference to a named function, turning it into an anonymous function you can pass around.</p>
+<h2 id="why-this-matters-building-with-small-functions">Why This Matters: Building with Small Functions</h2>
+<p>First-class functions encourage you to write <strong>small, focused, reusable functions</strong> that can be combined in different ways. Instead of large methods that do everything, you compose behavior from simple building blocks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">defmodule</span> <span style="color:#447fcf;text-decoration:underline">ProductPipeline</span> <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># Small, focused functions</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> is_electronics?(product), <span style="color:#ed9d13">do</span>: product.category == <span style="color:#ed9d13">&#34;electronics&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> is_affordable?(product), <span style="color:#ed9d13">do</span>: product.price &lt; <span style="color:#3677a9">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> apply_discount(product, rate), <span style="color:#ed9d13">do</span>: %{product | <span style="color:#ed9d13">price</span>: product.price * (<span style="color:#3677a9">1</span> - rate)}
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> format_display(product), <span style="color:#ed9d13">do</span>: <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">#{</span>product.name<span style="color:#ed9d13">}</span><span style="color:#ed9d13">: $</span><span style="color:#ed9d13">#{</span><span style="color:#447fcf;text-decoration:underline">Float</span>.round(product.price, <span style="color:#3677a9">2</span>)<span style="color:#ed9d13">}</span><span style="color:#ed9d13">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#999;font-style:italic"># Compose them together</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">def</span> get_discounted_affordable_electronics(products, discount_rate) <span style="color:#6ab825;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    products
+</span></span><span style="display:flex;"><span>    |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(&amp;is_electronics?/<span style="color:#3677a9">1</span>)
+</span></span><span style="display:flex;"><span>    |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.filter(&amp;is_affordable?/<span style="color:#3677a9">1</span>)
+</span></span><span style="display:flex;"><span>    |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(&amp;apply_discount(&amp;1, discount_rate))
+</span></span><span style="display:flex;"><span>    |&gt; <span style="color:#447fcf;text-decoration:underline">Enum</span>.map(&amp;format_display/<span style="color:#3677a9">1</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>products = [
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Laptop&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">999.99</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;electronics&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Mouse&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">25.00</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;electronics&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;USB Cable&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">8.00</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;electronics&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Coffee Mug&#34;</span>, <span style="color:#ed9d13">price</span>: <span style="color:#3677a9">12.50</span>, <span style="color:#ed9d13">category</span>: <span style="color:#ed9d13">&#34;home&#34;</span>}
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result = <span style="color:#447fcf;text-decoration:underline">ProductPipeline</span>.get_discounted_affordable_electronics(products, <span style="color:#3677a9">0.10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#447fcf;text-decoration:underline">IO</span>.inspect(result)
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># [&#34;Mouse: $22.5&#34;, &#34;USB Cable: $7.2&#34;]</span></span></span></code></pre></div>
+<p>Each function does one thing and does it well. You can test each independently, reuse them in different combinations, and reason about each piece in isolation.</p>
+<p><strong>OOP Comparison:</strong> In OOP, you might use the Strategy pattern with multiple classes and interfaces, or create a complex class with many methods. The functional approach is simpler - just functions.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>First-class functions</strong> means functions are values that can be assigned, passed, and stored just like any other data</li>
+<li><strong>Anonymous functions</strong> (<code>fn -&gt; end</code>) and the <strong>capture operator</strong> (<code>&amp;</code>) make creating functions lightweight and convenient</li>
+<li><strong>Passing functions to Enum</strong> (<code>map</code>, <code>filter</code>) enables declarative, composable data transformations without loops</li>
+<li>You can pass both <strong>anonymous and named functions</strong> using the capture syntax <code>&amp;ModuleName.function/arity</code></li>
+<li>This approach encourages <strong>small, focused, reusable functions</strong> that compose together rather than large, monolithic methods</li>
+<li><strong>Compared to OOP:</strong> Less ceremony than anonymous classes, more flexible than method chaining, cleaner than verbose loops and conditionals</li>
+</ul>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Open up <code>iex</code> and work through this exercise to practice using functions as first-class citizens.</p>
+<h3 id="exercise-1-filter-and-transform">Exercise 1: Filter and Transform</h3>
+<p>Create a list of users with name, age, and role:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>users = [
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Alice&#34;</span>, <span style="color:#ed9d13">age</span>: <span style="color:#3677a9">28</span>, <span style="color:#ed9d13">role</span>: <span style="color:#ed9d13">&#34;admin&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Bob&#34;</span>, <span style="color:#ed9d13">age</span>: <span style="color:#3677a9">34</span>, <span style="color:#ed9d13">role</span>: <span style="color:#ed9d13">&#34;user&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Charlie&#34;</span>, <span style="color:#ed9d13">age</span>: <span style="color:#3677a9">23</span>, <span style="color:#ed9d13">role</span>: <span style="color:#ed9d13">&#34;user&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Diana&#34;</span>, <span style="color:#ed9d13">age</span>: <span style="color:#3677a9">45</span>, <span style="color:#ed9d13">role</span>: <span style="color:#ed9d13">&#34;admin&#34;</span>},
+</span></span><span style="display:flex;"><span>  %{<span style="color:#ed9d13">name</span>: <span style="color:#ed9d13">&#34;Eve&#34;</span>, <span style="color:#ed9d13">age</span>: <span style="color:#3677a9">29</span>, <span style="color:#ed9d13">role</span>: <span style="color:#ed9d13">&#34;moderator&#34;</span>}
+</span></span><span style="display:flex;"><span>]</span></span></code></pre></div>
+<p><strong>Your tasks:</strong></p>
+<ol>
+<li>Use <code>Enum.filter</code> to get all users with the &ldquo;admin&rdquo; role</li>
+<li>Use <code>Enum.map</code> to extract just the names</li>
+<li>Use <code>Enum.filter</code> to find users over 30</li>
+<li>Combine operations: get names of admins over 30</li>
+</ol>
+<h3 id="exercise-2-building-a-pipeline">Exercise 2: Building a Pipeline</h3>
+<p>Create three small functions:</p>
+<ol>
+<li><code>double(n)</code> - doubles a number</li>
+<li><code>add_ten(n)</code> - adds 10 to a number</li>
+<li><code>is_even?(n)</code> - returns true if number is even</li>
+</ol>
+<p>Use them with <code>Enum.map</code> and <code>Enum.filter</code> to:</p>
+<ol>
+<li>Start with <code>[1, 2, 3, 4, 5]</code></li>
+<li>Double each number</li>
+<li>Add 10 to each</li>
+<li>Filter to keep only even results</li>
+</ol>
+<p>What&rsquo;s your final list?</p>
+<h2 id="official-documentation-to-help-you-learn">Official Documentation to Help You Learn</h2>
+<ul>
+<li><a href="https://elixir-lang.org/getting-started/modules-and-functions.html#anonymous-functions">Elixir Anonymous Functions Guide</a></li>
+<li><a href="https://hexdocs.pm/elixir/Enum.html">Elixir Enum Module Documentation</a></li>
+<li><a href="https://elixir-lang.org/getting-started/modules-and-functions.html#function-capturing">Elixir Function Capturing</a></li>
+</ul>
+<hr>
+<p><em>Part Two | Functional Programming Through Elixir series</em></p>
+<p><strong>Next in series:</strong> Part Three - Pure Functions vs Side Effects</p>
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/fp-series-immutability-vs-mutable-state/" class="nav-prev">
+                ← Part One | Functional Programming Through Elixir: Immutability vs Mutable State
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
