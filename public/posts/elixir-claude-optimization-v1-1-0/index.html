@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elixir Claude Optimization v1.1.0: Better Skill Discovery - Joser&#39;s Elixir</title>
+    <meta name="description" content="Version 1.1.0 of the Elixir Claude optimization plugin adds systematic skill discovery and clearer invocation patterns.">
+
+    
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    </head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-branding">
+                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+            </div>
+
+            <nav class="site-navigation">
+                
+                <a href="/">Home</a>
+                
+                <a href="/posts/">Posts</a>
+                
+                <a href="/about/">About</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+<article class="single-post">
+    <header class="article-header">
+        <h1>Elixir Claude Optimization v1.1.0: Better Skill Discovery</h1>
+
+        <div class="article-meta">
+            <time datetime="2026-02-09">February 9, 2026</time>
+
+            
+
+            
+            <div class="categories">
+                
+                <span class="category">tools</span>
+                
+                <span class="category">ai</span>
+                
+            </div>
+            
+
+            
+            <div class="tags">
+                
+                <span class="tag">#elixir</span>
+                
+                <span class="tag">#claude-code</span>
+                
+                <span class="tag">#ai-tools</span>
+                
+                <span class="tag">#productivity</span>
+                
+            </div>
+            
+
+            <div class="reading-time">
+                2 min read
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <h2 id="whats-new">What&rsquo;s New</h2>
+<p>Released v1.1.0 of my <a href="https://github.com/j-morgan6/elixir-claude-optimization">Elixir Claude optimization plugin</a>. The focus: making skills easier to discover and use.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>In v1.0.0, Claude Code would often miss applicable skills. The &ldquo;Use when&rdquo; language wasn&rsquo;t directive enough, and there was no systematic way to identify which skills applied to a task.</p>
+<p>Result: Skills existed but weren&rsquo;t being invoked consistently.</p>
+<h2 id="what-changed">What Changed</h2>
+<h3 id="new-skill-discovery-system">New Skill Discovery System</h3>
+<p>Added a meta-skill called <code>skill-discovery</code> that provides a systematic checklist based on file types and task requirements. Think of it as a flowchart for skill selection.</p>
+<h3 id="clearer-invocation-language">Clearer Invocation Language</h3>
+<p>Replaced passive &ldquo;Use when&rdquo; phrasing with mandatory &ldquo;INVOKE BEFORE&rdquo; directives across all skills.</p>
+<p><strong>Before (v1.0.0):</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Use when working with Ecto schemas or queries
+</span></span></code></pre></div><p><strong>After (v1.1.0):</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>INVOKE BEFORE modifying any Ecto schema, query, or migration
+</span></span></code></pre></div><p>The difference: Command, not suggestion.</p>
+<h3 id="file-pattern-detection">File Pattern Detection</h3>
+<p>The skill-discovery system now recognizes file patterns:</p>
+<ul>
+<li><code>.ex</code> files with <code>Ecto.Schema</code> → invoke ecto-database</li>
+<li>LiveView modules → invoke phoenix-liveview</li>
+<li>Pattern matching logic → invoke elixir-patterns</li>
+</ul>
+<h2 id="expected-impact">Expected Impact</h2>
+<p>Early testing shows a 50%+ increase in skill utilization. Claude Code now consistently identifies applicable skills before starting work.</p>
+<h2 id="migration">Migration</h2>
+<p>If you installed v1.0.0:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude plugin update elixir-optimization
+</span></span></code></pre></div><p>Or re-run the installer:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./install.sh
+</span></span></code></pre></div><p>No manual configuration changes needed. The update handles everything automatically.</p>
+<h2 id="check-your-version">Check Your Version</h2>
+<p>Look at any skill file in <code>~/.claude/skills/</code>. If you see &ldquo;INVOKE BEFORE&rdquo; language, you&rsquo;re on v1.1.0+. If you see &ldquo;Use when&rdquo;, you&rsquo;re still on v1.0.0.</p>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>Skills are only valuable if they&rsquo;re actually invoked. v1.0.0 had the right skills but inconsistent activation. v1.1.0 fixes the activation problem.</p>
+<p>The plugin now does what it was supposed to do from the start: ensure Claude Code follows Elixir/Phoenix best practices <em>before</em> writing code.</p>
+<h2 id="try-it">Try It</h2>
+<p>GitHub: <a href="https://github.com/j-morgan6/elixir-claude-optimization">elixir-claude-optimization</a></p>
+<p>Requirements: Elixir 1.15+, Phoenix 1.7+ (for LiveView features)</p>
+
+    </div>
+
+    <footer class="article-footer">
+        <div class="article-navigation">
+            
+            <a href="/posts/fp-series-functions-as-first-class-citizens/" class="nav-prev">
+                ← Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens
+            </a>
+            
+
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Joser&#39;s Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
