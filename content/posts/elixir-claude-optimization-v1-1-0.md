@@ -1,15 +1,15 @@
 ---
-title: "Elixir Claude Optimization v1.1.0: Better Skill Discovery"
+title: "Elixir Claude Optimization v1.1.1: Better Skill Discovery"
 date: 2026-02-09
 draft: false
 tags: ["elixir", "claude-code", "ai-tools", "productivity"]
 categories: ["tools", "ai"]
-description: "Version 1.1.0 of the Elixir Claude optimization plugin adds systematic skill discovery and clearer invocation patterns."
+description: "Version 1.1.1 of the Elixir Claude optimization plugin adds systematic skill discovery and clearer invocation patterns."
 ---
 
 ## What's New
 
-Released v1.1.0 of my [Elixir Claude optimization plugin](https://github.com/j-morgan6/elixir-claude-optimization). The focus: making skills easier to discover and use.
+Released v1.1.1 of my [Elixir Claude optimization plugin](https://github.com/j-morgan6/elixir-claude-optimization). The focus: making skills easier to discover and use.
 
 ## The Problem
 
@@ -30,7 +30,7 @@ Replaced passive "Use when" phrasing with mandatory "INVOKE BEFORE" directives a
 Use when working with Ecto schemas or queries
 ```
 
-**After (v1.1.0):**
+**After (v1.1.1):**
 ```text {style=github}
 INVOKE BEFORE modifying any Ecto schema, query, or migration
 ```
@@ -65,11 +65,11 @@ No manual configuration changes needed. The update handles everything automatica
 
 ## Check Your Version
 
-Look at any skill file in `~/.claude/skills/`. If you see "INVOKE BEFORE" language, you're on v1.1.0+. If you see "Use when", you're still on v1.0.0.
+Look at any skill file in `~/.claude/skills/`. If you see "INVOKE BEFORE" language, you're on v1.1.1+. If you see "Use when", you're still on v1.0.0.
 
 ## Why This Matters
 
-Skills are only valuable if they're actually invoked. v1.0.0 had the right skills but inconsistent activation. v1.1.0 fixes the activation problem.
+Skills are only valuable if they're actually invoked. v1.0.0 had the right skills but inconsistent activation. v1.1.1 fixes the activation problem.
 
 The plugin now does what it was supposed to do from the start: ensure Claude Code follows Elixir/Phoenix best practices *before* writing code.
 
