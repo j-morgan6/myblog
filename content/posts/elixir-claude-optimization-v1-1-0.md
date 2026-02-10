@@ -1,7 +1,7 @@
 ---
 title: "Elixir Claude Optimization v1.1.2: Better Skill Discovery"
 date: 2026-02-09
-draft: True
+draft: false
 tags: ["elixir", "claude-code", "ai-tools", "productivity"]
 categories: ["tools", "ai"]
 description: "Version 1.1.2 of the Elixir Claude optimization plugin adds systematic skill discovery and clearer invocation patterns."
