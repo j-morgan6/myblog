@@ -3,8 +3,8 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elixir Claude Optimization v1.1.0: Better Skill Discovery - Joser&#39;s Elixir</title>
-    <meta name="description" content="Version 1.1.0 of the Elixir Claude optimization plugin adds systematic skill discovery and clearer invocation patterns.">
+    <title>Elixir Claude Optimization v1.1.2: Better Skill Discovery - Joser&#39;s Elixir</title>
+    <meta name="description" content="Version 1.1.2 of the Elixir Claude optimization plugin adds systematic skill discovery and clearer invocation patterns.">
 
     
     <link rel="stylesheet" href="/css/custom.css">
@@ -36,7 +36,7 @@
         
 <article class="single-post">
     <header class="article-header">
-        <h1>Elixir Claude Optimization v1.1.0: Better Skill Discovery</h1>
+        <h1>Elixir Claude Optimization v1.1.2: Better Skill Discovery</h1>
 
         <div class="article-meta">
             <time datetime="2026-02-09">February 9, 2026</time>
@@ -75,7 +75,7 @@
 
     <div class="article-content">
         <h2 id="whats-new">What&rsquo;s New</h2>
-<p>Released v1.1.0 of my <a href="https://github.com/j-morgan6/elixir-claude-optimization">Elixir Claude optimization plugin</a>. The focus: making skills easier to discover and use.</p>
+<p>Released v1.1.2 of my <a href="https://github.com/j-morgan6/elixir-claude-optimization">Elixir Claude optimization plugin</a>. The focus: making skills easier to discover and use.</p>
 <h2 id="the-problem">The Problem</h2>
 <p>In v1.0.0, Claude Code would often miss applicable skills. The &ldquo;Use when&rdquo; language wasn&rsquo;t directive enough, and there was no systematic way to identify which skills applied to a task.</p>
 <p>Result: Skills existed but weren&rsquo;t being invoked consistently.</p>
@@ -86,7 +86,7 @@
 <p>Replaced passive &ldquo;Use when&rdquo; phrasing with mandatory &ldquo;INVOKE BEFORE&rdquo; directives across all skills.</p>
 <p><strong>Before (v1.0.0):</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Use when working with Ecto schemas or queries
-</span></span></code></pre></div><p><strong>After (v1.1.0):</strong></p>
+</span></span></code></pre></div><p><strong>After (v1.1.2):</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>INVOKE BEFORE modifying any Ecto schema, query, or migration
 </span></span></code></pre></div><p>The difference: Command, not suggestion.</p>
 <h3 id="file-pattern-detection">File Pattern Detection</h3>
@@ -105,9 +105,9 @@
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./install.sh
 </span></span></code></pre></div><p>No manual configuration changes needed. The update handles everything automatically.</p>
 <h2 id="check-your-version">Check Your Version</h2>
-<p>Look at any skill file in <code>~/.claude/skills/</code>. If you see &ldquo;INVOKE BEFORE&rdquo; language, you&rsquo;re on v1.1.0+. If you see &ldquo;Use when&rdquo;, you&rsquo;re still on v1.0.0.</p>
+<p>Look at any skill file in <code>~/.claude/skills/</code>. If you see &ldquo;INVOKE BEFORE&rdquo; language, you&rsquo;re on v1.1.2+. If you see &ldquo;Use when&rdquo;, you&rsquo;re still on v1.0.0.</p>
 <h2 id="why-this-matters">Why This Matters</h2>
-<p>Skills are only valuable if they&rsquo;re actually invoked. v1.0.0 had the right skills but inconsistent activation. v1.1.0 fixes the activation problem.</p>
+<p>Skills are only valuable if they&rsquo;re actually invoked. v1.0.0 had the right skills but inconsistent activation. v1.1.2 fixes the activation problem.</p>
 <p>The plugin now does what it was supposed to do from the start: ensure Claude Code follows Elixir/Phoenix best practices <em>before</em> writing code.</p>
 <h2 id="try-it">Try It</h2>
 <p>GitHub: <a href="https://github.com/j-morgan6/elixir-claude-optimization">elixir-claude-optimization</a></p>
@@ -123,6 +123,10 @@
             </a>
             
 
+            
+            <a href="/posts/fp-series-pure-functions-vs-side-effects/" class="nav-next">
+                Part Three | Functional Programming Through Elixir: Pure Functions vs Side Effects →
+            </a>
             
         </div>
     </footer>

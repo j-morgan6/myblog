@@ -1,0 +1,13 @@
+# Series outlines and planning documents
+functional-programming-series-outline.md
+
+# Hugo build artifacts
+/public/
+/resources/_gen/
+
+# IDE files
+.DS_Store
+.idea/
+*.swp
+*.swo
+*~

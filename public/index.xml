@@ -6,14 +6,21 @@
     <description>Recent content on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Elixir Claude Optimization v1.1.0: Better Skill Discovery</title>
+      <title>Part Three | Functional Programming Through Elixir: Pure Functions vs Side Effects</title>
+      <link>http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/</link>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/</guid>
+      <description>&lt;h2 id=&#34;the-foundation-of-predictable-code&#34;&gt;The Foundation of Predictable Code&lt;/h2&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;first post&lt;/a&gt;, we explored immutability. In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/&#34;&gt;second post&lt;/a&gt;, we saw how functions are values. Now we&amp;rsquo;ll tackle a concept that ties them together: &lt;strong&gt;pure functions&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Pure functions are the building blocks of functional programming. They&amp;rsquo;re predictable, testable, and easy to reason about. But real applications need side effects - saving to databases, making HTTP requests, printing to the console. The key is knowing how to write pure functions and where to isolate side effects.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Elixir Claude Optimization v1.1.2: Better Skill Discovery</title>
       <link>http://localhost:1313/posts/elixir-claude-optimization-v1-1-0/</link>
       <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/elixir-claude-optimization-v1-1-0/</guid>
-      <description>&lt;h2 id=&#34;whats-new&#34;&gt;What&amp;rsquo;s New&lt;/h2&gt;&#xA;&lt;p&gt;Released v1.1.0 of my &lt;a href=&#34;https://github.com/j-morgan6/elixir-claude-optimization&#34;&gt;Elixir Claude optimization plugin&lt;/a&gt;. The focus: making skills easier to discover and use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;In v1.0.0, Claude Code would often miss applicable skills. The &amp;ldquo;Use when&amp;rdquo; language wasn&amp;rsquo;t directive enough, and there was no systematic way to identify which skills applied to a task.&lt;/p&gt;&#xA;&lt;p&gt;Result: Skills existed but weren&amp;rsquo;t being invoked consistently.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;h3 id=&#34;new-skill-discovery-system&#34;&gt;New Skill Discovery System&lt;/h3&gt;&#xA;&lt;p&gt;Added a meta-skill called &lt;code&gt;skill-discovery&lt;/code&gt; that provides a systematic checklist based on file types and task requirements. Think of it as a flowchart for skill selection.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;whats-new&#34;&gt;What&amp;rsquo;s New&lt;/h2&gt;&#xA;&lt;p&gt;Released v1.1.2 of my &lt;a href=&#34;https://github.com/j-morgan6/elixir-claude-optimization&#34;&gt;Elixir Claude optimization plugin&lt;/a&gt;. The focus: making skills easier to discover and use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;In v1.0.0, Claude Code would often miss applicable skills. The &amp;ldquo;Use when&amp;rdquo; language wasn&amp;rsquo;t directive enough, and there was no systematic way to identify which skills applied to a task.&lt;/p&gt;&#xA;&lt;p&gt;Result: Skills existed but weren&amp;rsquo;t being invoked consistently.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;h3 id=&#34;new-skill-discovery-system&#34;&gt;New Skill Discovery System&lt;/h3&gt;&#xA;&lt;p&gt;Added a meta-skill called &lt;code&gt;skill-discovery&lt;/code&gt; that provides a systematic checklist based on file types and task requirements. Think of it as a flowchart for skill selection.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens</title>
