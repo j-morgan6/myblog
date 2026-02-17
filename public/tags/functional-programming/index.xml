@@ -6,8 +6,22 @@
     <description>Recent content in Functional-Programming on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Part Four | Functional Programming Through Elixir: Pattern Matching</title>
+      <link>http://localhost:1313/posts/fp-series-pattern-matching/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fp-series-pattern-matching/</guid>
+      <description>&lt;h2 id=&#34;a-different-way-to-work-with-data&#34;&gt;A Different Way to Work with Data&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;Part One&lt;/a&gt;, we explored immutability. In &lt;a href=&#34;http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/&#34;&gt;Part Two&lt;/a&gt;, we saw functions as values. In &lt;a href=&#34;http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/&#34;&gt;Part Three&lt;/a&gt;, we learned about pure functions and side effects. Now we&amp;rsquo;ll tackle one of the most distinctive features of functional programming: &lt;strong&gt;pattern matching&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Pattern matching is Elixir&amp;rsquo;s superpower for working with data. It&amp;rsquo;s not just a fancy way to assign variables - it&amp;rsquo;s a fundamentally different approach to extracting, validating, and routing data through your program. Once you understand pattern matching, you&amp;rsquo;ll find conditionals, type checking, and data extraction in OOP languages feel unnecessarily verbose.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Part Three | Functional Programming Through Elixir: Pure Functions vs Side Effects</title>
+      <link>http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/</link>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/</guid>
+      <description>&lt;h2 id=&#34;the-foundation-of-predictable-code&#34;&gt;The Foundation of Predictable Code&lt;/h2&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;first post&lt;/a&gt;, we explored immutability. In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/&#34;&gt;second post&lt;/a&gt;, we saw how functions are values. Now we&amp;rsquo;ll tackle a concept that ties them together: &lt;strong&gt;pure functions&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Pure functions are the building blocks of functional programming. They&amp;rsquo;re predictable, testable, and easy to reason about. But real applications need side effects - saving to databases, making HTTP requests, printing to the console. The key is knowing how to write pure functions and where to isolate side effects.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens</title>
       <link>http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/</link>
