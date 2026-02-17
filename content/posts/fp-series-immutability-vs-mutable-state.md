@@ -345,3 +345,5 @@ Build a simple "undo" system for a text editor. Start with `doc = %{content: ""}
 ---
 
 *Part One | Functional Programming Through Elixir series*
+
+**Next in series:** [Part Two - Functions as First-Class Citizens](/posts/fp-series-functions-as-first-class-citizens/)

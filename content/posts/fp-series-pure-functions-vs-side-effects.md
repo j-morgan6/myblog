@@ -469,4 +469,4 @@ end
 
 **Previous in series:** [Part Two - Functions as First-Class Citizens](/posts/fp-series-functions-as-first-class-citizens/)
 
-**Next in series:** Part Four - Pattern Matching
+**Next in series:** [Part Four - Pattern Matching](/posts/fp-series-pattern-matching/)

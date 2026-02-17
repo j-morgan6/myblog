@@ -371,4 +371,6 @@ What's your final list?
 
 *Part Two | Functional Programming Through Elixir series*
 
-**Next in series:** Part Three - Pure Functions vs Side Effects
+**Previous in series:** [Part One - Immutability vs Mutable State](/posts/fp-series-immutability-vs-mutable-state/)
+
+**Next in series:** [Part Three - Pure Functions vs Side Effects](/posts/fp-series-pure-functions-vs-side-effects/)
