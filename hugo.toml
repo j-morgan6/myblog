@@ -23,7 +23,9 @@ title = "Joser's Elixir"
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = "native"
+    style = "monokai"
+    lineNos = false
+    noClasses = false
 
 [params]
   description = "Exploring the world of Elixir development, functional programming, and software engineering"

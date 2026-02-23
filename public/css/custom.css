@@ -345,31 +345,36 @@ body {
   font-weight: 600;
 }
 
-/* Code blocks */
+/* Code blocks - Dark theme with enhanced readability */
 .article-content pre {
-  background: #f9f7f4;
-  border: 1px solid rgba(139, 89, 42, 0.15);
-  border-radius: 6px;
-  padding: 1.5rem;
+  background: #272822;
+  border: 1px solid rgba(139, 89, 42, 0.3);
+  border-radius: 8px;
+  padding: 1.75rem;
   overflow-x: auto;
   margin: 2rem 0;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 8px rgba(45, 31, 16, 0.05);
+  font-size: 1rem;
+  line-height: 1.6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
 
+/* Inline code - keep light for contrast with regular text */
 .article-content code {
   background: rgba(139, 89, 42, 0.08);
   color: #8b592a;
   padding: 0.2rem 0.5rem;
   border-radius: 3px;
-  font-size: 0.9em;
-  font-family: 'Courier New', monospace;
+  font-size: 0.95em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
 
+/* Code inside pre blocks uses dark theme */
 .article-content pre code {
   background: none;
-  color: #5a5046;
+  color: #f8f8f2;
   padding: 0;
+  font-size: 1rem;
 }
 
 /* Blockquotes */
@@ -692,14 +697,15 @@ input:focus, textarea:focus {
   }
 
   .article-content pre {
-    padding: 1rem;
-    font-size: 0.85rem;
+    padding: 1.25rem;
+    font-size: 0.95rem;
     overflow-x: auto;
-    border-radius: 4px;
+    border-radius: 6px;
+    line-height: 1.5;
   }
 
   .article-content code {
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
 
   .article-navigation {
@@ -818,10 +824,11 @@ input:focus, textarea:focus {
   }
 
   .article-content pre {
-    padding: 0.875rem;
-    font-size: 0.8rem;
+    padding: 1rem;
+    font-size: 0.9rem;
     margin: 1.5rem -1rem;
     border-radius: 0;
+    line-height: 1.5;
   }
 
   .article-content ul,

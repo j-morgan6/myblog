@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=58041&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elixir Claude Optimization v1.1.2: Better Skill Discovery - Joser&#39;s Elixir</title>
@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/css/custom.css">
 
     
+    <link rel="stylesheet" href="/css/syntax-github.css">
+
+    
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     </head>
@@ -17,7 +20,7 @@
     <header class="site-header">
         <div class="header-container">
             <div class="site-branding">
-                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+                <a href="http://localhost:58041/" class="site-title">Joser&#39;s Elixir</a>
             </div>
 
             <nav class="site-navigation">
@@ -85,9 +88,9 @@
 <h3 id="clearer-invocation-language">Clearer Invocation Language</h3>
 <p>Replaced passive &ldquo;Use when&rdquo; phrasing with mandatory &ldquo;INVOKE BEFORE&rdquo; directives across all skills.</p>
 <p><strong>Before (v1.0.0):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Use when working with Ecto schemas or queries
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Use when working with Ecto schemas or queries
 </span></span></code></pre></div><p><strong>After (v1.1.2):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>INVOKE BEFORE modifying any Ecto schema, query, or migration
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">INVOKE BEFORE modifying any Ecto schema, query, or migration
 </span></span></code></pre></div><p>The difference: Command, not suggestion.</p>
 <h3 id="file-pattern-detection">File Pattern Detection</h3>
 <p>The skill-discovery system now recognizes file patterns:</p>
@@ -100,9 +103,9 @@
 <p>Early testing shows a 50%+ increase in skill utilization. Claude Code now consistently identifies applicable skills before starting work.</p>
 <h2 id="migration">Migration</h2>
 <p>If you installed v1.0.0:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude plugin update elixir-optimization
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">claude plugin update elixir-optimization
 </span></span></code></pre></div><p>Or re-run the installer:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./install.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./install.sh
 </span></span></code></pre></div><p>No manual configuration changes needed. The update handles everything automatically.</p>
 <h2 id="check-your-version">Check Your Version</h2>
 <p>Look at any skill file in <code>~/.claude/skills/</code>. If you see &ldquo;INVOKE BEFORE&rdquo; language, you&rsquo;re on v1.1.2+. If you see &ldquo;Use when&rdquo;, you&rsquo;re still on v1.0.0.</p>

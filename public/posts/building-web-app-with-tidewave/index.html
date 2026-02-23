@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=58041&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experimenting with Tidewave: Vibe Coding - Joser&#39;s Elixir</title>
@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/css/custom.css">
 
     
+    <link rel="stylesheet" href="/css/syntax-github.css">
+
+    
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     </head>
@@ -17,7 +20,7 @@
     <header class="site-header">
         <div class="header-container">
             <div class="site-branding">
-                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+                <a href="http://localhost:58041/" class="site-title">Joser&#39;s Elixir</a>
             </div>
 
             <nav class="site-navigation">
@@ -89,16 +92,16 @@
 </ul>
 <h3 id="setting-up-the-project">Setting Up the Project</h3>
 <p>Once you have your project created you will need to include Tidewave in your dependencies.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># In the mix.exs file</span>
-</span></span><span style="display:flex;"><span>{:tidewave, <span style="color:#ed9d13">&#34;~&gt; 0.5&#34;</span>, only: :dev}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic">#Get the dependencies</span>
-</span></span><span style="display:flex;"><span>mix deps.get
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># In the mix.exs file</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>:tidewave, <span class="s2">&#34;~&gt; 0.5&#34;</span>, only: :dev<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Get the dependencies</span>
+</span></span><span class="line"><span class="cl">mix deps.get
 </span></span></code></pre></div><p>Then you will need to plug Tidewave into your endpoint. Place this right above the code_reloading? block.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#999;font-style:italic"># In the endpoint.ex file</span>
-</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">if</span> Code.ensure_loaded?(Tidewave) <span style="color:#6ab825;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  plug Tidewave
-</span></span><span style="display:flex;"><span>end
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># In the endpoint.ex file</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> Code.ensure_loaded?<span class="o">(</span>Tidewave<span class="o">)</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  plug Tidewave
+</span></span><span class="line"><span class="cl">end
 </span></span></code></pre></div><p>Now you should be set to run the Pheonix server and go to localhost:4000/tidewave to see the interface.</p>
 <p>Tidewave allows users to have 10 free prompts from their paid plan, so you can try it out before committing. This is a great way to get a feel for the in-browser coding assistant and see how it integrates with your workflow.</p>
 <p>However, once those free prompts are used up, you’ll need to purchase a plan on the Tidewave website to continue using it. Tidewave doesn’t bundle its own model access so you will need to add your own AI provider key. For example, when I tested Tidewave, I used an Anthropic API key from Claude Code. After adding my key, Tidewave immediately connected and I was able to use the assistant directly inside my Phoenix app’s browser session. You can do the same with other supported providers like OpenAI or GitHub Copilot depending on your preference.</p>

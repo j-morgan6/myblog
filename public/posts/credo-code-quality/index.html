@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=58041&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Using Credo to Ensure Code Quality in Elixir - Joser&#39;s Elixir</title>
@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/css/custom.css">
 
     
+    <link rel="stylesheet" href="/css/syntax-github.css">
+
+    
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     </head>
@@ -17,7 +20,7 @@
     <header class="site-header">
         <div class="header-container">
             <div class="site-branding">
-                <a href="http://localhost:1313/" class="site-title">Joser&#39;s Elixir</a>
+                <a href="http://localhost:58041/" class="site-title">Joser&#39;s Elixir</a>
             </div>
 
             <nav class="site-navigation">
@@ -81,50 +84,50 @@
 <p>Credo analyzes your code for readability, refactoring opportunities, software design suggestions, and common mistakes. It&rsquo;s like having an experienced Elixir developer review your code automatically.</p>
 <h2 id="adding-credo-to-your-project">Adding Credo to Your Project</h2>
 <p>First, add Credo as a dependency in your <code>mix.exs</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>{<span style="color:#e6db74">:credo</span>, <span style="color:#e6db74">&#34;~&gt; 1.7&#34;</span>, <span style="color:#e6db74">only</span>: [<span style="color:#e6db74">:dev</span>, <span style="color:#e6db74">:test</span>], <span style="color:#e6db74">runtime</span>: <span style="color:#66d9ef">false</span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elixir" data-lang="elixir"><span class="line"><span class="cl"><span class="p">{</span><span class="ss">:credo</span><span class="p">,</span> <span class="s2">&#34;~&gt; 1.7&#34;</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="p">[</span><span class="ss">:dev</span><span class="p">,</span> <span class="ss">:test</span><span class="p">],</span> <span class="ss">runtime</span><span class="p">:</span> <span class="no">false</span><span class="p">}</span></span></span></code></pre></div>
 <p>Then run <code>mix deps.get</code> to install it.</p>
 <h2 id="configuring-credo">Configuring Credo</h2>
 <p>Credo is highly configurable. Here&rsquo;s my <code>.credo.exs</code> configuration file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>%{
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">configs</span>: [
-</span></span><span style="display:flex;"><span>    %{
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">name</span>: <span style="color:#e6db74">&#34;default&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">strict</span>: <span style="color:#66d9ef">true</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">checks</span>: [
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Additional and reconfigured checks</span>
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Design.AliasUsage</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">if_nested_deeper_than</span>: <span style="color:#ae81ff">3</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">if_called_more_often_than</span>: <span style="color:#ae81ff">1</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">files</span>: %{<span style="color:#e6db74">excluded</span>: [<span style="color:#e6db74">&#34;test/support/data_case.ex&#34;</span>]}},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.AliasAs</span>, []},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.MultiAlias</span>, []},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.NestedFunctionCalls</span>, []},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.SeparateAliasRequire</span>, []},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.StrictModuleLayout</span>, []},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.WithCustomTaggedTuple</span>, []},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Refactor.ABCSize</span>, []},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Warning.UnsafeToAtom</span>, []},
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Disabled checks</span>
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Design.TagFIXME</span>, <span style="color:#66d9ef">false</span>},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Design.TagTODO</span>, <span style="color:#66d9ef">false</span>},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Readability.ModuleDoc</span>, <span style="color:#66d9ef">false</span>},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Refactor.LongQuoteBlocks</span>, <span style="color:#66d9ef">false</span>},
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">Credo.Check.Refactor.Nesting</span>, <span style="color:#66d9ef">false</span>}
-</span></span><span style="display:flex;"><span>      ]
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  ]
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elixir" data-lang="elixir"><span class="line"><span class="cl"><span class="p">%{</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">configs</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">%{</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">name</span><span class="p">:</span> <span class="s2">&#34;default&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">strict</span><span class="p">:</span> <span class="no">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">checks</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Additional and reconfigured checks</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Design.AliasUsage</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="ss">if_nested_deeper_than</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="ss">if_called_more_often_than</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="ss">files</span><span class="p">:</span> <span class="p">%{</span><span class="ss">excluded</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;test/support/data_case.ex&#34;</span><span class="p">]}},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Readability.AliasAs</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Readability.MultiAlias</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Readability.NestedFunctionCalls</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Readability.SeparateAliasRequire</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Readability.StrictModuleLayout</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Readability.WithCustomTaggedTuple</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Refactor.ABCSize</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Warning.UnsafeToAtom</span><span class="p">,</span> <span class="p">[]},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Disabled checks</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Design.TagFIXME</span><span class="p">,</span> <span class="no">false</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Design.TagTODO</span><span class="p">,</span> <span class="no">false</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Readability.ModuleDoc</span><span class="p">,</span> <span class="no">false</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Refactor.LongQuoteBlocks</span><span class="p">,</span> <span class="no">false</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nc">Credo.Check.Refactor.Nesting</span><span class="p">,</span> <span class="no">false</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
 <h2 id="running-credo">Running Credo</h2>
 <p>Once configured, running Credo is simple. I run it in strict mode to ensure the highest quality standards:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mix credo --strict
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ mix credo --strict
 </span></span></code></pre></div><p>Here&rsquo;s the output from running it on my project:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Checking <span style="color:#ae81ff">21</span> source files ...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Please report incorrect results: https://github.com/rrrene/credo/issues
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Analysis took 0.7 seconds <span style="color:#f92672">(</span>0.05s to load, 0.7s running <span style="color:#ae81ff">70</span> checks on <span style="color:#ae81ff">21</span> files<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">60</span> mods/funs, found no issues.</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Checking <span class="m">21</span> <span class="nb">source</span> files ...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Please report incorrect results: https://github.com/rrrene/credo/issues
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Analysis took 0.7 seconds <span class="o">(</span>0.05s to load, 0.7s running <span class="m">70</span> checks on <span class="m">21</span> files<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="m">60</span> mods/funs, found no issues.</span></span></code></pre></div>
     </div>
 
     <footer class="article-footer">
