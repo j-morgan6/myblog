@@ -2,122 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Joser&#39;s Elixir</title>
-    <link>http://localhost:58041/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:58041/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir Phoenix Guide v1.3.0: Testing Essentials</title>
+      <link>http://localhost:1313/posts/elixir-phoenix-guide-v1-3-0/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/elixir-phoenix-guide-v1-3-0/</guid>
+      <description>&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;p&gt;Released v1.3.0 of my &lt;a href=&#34;https://github.com/j-morgan6/elixir-phoenix-guide&#34;&gt;Elixir Phoenix Guide plugin&lt;/a&gt;. This release has one focus: testing.&lt;/p&gt;&#xA;&lt;p&gt;v1.2.0 consolidated four essential skills that enforce Elixir/Phoenix best practices. But testing was the missing piece — the plugin would guide you through writing LiveView components, Ecto schemas, and file uploads, but when you opened a &lt;code&gt;_test.exs&lt;/code&gt; file, you were on your own.&lt;/p&gt;&#xA;&lt;p&gt;v1.3.0 closes that gap.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-v120&#34;&gt;The Problem with v1.2.0&lt;/h2&gt;&#xA;&lt;p&gt;The four skills in v1.2.0 were comprehensive within their domains. But testing is a cross-cutting concern — it touches everything. There was no dedicated skill that activated when you sat down to write tests.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Part Four | Functional Programming Through Elixir: Pattern Matching</title>
-      <link>http://localhost:58041/posts/fp-series-pattern-matching/</link>
+      <link>http://localhost:1313/posts/fp-series-pattern-matching/</link>
       <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/fp-series-pattern-matching/</guid>
-      <description>&lt;h2 id=&#34;a-different-way-to-work-with-data&#34;&gt;A Different Way to Work with Data&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;http://localhost:58041/posts/fp-series-pure-functions-vs-side-effects/&#34;&gt;Part Three&lt;/a&gt;, we learned about pure functions and side effects. Now we&amp;rsquo;ll tackle one of the most distinctive features of functional programming: &lt;strong&gt;pattern matching&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Pattern matching is Elixir&amp;rsquo;s superpower for working with data. It&amp;rsquo;s not just a fancy way to assign variables - it&amp;rsquo;s a fundamentally different approach to extracting, validating, and routing data through your program. Once you understand pattern matching, you&amp;rsquo;ll find conditionals, type checking, and data extraction in OOP languages feel unnecessarily verbose.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/fp-series-pattern-matching/</guid>
+      <description>&lt;h2 id=&#34;a-different-way-to-work-with-data&#34;&gt;A Different Way to Work with Data&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/&#34;&gt;Part Three&lt;/a&gt;, we learned about pure functions and side effects. Now we&amp;rsquo;ll tackle one of the most distinctive features of functional programming: &lt;strong&gt;pattern matching&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Pattern matching is Elixir&amp;rsquo;s superpower for working with data. It&amp;rsquo;s not just a fancy way to assign variables - it&amp;rsquo;s a fundamentally different approach to extracting, validating, and routing data through your program. Once you understand pattern matching, you&amp;rsquo;ll find conditionals, type checking, and data extraction in OOP languages feel unnecessarily verbose.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elixir Phoenix Guide v1.2.0: From 8 Skills to 4 Essentials</title>
-      <link>http://localhost:58041/posts/elixir-phoenix-guide-v1-2-0/</link>
+      <link>http://localhost:1313/posts/elixir-phoenix-guide-v1-2-0/</link>
       <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/elixir-phoenix-guide-v1-2-0/</guid>
+      <guid>http://localhost:1313/posts/elixir-phoenix-guide-v1-2-0/</guid>
       <description>&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;p&gt;Released v1.2.0 of my &lt;a href=&#34;https://github.com/j-morgan6/elixir-phoenix-guide&#34;&gt;Elixir Phoenix Guide plugin&lt;/a&gt;. This is a major restructuring: eight separate skills consolidated into four essential modules, each with enforced rules and real-time validation.&lt;/p&gt;&#xA;&lt;p&gt;This isn&amp;rsquo;t a minor update. It&amp;rsquo;s a complete rethinking of how Claude Code should guide Elixir/Phoenix development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-v11x&#34;&gt;The Problem with v1.1.x&lt;/h2&gt;&#xA;&lt;p&gt;In v1.1.x, I had eight skills covering different aspects of Elixir and Phoenix development. The structure worked, but created problems:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Part Three | Functional Programming Through Elixir: Pure Functions vs Side Effects</title>
-      <link>http://localhost:58041/posts/fp-series-pure-functions-vs-side-effects/</link>
+      <link>http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/fp-series-pure-functions-vs-side-effects/</guid>
-      <description>&lt;h2 id=&#34;the-foundation-of-predictable-code&#34;&gt;The Foundation of Predictable Code&lt;/h2&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;http://localhost:58041/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;first post&lt;/a&gt;, we explored immutability. In the &lt;a href=&#34;http://localhost:58041/posts/fp-series-functions-as-first-class-citizens/&#34;&gt;second post&lt;/a&gt;, we saw how functions are values. Now we&amp;rsquo;ll tackle a concept that ties them together: &lt;strong&gt;pure functions&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Pure functions are the building blocks of functional programming. They&amp;rsquo;re predictable, testable, and easy to reason about. But real applications need side effects - saving to databases, making HTTP requests, printing to the console. The key is knowing how to write pure functions and where to isolate side effects.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/fp-series-pure-functions-vs-side-effects/</guid>
+      <description>&lt;h2 id=&#34;the-foundation-of-predictable-code&#34;&gt;The Foundation of Predictable Code&lt;/h2&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;first post&lt;/a&gt;, we explored immutability. In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/&#34;&gt;second post&lt;/a&gt;, we saw how functions are values. Now we&amp;rsquo;ll tackle a concept that ties them together: &lt;strong&gt;pure functions&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Pure functions are the building blocks of functional programming. They&amp;rsquo;re predictable, testable, and easy to reason about. But real applications need side effects - saving to databases, making HTTP requests, printing to the console. The key is knowing how to write pure functions and where to isolate side effects.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elixir Claude Optimization v1.1.2: Better Skill Discovery</title>
-      <link>http://localhost:58041/posts/elixir-claude-optimization-v1-1-0/</link>
+      <link>http://localhost:1313/posts/elixir-claude-optimization-v1-1-0/</link>
       <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/elixir-claude-optimization-v1-1-0/</guid>
+      <guid>http://localhost:1313/posts/elixir-claude-optimization-v1-1-0/</guid>
       <description>&lt;h2 id=&#34;whats-new&#34;&gt;What&amp;rsquo;s New&lt;/h2&gt;&#xA;&lt;p&gt;Released v1.1.2 of my &lt;a href=&#34;https://github.com/j-morgan6/elixir-claude-optimization&#34;&gt;Elixir Claude optimization plugin&lt;/a&gt;. The focus: making skills easier to discover and use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;In v1.0.0, Claude Code would often miss applicable skills. The &amp;ldquo;Use when&amp;rdquo; language wasn&amp;rsquo;t directive enough, and there was no systematic way to identify which skills applied to a task.&lt;/p&gt;&#xA;&lt;p&gt;Result: Skills existed but weren&amp;rsquo;t being invoked consistently.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;h3 id=&#34;new-skill-discovery-system&#34;&gt;New Skill Discovery System&lt;/h3&gt;&#xA;&lt;p&gt;Added a meta-skill called &lt;code&gt;skill-discovery&lt;/code&gt; that provides a systematic checklist based on file types and task requirements. Think of it as a flowchart for skill selection.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Part Two | Functional Programming Through Elixir: Functions as First-Class Citizens</title>
-      <link>http://localhost:58041/posts/fp-series-functions-as-first-class-citizens/</link>
+      <link>http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/</link>
       <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/fp-series-functions-as-first-class-citizens/</guid>
-      <description>&lt;h2 id=&#34;functions-are-values&#34;&gt;Functions Are Values&lt;/h2&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;http://localhost:58041/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;first post&lt;/a&gt;, we explored how immutability changes the way we think about data. Now we&amp;rsquo;ll tackle another fundamental shift: &lt;strong&gt;in functional programming, functions are values just like numbers, strings, or lists&lt;/strong&gt;. You can pass them as arguments, return them from other functions, store them in variables, and put them in data structures.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re coming from object-oriented programming, you&amp;rsquo;ve probably encountered this concept through callbacks, lambdas, or method references. But in OOP, these often feel like workarounds or special cases. In functional programming languages like Elixir, treating functions as first-class citizens is natural and central to how you write code.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/fp-series-functions-as-first-class-citizens/</guid>
+      <description>&lt;h2 id=&#34;functions-are-values&#34;&gt;Functions Are Values&lt;/h2&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/&#34;&gt;first post&lt;/a&gt;, we explored how immutability changes the way we think about data. Now we&amp;rsquo;ll tackle another fundamental shift: &lt;strong&gt;in functional programming, functions are values just like numbers, strings, or lists&lt;/strong&gt;. You can pass them as arguments, return them from other functions, store them in variables, and put them in data structures.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re coming from object-oriented programming, you&amp;rsquo;ve probably encountered this concept through callbacks, lambdas, or method references. But in OOP, these often feel like workarounds or special cases. In functional programming languages like Elixir, treating functions as first-class citizens is natural and central to how you write code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Part One | Functional Programming Through Elixir: Immutability vs Mutable State</title>
-      <link>http://localhost:58041/posts/fp-series-immutability-vs-mutable-state/</link>
+      <link>http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/</link>
       <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/fp-series-immutability-vs-mutable-state/</guid>
+      <guid>http://localhost:1313/posts/fp-series-immutability-vs-mutable-state/</guid>
       <description>&lt;h2 id=&#34;the-foundation-of-functional-programming&#34;&gt;The Foundation of Functional Programming&lt;/h2&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re coming from an object-oriented programming background, one of the most fundamental shifts in thinking when learning functional programming is &lt;strong&gt;immutability&lt;/strong&gt;. In Elixir and other functional languages, data never changes once it&amp;rsquo;s created. This might sound limiting at first, but it&amp;rsquo;s actually a superpower that unlocks predictability, thread safety, and easier debugging.&lt;/p&gt;&#xA;&lt;p&gt;This is the first post in a series exploring functional programming concepts through Elixir, aimed at developers transitioning from OOP paradigms.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Better Elixir: A Claude Code Plugin Experiment</title>
-      <link>http://localhost:58041/posts/claude-code-elixir-plugin-comparison/</link>
+      <link>http://localhost:1313/posts/claude-code-elixir-plugin-comparison/</link>
       <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/claude-code-elixir-plugin-comparison/</guid>
+      <guid>http://localhost:1313/posts/claude-code-elixir-plugin-comparison/</guid>
       <description>&lt;h2 id=&#34;the-experiment&#34;&gt;The Experiment&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been using Claude Code for Elixir development and wondered: &lt;strong&gt;Does customizing the AI with skills, hooks, and agent documentation actually make a difference?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;To find out, I built the same Phoenix LiveView image gallery application twice:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Build 1 (Baseline)&lt;/strong&gt;: Minimal configuration - just project guidelines and specs&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Build 2 (Plugin)&lt;/strong&gt;: Custom skills, hooks, agent docs, and comprehensive project documentation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Both builds used identical project specifications and the same base agent guidelines. The only difference was the additional plugin configuration in Build 2.&lt;/p&gt;</description>
     </item>
     <item>
       <title>TideWave Can Now Generate Diagrams</title>
-      <link>http://localhost:58041/posts/tidewave-mermaid-diagrams/</link>
+      <link>http://localhost:1313/posts/tidewave-mermaid-diagrams/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/tidewave-mermaid-diagrams/</guid>
-      <description>&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;p&gt;TideWave can now generate Mermaid diagrams. Ask it to visualize your code, and it produces the diagram.&lt;/p&gt;&#xA;&lt;div style=&#34;max-width: 100%; overflow: hidden;&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:58041/images/add_task_button_click_flow.png&#34; alt=&#34;Task Creation Flow Diagram&#34; style=&#34;width: 100%; height: auto; max-width: 800px;&#34;&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;That&amp;rsquo;s a Mermaid diagram showing what happens when you click &amp;ldquo;Add Task&amp;rdquo; in a Phoenix LiveView app. TideWave generated this by tracing through the actual code.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-im-using-it-for&#34;&gt;What I&amp;rsquo;m Using It For&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Understanding Legacy Code:&lt;/strong&gt; Asked TideWave to show how contexts interact in an inherited Elixir project. Got a clean diagram of data flow. Saved hours.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/tidewave-mermaid-diagrams/</guid>
+      <description>&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;p&gt;TideWave can now generate Mermaid diagrams. Ask it to visualize your code, and it produces the diagram.&lt;/p&gt;&#xA;&lt;div style=&#34;max-width: 100%; overflow: hidden;&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/images/add_task_button_click_flow.png&#34; alt=&#34;Task Creation Flow Diagram&#34; style=&#34;width: 100%; height: auto; max-width: 800px;&#34;&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;That&amp;rsquo;s a Mermaid diagram showing what happens when you click &amp;ldquo;Add Task&amp;rdquo; in a Phoenix LiveView app. TideWave generated this by tracing through the actual code.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-im-using-it-for&#34;&gt;What I&amp;rsquo;m Using It For&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Understanding Legacy Code:&lt;/strong&gt; Asked TideWave to show how contexts interact in an inherited Elixir project. Got a clean diagram of data flow. Saved hours.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My AI Tool Stack (January 2026)</title>
-      <link>http://localhost:58041/posts/my-ai-tool-stack-january-2026/</link>
+      <link>http://localhost:1313/posts/my-ai-tool-stack-january-2026/</link>
       <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/my-ai-tool-stack-january-2026/</guid>
+      <guid>http://localhost:1313/posts/my-ai-tool-stack-january-2026/</guid>
       <description>&lt;h2 id=&#34;the-stack&#34;&gt;The Stack&lt;/h2&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s what I&amp;rsquo;m actually using day-to-day for Elixir/Phoenix LiveView development. Not what I tried once and forgot about.&lt;/p&gt;&#xA;&lt;h3 id=&#34;code-editing-windsurf&#34;&gt;Code Editing: Windsurf&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;What I use it for:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Primary IDE for Elixir/Phoenix development&lt;/li&gt;&#xA;&lt;li&gt;In-editor AI assistance without context switching&lt;/li&gt;&#xA;&lt;li&gt;Refactoring suggestions that understand Phoenix patterns&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Why it stuck:&lt;/strong&gt; Feels native. The AI suggestions understand Elixir idioms and Phoenix conventions. When I&amp;rsquo;m working on a LiveView component, it actually suggests LiveView-appropriate patterns, not React patterns.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hacking My Rancilio Silvia: Using Stride to Manage a Complex Sensor Integration</title>
-      <link>http://localhost:58041/posts/managing-complex-projects-with-stride/</link>
+      <link>http://localhost:1313/posts/managing-complex-projects-with-stride/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/managing-complex-projects-with-stride/</guid>
+      <guid>http://localhost:1313/posts/managing-complex-projects-with-stride/</guid>
       <description>&lt;h2 id=&#34;the-setup-modding-a-rancilio-silvia&#34;&gt;The Setup: Modding a Rancilio Silvia&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m hacking my Rancilio Silvia espresso machine with a Raspberry Pi Zero W running Elixir/Nerves. The goal? PID temperature control for better espresso. When I decided to add a TSIC306 temperature sensor, I knew it&amp;rsquo;d be tricky, but I didn&amp;rsquo;t know &lt;em&gt;how&lt;/em&gt; tricky.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s the thing about embedded systems work: you can&amp;rsquo;t plan what you don&amp;rsquo;t understand yet. And I needed some way to stay organized without drowning in project management overhead.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deploying to Fly.io for Development</title>
-      <link>http://localhost:58041/posts/deploying-to-flyio/</link>
+      <link>http://localhost:1313/posts/deploying-to-flyio/</link>
       <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/posts/deploying-to-flyio/</guid>
+      <guid>http://localhost:1313/posts/deploying-to-flyio/</guid>
       <description>&lt;h2 id=&#34;getting-your-app-live-with-flyio&#34;&gt;Getting Your App Live with Fly.io&lt;/h2&gt;&#xA;&lt;p&gt;When it comes to deploying Elixir applications for development, Fly.io stands out as a developer friendly platform that makes the deployment process straightforward. In this post, I&amp;rsquo;ll walk through deploying my project to Fly.io and share some key learnings along the way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic Security Measures with Sobelow and Mix Audit</title>
-      <link>http://localhost:58041/posts/security-with-sobelow/</link>
+      <link>http://localhost:1313/posts/security-with-sobelow/</link>
       <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/posts/security-with-sobelow/</guid>
+      <guid>http://localhost:1313/posts/security-with-sobelow/</guid>
       <description>&lt;h2 id=&#34;security-first&#34;&gt;Security First&lt;/h2&gt;&#xA;&lt;p&gt;Security should be a priority from the start of any project. In the Elixir ecosystem, we have excellent tools to help catch security vulnerabilities early in development. Two essential tools are Sobelow for static security analysis and Mix Audit for dependency vulnerability checking.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using Credo to Ensure Code Quality in Elixir</title>
-      <link>http://localhost:58041/posts/credo-code-quality/</link>
+      <link>http://localhost:1313/posts/credo-code-quality/</link>
       <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/posts/credo-code-quality/</guid>
+      <guid>http://localhost:1313/posts/credo-code-quality/</guid>
       <description>&lt;h2 id=&#34;why-code-quality-matters&#34;&gt;Why Code Quality Matters&lt;/h2&gt;&#xA;&lt;p&gt;Maintaining code quality is essential for any project that aims to be maintainable and scalable. In the Elixir ecosystem, Credo is the go-to static code analysis tool that helps enforce consistency and catch potential issues before they become problems.&lt;/p&gt;&#xA;&lt;p&gt;Credo analyzes your code for readability, refactoring opportunities, software design suggestions, and common mistakes. It&amp;rsquo;s like having an experienced Elixir developer review your code automatically.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting started with Elixir Testing</title>
-      <link>http://localhost:58041/posts/testing-and-coverage/</link>
+      <link>http://localhost:1313/posts/testing-and-coverage/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/posts/testing-and-coverage/</guid>
+      <guid>http://localhost:1313/posts/testing-and-coverage/</guid>
       <description>&lt;h2 id=&#34;tests-and-coverage&#34;&gt;Tests and Coverage&lt;/h2&gt;&#xA;&lt;p&gt;Getting started on my project I wanted to make sure I had a solid foundation in place. One of the first things I wanted to do was setup test coverage to maintain confidence in my code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Experimenting with Tidewave: Vibe Coding</title>
-      <link>http://localhost:58041/posts/building-web-app-with-tidewave/</link>
+      <link>http://localhost:1313/posts/building-web-app-with-tidewave/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>http://localhost:58041/posts/building-web-app-with-tidewave/</guid>
+      <guid>http://localhost:1313/posts/building-web-app-with-tidewave/</guid>
       <description>&lt;h2 id=&#34;what-is-tidewave&#34;&gt;What is Tidewave?&lt;/h2&gt;&#xA;&lt;p&gt;Tidewave is an AI coding assisstant meant for full stack web development. It is built on top of Elixir and Phoenix by José Valim. What I found different about Tidewave is that it runs insdie of your browser. It is deeply integrated with your web frameworkand easily allows you to see what the coding agent is doing in real time.&lt;/p&gt;&#xA;&lt;h2 id=&#34;getting-started-with-tidewave&#34;&gt;Getting Started with Tidewave&lt;/h2&gt;&#xA;&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;&#xA;&lt;p&gt;Before we begin, make sure you have:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello World</title>
-      <link>http://localhost:58041/posts/hello-world/</link>
+      <link>http://localhost:1313/posts/hello-world/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/posts/hello-world/</guid>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
       <description>&lt;p&gt;Welcome to my Hugo blog hosted on Cloudflare Pages!&lt;/p&gt;</description>
     </item>
   </channel>

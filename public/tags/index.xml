@@ -2,255 +2,255 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Joser&#39;s Elixir</title>
-    <link>http://localhost:58041/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:58041/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Elixir</title>
-      <link>http://localhost:58041/tags/elixir/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/elixir/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Fp-Series</title>
-      <link>http://localhost:58041/tags/fp-series/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/fp-series/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Functional-Programming</title>
-      <link>http://localhost:58041/tags/functional-programming/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/functional-programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Learning</title>
-      <link>http://localhost:58041/tags/learning/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/learning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Pattern-Matching</title>
-      <link>http://localhost:58041/tags/pattern-matching/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/pattern-matching/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Fri, 27 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Tools</title>
-      <link>http://localhost:58041/tags/ai-tools/</link>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/ai-tools/</guid>
+      <link>http://localhost:1313/tags/ai-tools/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ai-tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Claude-Code</title>
-      <link>http://localhost:58041/tags/claude-code/</link>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/claude-code/</guid>
+      <link>http://localhost:1313/tags/claude-code/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/claude-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elixir</title>
+      <link>http://localhost:1313/tags/elixir/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/elixir/</guid>
       <description></description>
     </item>
     <item>
       <title>Phoenix</title>
-      <link>http://localhost:58041/tags/phoenix/</link>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/phoenix/</guid>
+      <link>http://localhost:1313/tags/phoenix/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/phoenix/</guid>
       <description></description>
     </item>
     <item>
       <title>Productivity</title>
-      <link>http://localhost:58041/tags/productivity/</link>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/productivity/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Pure-Functions</title>
-      <link>http://localhost:58041/tags/pure-functions/</link>
-      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/pure-functions/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Side-Effects</title>
-      <link>http://localhost:58041/tags/side-effects/</link>
-      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/side-effects/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>First-Class-Functions</title>
-      <link>http://localhost:58041/tags/first-class-functions/</link>
-      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/first-class-functions/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Immutability</title>
-      <link>http://localhost:58041/tags/immutability/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/immutability/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ai-Development</title>
-      <link>http://localhost:58041/tags/ai-development/</link>
-      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/ai-development/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Developer-Tools</title>
-      <link>http://localhost:58041/tags/developer-tools/</link>
-      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/developer-tools/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tidewave</title>
-      <link>http://localhost:58041/tags/tidewave/</link>
-      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/tidewave/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Development-Workflow</title>
-      <link>http://localhost:58041/tags/development-workflow/</link>
-      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/development-workflow/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Embedded-Systems</title>
-      <link>http://localhost:58041/tags/embedded-systems/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/embedded-systems/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Espresso</title>
-      <link>http://localhost:58041/tags/espresso/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/espresso/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Project-Management</title>
-      <link>http://localhost:58041/tags/project-management/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/project-management/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Rancilio-Silvia</title>
-      <link>http://localhost:58041/tags/rancilio-silvia/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/rancilio-silvia/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Stride</title>
-      <link>http://localhost:58041/tags/stride/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:58041/tags/stride/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Deployment</title>
-      <link>http://localhost:58041/tags/deployment/</link>
-      <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/deployment/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Fly.io</title>
-      <link>http://localhost:58041/tags/fly.io/</link>
-      <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/fly.io/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Infrastructure</title>
-      <link>http://localhost:58041/tags/infrastructure/</link>
-      <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/infrastructure/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Best-Practices</title>
-      <link>http://localhost:58041/tags/best-practices/</link>
-      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/best-practices/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Mix-Audit</title>
-      <link>http://localhost:58041/tags/mix-audit/</link>
-      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/mix-audit/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Security</title>
-      <link>http://localhost:58041/tags/security/</link>
-      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/security/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sobelow</title>
-      <link>http://localhost:58041/tags/sobelow/</link>
-      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/sobelow/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Credo</title>
-      <link>http://localhost:58041/tags/credo/</link>
-      <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/credo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linting</title>
-      <link>http://localhost:58041/tags/linting/</link>
-      <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/linting/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Coverage</title>
-      <link>http://localhost:58041/tags/coverage/</link>
-      <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/coverage/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Quality</title>
-      <link>http://localhost:58041/tags/quality/</link>
-      <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/quality/</guid>
+      <link>http://localhost:1313/tags/productivity/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/productivity/</guid>
       <description></description>
     </item>
     <item>
       <title>Testing</title>
-      <link>http://localhost:58041/tags/testing/</link>
+      <link>http://localhost:1313/tags/testing/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/testing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fp-Series</title>
+      <link>http://localhost:1313/tags/fp-series/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fp-series/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Functional-Programming</title>
+      <link>http://localhost:1313/tags/functional-programming/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>http://localhost:1313/tags/learning/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pattern-Matching</title>
+      <link>http://localhost:1313/tags/pattern-matching/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/pattern-matching/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pure-Functions</title>
+      <link>http://localhost:1313/tags/pure-functions/</link>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/pure-functions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Side-Effects</title>
+      <link>http://localhost:1313/tags/side-effects/</link>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/side-effects/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>First-Class-Functions</title>
+      <link>http://localhost:1313/tags/first-class-functions/</link>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/first-class-functions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Immutability</title>
+      <link>http://localhost:1313/tags/immutability/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/immutability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Development</title>
+      <link>http://localhost:1313/tags/ai-development/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ai-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Developer-Tools</title>
+      <link>http://localhost:1313/tags/developer-tools/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/developer-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tidewave</title>
+      <link>http://localhost:1313/tags/tidewave/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tidewave/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Development-Workflow</title>
+      <link>http://localhost:1313/tags/development-workflow/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/development-workflow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embedded-Systems</title>
+      <link>http://localhost:1313/tags/embedded-systems/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/embedded-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Espresso</title>
+      <link>http://localhost:1313/tags/espresso/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/espresso/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Project-Management</title>
+      <link>http://localhost:1313/tags/project-management/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/project-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rancilio-Silvia</title>
+      <link>http://localhost:1313/tags/rancilio-silvia/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rancilio-silvia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stride</title>
+      <link>http://localhost:1313/tags/stride/</link>
+      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/stride/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deployment</title>
+      <link>http://localhost:1313/tags/deployment/</link>
+      <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/deployment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fly.io</title>
+      <link>http://localhost:1313/tags/fly.io/</link>
+      <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/fly.io/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infrastructure</title>
+      <link>http://localhost:1313/tags/infrastructure/</link>
+      <pubDate>Wed, 22 Oct 2025 10:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best-Practices</title>
+      <link>http://localhost:1313/tags/best-practices/</link>
+      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mix-Audit</title>
+      <link>http://localhost:1313/tags/mix-audit/</link>
+      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/mix-audit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/tags/security/</link>
+      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sobelow</title>
+      <link>http://localhost:1313/tags/sobelow/</link>
+      <pubDate>Fri, 03 Oct 2025 18:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/sobelow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Credo</title>
+      <link>http://localhost:1313/tags/credo/</link>
+      <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/credo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linting</title>
+      <link>http://localhost:1313/tags/linting/</link>
+      <pubDate>Fri, 03 Oct 2025 17:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/linting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coverage</title>
+      <link>http://localhost:1313/tags/coverage/</link>
       <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/testing/</guid>
+      <guid>http://localhost:1313/tags/coverage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quality</title>
+      <link>http://localhost:1313/tags/quality/</link>
+      <pubDate>Fri, 03 Oct 2025 16:00:00 -0400</pubDate>
+      <guid>http://localhost:1313/tags/quality/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>http://localhost:58041/tags/tutorial/</link>
+      <link>http://localhost:1313/tags/tutorial/</link>
       <pubDate>Tue, 23 Sep 2025 16:11:00 -0400</pubDate>
-      <guid>http://localhost:58041/tags/tutorial/</guid>
+      <guid>http://localhost:1313/tags/tutorial/</guid>
       <description></description>
     </item>
   </channel>
