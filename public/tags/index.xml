@@ -30,6 +30,27 @@
       <description></description>
     </item>
     <item>
+      <title>Fp-Series</title>
+      <link>http://localhost:1313/tags/fp-series/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fp-series/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Functional-Programming</title>
+      <link>http://localhost:1313/tags/functional-programming/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>http://localhost:1313/tags/learning/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/learning/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Phoenix</title>
       <link>http://localhost:1313/tags/phoenix/</link>
       <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
@@ -44,31 +65,24 @@
       <description></description>
     </item>
     <item>
+      <title>Recursion</title>
+      <link>http://localhost:1313/tags/recursion/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/recursion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tail-Call-Optimization</title>
+      <link>http://localhost:1313/tags/tail-call-optimization/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tail-call-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Testing</title>
       <link>http://localhost:1313/tags/testing/</link>
       <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/testing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Fp-Series</title>
-      <link>http://localhost:1313/tags/fp-series/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/fp-series/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Functional-Programming</title>
-      <link>http://localhost:1313/tags/functional-programming/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/functional-programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Learning</title>
-      <link>http://localhost:1313/tags/learning/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/learning/</guid>
       <description></description>
     </item>
     <item>

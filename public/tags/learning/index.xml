@@ -6,8 +6,15 @@
     <description>Recent content in Learning on Joser&#39;s Elixir</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Part Five | Functional Programming Through Elixir: Recursion Over Iteration</title>
+      <link>http://localhost:1313/posts/fp-series-recursion-over-iteration/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fp-series-recursion-over-iteration/</guid>
+      <description>&lt;h2 id=&#34;a-different-way-to-loop&#34;&gt;A Different Way to Loop&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/fp-series-pattern-matching/&#34;&gt;Part Four&lt;/a&gt;, we learned how pattern matching enables elegant data handling. Now we&amp;rsquo;ll tackle another fundamental shift: &lt;strong&gt;in functional programming, you don&amp;rsquo;t use loops - you use recursion&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re coming from an object-oriented background, loops are probably second nature. &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;forEach&lt;/code&gt; - these are the tools you reach for when you need to process multiple items. But in Elixir, immutability means you can&amp;rsquo;t have traditional loop counters that increment. Instead, you use recursion: functions that call themselves.&lt;/p&gt;&#xA;&lt;p&gt;Once you understand recursion, you&amp;rsquo;ll find it more expressive than loops. It naturally handles complex iteration patterns, and Elixir&amp;rsquo;s tail-call optimization makes it just as efficient as loops in other languages.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Part Four | Functional Programming Through Elixir: Pattern Matching</title>
       <link>http://localhost:1313/posts/fp-series-pattern-matching/</link>

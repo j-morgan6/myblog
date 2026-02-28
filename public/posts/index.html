@@ -60,21 +60,41 @@
                     
                 </span>
                 
-                <span class="reading-time">4 min read</span>
+                <span class="reading-time">3 min read</span>
             </div>
 
             
             <div class="post-summary">
                 <h2 id="what-changed">What Changed</h2>
-<p>Released v1.3.0 of my <a href="https://github.com/j-morgan6/elixir-phoenix-guide">Elixir Phoenix Guide plugin</a>. This release has one focus: testing.</p>
-<p>v1.2.0 consolidated four essential skills that enforce Elixir/Phoenix best practices. But testing was the missing piece — the plugin would guide you through writing LiveView components, Ecto schemas, and file uploads, but when you opened a <code>_test.exs</code> file, you were on your own.</p>
-<p>v1.3.0 closes that gap.</p>
+<p>Released v1.3.0 of my <a href="https://github.com/j-morgan6/elixir-phoenix-guide">Elixir Phoenix Guide plugin</a>. This one is all about testing.</p>
+<p>v1.2.0 built out four skills that cover Elixir patterns, LiveView, Ecto, and file uploads. What I didn&rsquo;t have was anything for tests. You could open a <code>_test.exs</code> file and the plugin had nothing to say. That felt like a hole worth fixing.</p>
 <h2 id="the-problem-with-v120">The Problem with v1.2.0</h2>
-<p>The four skills in v1.2.0 were comprehensive within their domains. But testing is a cross-cutting concern — it touches everything. There was no dedicated skill that activated when you sat down to write tests.</p>
+<p>The four skills worked well for production code but testing was just not covered. Claude Code would write a context module following strict patterns, then write the tests with no real guidance. The result was inconsistent test setup, missing edge cases, and assertion styles that made failures hard to read.</p>
             </div>
             
 
             <a href="/posts/elixir-phoenix-guide-v1-3-0/" class="read-more">Read More</a>
+        </article>
+        
+        <article class="post-list-item">
+            <h2><a href="/posts/fp-series-recursion-over-iteration/">Part Five | Functional Programming Through Elixir: Recursion Over Iteration</a></h2>
+
+            <div class="post-meta">
+                <time datetime="2026-02-27">February 27, 2026</time>
+                
+                <span class="reading-time">11 min read</span>
+            </div>
+
+            
+            <div class="post-summary">
+                <h2 id="a-different-way-to-loop">A Different Way to Loop</h2>
+<p>In <a href="/posts/fp-series-pattern-matching/">Part Four</a>, we learned how pattern matching enables elegant data handling. Now we&rsquo;ll tackle another fundamental shift: <strong>in functional programming, you don&rsquo;t use loops - you use recursion</strong>.</p>
+<p>If you&rsquo;re coming from an object-oriented background, loops are probably second nature. <code>for</code>, <code>while</code>, <code>forEach</code> - these are the tools you reach for when you need to process multiple items. But in Elixir, immutability means you can&rsquo;t have traditional loop counters that increment. Instead, you use recursion: functions that call themselves.</p>
+<p>Once you understand recursion, you&rsquo;ll find it more expressive than loops. It naturally handles complex iteration patterns, and Elixir&rsquo;s tail-call optimization makes it just as efficient as loops in other languages.</p>
+            </div>
+            
+
+            <a href="/posts/fp-series-recursion-over-iteration/" class="read-more">Read More</a>
         </article>
         
         <article class="post-list-item">

@@ -60,17 +60,16 @@
                     
                 </span>
                 
-                <span class="reading-time">4 min read</span>
+                <span class="reading-time">3 min read</span>
             </div>
 
             
             <div class="post-summary">
                 <h2 id="what-changed">What Changed</h2>
-<p>Released v1.3.0 of my <a href="https://github.com/j-morgan6/elixir-phoenix-guide">Elixir Phoenix Guide plugin</a>. This release has one focus: testing.</p>
-<p>v1.2.0 consolidated four essential skills that enforce Elixir/Phoenix best practices. But testing was the missing piece — the plugin would guide you through writing LiveView components, Ecto schemas, and file uploads, but when you opened a <code>_test.exs</code> file, you were on your own.</p>
-<p>v1.3.0 closes that gap.</p>
+<p>Released v1.3.0 of my <a href="https://github.com/j-morgan6/elixir-phoenix-guide">Elixir Phoenix Guide plugin</a>. This one is all about testing.</p>
+<p>v1.2.0 built out four skills that cover Elixir patterns, LiveView, Ecto, and file uploads. What I didn&rsquo;t have was anything for tests. You could open a <code>_test.exs</code> file and the plugin had nothing to say. That felt like a hole worth fixing.</p>
 <h2 id="the-problem-with-v120">The Problem with v1.2.0</h2>
-<p>The four skills in v1.2.0 were comprehensive within their domains. But testing is a cross-cutting concern — it touches everything. There was no dedicated skill that activated when you sat down to write tests.</p>
+<p>The four skills worked well for production code but testing was just not covered. Claude Code would write a context module following strict patterns, then write the tests with no real guidance. The result was inconsistent test setup, missing edge cases, and assertion styles that made failures hard to read.</p>
             </div>
             
 

@@ -16,6 +16,13 @@
       <description>&lt;h2 id=&#34;what-changed&#34;&gt;What Changed&lt;/h2&gt;&#xA;&lt;p&gt;Released v1.3.0 of my &lt;a href=&#34;https://github.com/j-morgan6/elixir-phoenix-guide&#34;&gt;Elixir Phoenix Guide plugin&lt;/a&gt;. This one is all about testing.&lt;/p&gt;&#xA;&lt;p&gt;v1.2.0 built out four skills that cover Elixir patterns, LiveView, Ecto, and file uploads. What I didn&amp;rsquo;t have was anything for tests. You could open a &lt;code&gt;_test.exs&lt;/code&gt; file and the plugin had nothing to say. That felt like a hole worth fixing.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-v120&#34;&gt;The Problem with v1.2.0&lt;/h2&gt;&#xA;&lt;p&gt;The four skills worked well for production code but testing was just not covered. Claude Code would write a context module following strict patterns, then write the tests with no real guidance. The result was inconsistent test setup, missing edge cases, and assertion styles that made failures hard to read.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Part Five | Functional Programming Through Elixir: Recursion Over Iteration</title>
+      <link>http://localhost:1313/posts/fp-series-recursion-over-iteration/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fp-series-recursion-over-iteration/</guid>
+      <description>&lt;h2 id=&#34;a-different-way-to-loop&#34;&gt;A Different Way to Loop&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/fp-series-pattern-matching/&#34;&gt;Part Four&lt;/a&gt;, we learned how pattern matching enables elegant data handling. Now we&amp;rsquo;ll tackle another fundamental shift: &lt;strong&gt;in functional programming, you don&amp;rsquo;t use loops - you use recursion&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re coming from an object-oriented background, loops are probably second nature. &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;forEach&lt;/code&gt; - these are the tools you reach for when you need to process multiple items. But in Elixir, immutability means you can&amp;rsquo;t have traditional loop counters that increment. Instead, you use recursion: functions that call themselves.&lt;/p&gt;&#xA;&lt;p&gt;Once you understand recursion, you&amp;rsquo;ll find it more expressive than loops. It naturally handles complex iteration patterns, and Elixir&amp;rsquo;s tail-call optimization makes it just as efficient as loops in other languages.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Part Four | Functional Programming Through Elixir: Pattern Matching</title>
       <link>http://localhost:1313/posts/fp-series-pattern-matching/</link>
       <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
