@@ -47,6 +47,39 @@
     <div class="post-list">
         
         <article class="post-list-item">
+            <h2><a href="/posts/fp-series-the-pipe-operator/">Part Six | Functional Programming Through Elixir: The Pipe Operator</a></h2>
+
+            <div class="post-meta">
+                <time datetime="2026-03-03">March 3, 2026</time>
+                
+                <span class="reading-time">8 min read</span>
+            </div>
+
+            
+            <div class="post-summary">
+                <h2 id="unreadable-nesting">Unreadable Nesting</h2>
+<p>In <a href="/posts/fp-series-recursion-over-iteration/">Part Five</a>, we saw how recursion replaces loops. Now let&rsquo;s tackle a different readability problem: <strong>nested function calls</strong>.</p>
+<p>Imagine you need to take a user&rsquo;s input, trim whitespace, convert it to lowercase, and capitalize the first letter. In Elixir, without the pipe operator, you&rsquo;d write:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-elixir" data-lang="elixir"><span class="line"><span class="cl"><span class="nc">String</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(</span><span class="nc">String</span><span class="o">.</span><span class="n">downcase</span><span class="p">(</span><span class="nc">String</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="s2">&#34;  HELLO WORLD  &#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;Hello world&#34;</span></span></span></code></pre></div>
+<p>You have to read this from the inside out. The first operation (<code>trim</code>) is buried in the middle, and the last operation (<code>capitalize</code>) is on the outside. The more steps you add, the worse it gets.</p>
+<p>If you&rsquo;re coming from OOP, you might be used to method chaining, which reads left to right:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Python - method chaining</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;  HELLO WORLD  &#34;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;Hello world&#34;</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// JavaScript - method chaining
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;  HELLO WORLD  &#34;</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">toLowerCase</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// &#34;hello world&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// (JavaScript doesn&#39;t have a direct capitalize method)
+</span></span></span></code></pre></div>
+<p>Method chaining reads nicely, but it only works because each method is attached to the object. In functional programming, functions aren&rsquo;t bound to objects - they&rsquo;re standalone. So how do we get the same readability?</p>
+            </div>
+            
+
+            <a href="/posts/fp-series-the-pipe-operator/" class="read-more">Read More</a>
+        </article>
+        
+        <article class="post-list-item">
             <h2><a href="/posts/fp-series-recursion-over-iteration/">Part Five | Functional Programming Through Elixir: Recursion Over Iteration</a></h2>
 
             <div class="post-meta">

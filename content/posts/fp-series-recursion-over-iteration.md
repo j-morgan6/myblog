@@ -512,4 +512,4 @@ Take your solutions above and convert them to tail-recursive versions using accu
 
 **Previous in series:** [Part Four - Pattern Matching](/posts/fp-series-pattern-matching/)
 
-**Next in series:** Part Six - The Pipe Operator (Coming Soon)
+**Next in series:** [Part Six - The Pipe Operator](/posts/fp-series-the-pipe-operator/)
