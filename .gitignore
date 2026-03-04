@@ -5,6 +5,9 @@ functional-programming-series-outline.md
 /public/
 /resources/_gen/
 
+# Local tooling (not needed for Hugo builds)
+.tool-versions
+
 # IDE files
 .DS_Store
 .idea/
