@@ -373,4 +373,4 @@ end
 
 **Previous in series:** [Part Five - Recursion Over Iteration](/posts/fp-series-recursion-over-iteration/)
 
-**Next in series:** Part Seven - Higher-Order Functions (Coming Soon)
+**Next in series:** [Part Seven - Higher-Order Functions](/posts/fp-series-higher-order-functions/)
