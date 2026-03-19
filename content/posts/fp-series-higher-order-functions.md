@@ -535,4 +535,4 @@ ListUtils.transform_if(
 
 **Previous in series:** [Part Six - The Pipe Operator](/posts/fp-series-the-pipe-operator/)
 
-**Next in series:** Part Eight - Guards and Pattern Matching in Function Heads (Coming Soon)
+**Next in series:** [Part Eight - Guards and Pattern Matching in Function Heads](/posts/fp-series-guards-and-pattern-matching-in-function-heads/)
