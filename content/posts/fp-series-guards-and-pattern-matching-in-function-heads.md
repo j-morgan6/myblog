@@ -531,4 +531,4 @@ end
 
 **Previous in series:** [Part Seven - Higher-Order Functions](/posts/fp-series-higher-order-functions/)
 
-**Next in series:** Part Nine - Module Organization vs Class Hierarchies (Coming Soon)
+**Next in series:** [Part Nine - Module Organization vs Class Hierarchies](/posts/fp-series-module-organization-vs-class-hierarchies/)
