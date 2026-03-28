@@ -2,9 +2,6 @@
 
 {{ define "main" }}
 <div class="home-page">
-    <section class="hero">
-    </section>
-
     <section class="recent-posts">
         {{ if .Site.RegularPages }}
         <div class="post-list">
@@ -44,6 +41,26 @@
         <div class="view-all">
             <a href="/posts/" class="view-all-link">View all posts →</a>
         </div>
+
+    <section class="highlighted-projects">
+        <h2>Highlighted Projects</h2>
+        <div class="projects-grid">
+            {{ range where .Site.Data.projects.projects "highlighted" true }}
+            <article class="project-card">
+                <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a></h3>
+                <p>{{ .description }}</p>
+                <div class="tags">
+                    {{ range .tags }}
+                    <span class="tag">{{ . }}</span>
+                    {{ end }}
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        <div class="view-all">
+            <a href="/projects/" class="view-all-link">View all projects &rarr;</a>
+        </div>
+    </section>
         {{ else }}
         <div class="no-posts">
             <p>New posts coming soon.</p>

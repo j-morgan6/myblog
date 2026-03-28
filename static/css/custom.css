@@ -618,6 +618,86 @@ input:focus, textarea:focus {
   fill: currentColor;
 }
 
+/* Highlighted projects section */
+.highlighted-projects {
+  margin-top: 4rem;
+  padding-top: 3rem;
+}
+
+.highlighted-projects h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3d3530;
+  margin-bottom: 2rem;
+}
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Project card */
+.project-card {
+  background: #ffffff;
+  border: 1px solid rgba(139, 89, 42, 0.08);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(45, 31, 16, 0.02);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(45, 31, 16, 0.08);
+  border-color: rgba(139, 89, 42, 0.15);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #d4af37 0%, #8b592a 100%);
+  border-radius: 8px 0 0 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.project-card h3 a {
+  font-family: 'Playfair Display', serif;
+  color: #3d3530;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  transition: color 0.2s ease;
+  line-height: 1.3;
+}
+
+.project-card h3 a:hover {
+  color: #8b592a;
+}
+
+.project-card p {
+  color: #5a5046;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
   .main-content {
@@ -767,6 +847,18 @@ input:focus, textarea:focus {
     padding: 0.75rem 1.5rem;
     font-size: 0.95rem;
   }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .highlighted-projects h2 {
+    font-size: 1.6rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -879,6 +971,18 @@ input:focus, textarea:focus {
 
   .view-all-link {
     padding: 0.7rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .project-card {
+    padding: 1.25rem;
+  }
+
+  .project-card h3 a {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
     font-size: 0.9rem;
   }
 
