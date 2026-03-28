@@ -1,0 +1,23 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<div class="list-page">
+    <header class="page-header">
+        <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="projects-grid">
+        {{ range .Site.Data.projects.projects }}
+        <article class="project-card">
+            <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a></h3>
+            <p>{{ .description }}</p>
+            <div class="tags">
+                {{ range .tags }}
+                <span class="tag">{{ . }}</span>
+                {{ end }}
+            </div>
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
