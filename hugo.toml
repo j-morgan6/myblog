@@ -14,9 +14,14 @@ title = "Joser's Elixir"
   weight = 2
 
 [[menu.main]]
+  name = "Projects"
+  url = "/projects/"
+  weight = 3
+
+[[menu.main]]
   name = "About"
   url = "/about/"
-  weight = 3
+  weight = 4
 
 [markup]
   [markup.goldmark]
@@ -29,3 +34,5 @@ title = "Joser's Elixir"
 
 [params]
   description = "Exploring the world of Elixir development, functional programming, and software engineering"
+  github = "https://github.com/j-morgan6"
+  linkedin = "https://www.linkedin.com/in/joseph-scott-morgan/"
