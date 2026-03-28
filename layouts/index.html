@@ -3,9 +3,10 @@
 {{ define "main" }}
 <div class="home-page">
     <section class="recent-posts">
+        <h2>Recent Posts</h2>
         {{ if .Site.RegularPages }}
         <div class="post-list">
-            {{ range first 6 (where .Site.RegularPages "Type" "posts") }}
+            {{ range first 2 (where .Site.RegularPages "Type" "posts") }}
             <article class="post-list-item">
                 <div class="post-meta">
                     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
@@ -50,7 +51,7 @@
 
     <section class="highlighted-projects">
         <h2>Highlighted Projects</h2>
-        <div class="projects-grid">
+        <div class="projects-row">
             {{ range where hugo.Data.projects.projects "highlighted" true }}
             <article class="project-card">
                 <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a></h3>
@@ -67,5 +68,6 @@
             <a href="/projects/" class="view-all-link">View all projects &rarr;</a>
         </div>
     </section>
+
 </div>
 {{ end }}

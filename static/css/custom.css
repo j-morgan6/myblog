@@ -76,16 +76,40 @@ body {
 
 /* Main content area */
 .main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem 2rem;
+  min-height: calc(100vh - 200px);
+}
+
+/* Constrain content pages to narrower width */
+.single-post,
+.list-page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 2rem 4rem 2rem;
-  min-height: calc(100vh - 200px);
+}
+
+/* Page header (posts list, projects list) */
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3d3530;
+  margin-bottom: 2rem;
 }
 
 /* Recent posts section */
 .recent-posts {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.recent-posts h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3d3530;
+  margin-bottom: 2rem;
 }
 
 /* Post list styling - magazine-style vertical */
@@ -585,6 +609,9 @@ input:focus, textarea:focus {
 .highlighted-projects {
   margin-top: 4rem;
   padding-top: 3rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlighted-projects h2 {
@@ -595,7 +622,17 @@ input:focus, textarea:focus {
   margin-bottom: 2rem;
 }
 
-/* Projects grid */
+/* Projects row (homepage — always 3 in a line) */
+.projects-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.projects-row .project-card {
+  flex: 1;
+}
+
+/* Projects grid (dedicated /projects page) */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -674,6 +711,10 @@ input:focus, textarea:focus {
 }
 
 @media (max-width: 768px) {
+  .projects-row {
+    flex-direction: column;
+  }
+
   .header-container {
     flex-direction: column;
     gap: 1rem;
