@@ -11,7 +11,7 @@ ci-cd-plan.md
 
 # Superpowers brainstorming/planning artifacts
 .superpowers/
-docs/superpowers/
+docs/
 
 # IDE files
 .DS_Store
