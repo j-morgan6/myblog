@@ -1,0 +1,20 @@
+[[projects]]
+  name = "Elixir Phoenix Guide"
+  description = "A Claude Code plugin providing comprehensive guidance for idiomatic Elixir and Phoenix development."
+  url = "https://github.com/j-morgan6/elixir-phoenix-guide"
+  tags = ["Elixir", "Phoenix", "Claude Code"]
+  highlighted = true
+
+[[projects]]
+  name = "Silvia"
+  description = "Hardware mods for a Rancilio Silvia espresso machine — temperature sensing and relay control powered by Nerves."
+  url = "https://github.com/j-morgan6/silvia"
+  tags = ["Elixir", "Nerves", "IoT"]
+  highlighted = true
+
+[[projects]]
+  name = "Trays Social"
+  description = "A food-focused social platform for home cooks to share recipes and connect."
+  url = "https://github.com/j-morgan6/trays-social"
+  tags = ["Elixir", "Phoenix", "LiveView"]
+  highlighted = true
