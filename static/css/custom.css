@@ -591,6 +591,28 @@ input:focus, textarea:focus {
   color: #8b8179;
 }
 
+/* Social links in header */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: #d4af37;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.7;
+}
+
+.social-links svg {
+  fill: currentColor;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
   .main-content {
@@ -627,6 +649,10 @@ input:focus, textarea:focus {
   .site-navigation a {
     font-size: 0.9rem;
     padding: 0.5rem 0.75rem;
+  }
+
+  .social-links {
+    justify-content: center;
   }
 
   .main-content {
