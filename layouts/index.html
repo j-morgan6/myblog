@@ -52,7 +52,7 @@
     <section class="highlighted-projects">
         <h2>Highlighted Projects</h2>
         <div class="projects-row">
-            {{ range where hugo.Data.projects.projects "highlighted" true }}
+            {{ range where .Site.Data.projects.projects "highlighted" true }}
             <article class="project-card">
                 <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a></h3>
                 <p>{{ .description }}</p>
