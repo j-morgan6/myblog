@@ -41,6 +41,12 @@
         <div class="view-all">
             <a href="/posts/" class="view-all-link">View all posts →</a>
         </div>
+        {{ else }}
+        <div class="no-posts">
+            <p>New posts coming soon.</p>
+        </div>
+        {{ end }}
+    </section>
 
     <section class="highlighted-projects">
         <h2>Highlighted Projects</h2>
@@ -60,12 +66,6 @@
         <div class="view-all">
             <a href="/projects/" class="view-all-link">View all projects &rarr;</a>
         </div>
-    </section>
-        {{ else }}
-        <div class="no-posts">
-            <p>New posts coming soon.</p>
-        </div>
-        {{ end }}
     </section>
 </div>
 {{ end }}
