@@ -9,6 +9,10 @@ ci-cd-plan.md
 # Local tooling (not needed for Hugo builds)
 .tool-versions
 
+# Superpowers brainstorming/planning artifacts
+.superpowers/
+docs/superpowers/
+
 # IDE files
 .DS_Store
 .idea/
