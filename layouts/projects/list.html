@@ -7,7 +7,7 @@
     </header>
 
     <div class="projects-grid">
-        {{ range .Site.Data.projects.projects }}
+        {{ range hugo.Data.projects.projects }}
         <article class="project-card">
             <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a></h3>
             <p>{{ .description }}</p>
