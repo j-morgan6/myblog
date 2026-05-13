@@ -1,14 +1,14 @@
 ---
-title: "Running the Security Review Plugin on Trays Social"
+title: "Running the Stride Security Review Plugin on Trays Social"
 date: 2026-05-12
 draft: false
 author: "Joseph"
 tags: ["security", "claude-code", "elixir", "phoenix", "ios"]
 categories: ["security", "tools"]
-description: "Scanning Trays Social end-to-end with the security-review Claude Code plugin. 39 findings, zero critical, and a useful punch list."
+description: "Scanning Trays Social end-to-end with the stride-security-review Claude Code plugin. 39 findings, zero critical, and a useful punch list."
 ---
 
-I pointed the [security-review](https://github.com/cheezy/security-review) Claude Code plugin at [Trays Social](https://github.com/j-morgan6/trays_social) and let it walk the whole repo. 289 files across the Phoenix backend, the iOS client, the Dockerfile, the Fly workflow, and Ecto migrations. It batched the scan into 29 chunks and merged the results.
+I pointed the [stride-security-review](https://github.com/cheezy/stride-security-review) Claude Code plugin at [Trays Social](https://github.com/j-morgan6/trays_social) and let it walk the whole repo. 289 files across the Phoenix backend, the iOS client, the Dockerfile, the Fly workflow, and Ecto migrations. It batched the scan into 29 chunks and merged the results.
 
 <!--more-->
 
@@ -61,4 +61,4 @@ In rough order:
 
 The plugin will not open edits without consent, which is the right default for a security tool. It hands you the list and you decide what to act on.
 
-GitHub: [security-review](https://github.com/cheezy/security-review)
+GitHub: [stride-security-review](https://github.com/cheezy/stride-security-review)
