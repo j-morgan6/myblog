@@ -18,3 +18,10 @@
   url = "https://github.com/j-morgan6/trays-social"
   tags = ["Elixir", "Phoenix", "LiveView"]
   highlighted = true
+
+[[projects]]
+  name = "Angular Guide"
+  description = "A Claude Code plugin that enforces modern Angular through 30 deterministic hook rules, 9 skills, and 3 review agents."
+  url = "https://github.com/j-morgan6/angular-guide"
+  tags = ["Angular", "TypeScript", "Claude Code"]
+  highlighted = true
