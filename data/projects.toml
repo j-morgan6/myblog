@@ -25,3 +25,10 @@
   url = "https://github.com/j-morgan6/angular-guide"
   tags = ["Angular", "TypeScript", "Claude Code"]
   highlighted = true
+
+[[projects]]
+  name = "Spring Boot Guide"
+  description = "A Claude Code plugin that enforces modern Spring Boot through 39 deterministic hook rules, 10 skills, 3 review agents, and a mutation gate."
+  url = "https://github.com/j-morgan6/spring-boot-guide"
+  tags = ["Spring Boot", "Java", "Claude Code"]
+  highlighted = true
